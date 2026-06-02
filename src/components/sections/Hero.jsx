@@ -63,7 +63,7 @@ function GlowBg() {
 
 export default function Hero() {
   return (
-    <section id="top" style={{ position: "relative", paddingTop: 80, paddingBottom: 96 }}>
+    <section id="top" className="hero-section" style={{ position: "relative" }}>
       <GlowBg />
       <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
         <Reveal style={{ display: "inline-block", marginBottom: 26 }}>
@@ -130,7 +130,11 @@ export default function Hero() {
           </Reveal>
         </div>
       </div>
-      <style>{`@media (max-width: 900px){ .hero-grid{ grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
+      <style>{`
+        .hero-section{ padding: 80px 0 96px; }
+        @media (max-width: 900px){ .hero-grid{ grid-template-columns: 1fr !important; gap: 40px !important; } }
+        @media (max-width: 760px){ .hero-section{ padding: 44px 0 32px; } }
+      `}</style>
     </section>
   );
 }
