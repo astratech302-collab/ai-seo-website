@@ -33,8 +33,9 @@ export default function FAQ() {
                     <span style={{ fontSize: 17.5, fontWeight: 500 }}>{f.q}</span>
                     <span
                       aria-hidden
-                      className="shrink-0 transition-transform duration-300 group-aria-expanded/accordion-trigger:rotate-180"
+                      className="shrink-0"
                       style={{
+                        position: "relative",
                         width: 28,
                         height: 28,
                         borderRadius: "50%",
@@ -43,10 +44,29 @@ export default function FAQ() {
                         alignItems: "center",
                         justifyContent: "center",
                         color: "var(--brand)",
-                        fontSize: 13,
                       }}
                     >
-                      ▾
+                      {/* horizontal bar — always visible (the "−") */}
+                      <span
+                        style={{
+                          position: "absolute",
+                          width: 12,
+                          height: 2,
+                          borderRadius: 2,
+                          background: "currentColor",
+                        }}
+                      />
+                      {/* vertical bar — fades out when open, turning "+" into "−" */}
+                      <span
+                        className="transition-opacity duration-300 group-aria-expanded/accordion-trigger:opacity-0"
+                        style={{
+                          position: "absolute",
+                          width: 2,
+                          height: 12,
+                          borderRadius: 2,
+                          background: "currentColor",
+                        }}
+                      />
                     </span>
                   </AccordionTrigger>
                   <AccordionContent>

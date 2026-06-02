@@ -41,7 +41,7 @@ export function BrandMark({ size = 28, light = false, href = "/" }) {
           color: light ? "#fff" : "var(--ink)",
         }}
       >
-        solo<span style={{ color: "var(--brand)" }}>rank</span>
+        Solo<span style={{ color: "var(--brand)" }}>rank</span>
       </span>
     </a>
   );

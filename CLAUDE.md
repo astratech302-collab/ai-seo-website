@@ -7,10 +7,6 @@ team of AI agents (one Strategy orchestrator + five specialists) and a human str
 making the final call. Goal: help brands become the answer ChatGPT / Claude / Gemini /
 Perplexity recommend.
 
-This was built from a Claude Design handoff (the original prototype lives at
-`Solorank.html` in the design bundle). Aesthetic: clean / technical, restrained orange
-(Vercel / Linear energy), light theme.
-
 ## Stack
 
 - **Next.js 16 (App Router) + React 19**, JavaScript (`.jsx` / `.js`, no TypeScript).
@@ -110,3 +106,6 @@ and ensure no horizontal scroll (`body` has `overflow-x: hidden`).
 - Content/copy lives in `src/data/` — edit there, not inline in components.
 - Match the existing inline-style + CSS-var idiom when porting/extending design pieces;
   it keeps fidelity to the prototype.
+- Keep styling consistent across the whole site: reuse the same color scheme (the `colors.json`
+  tokens / brand orange), spacing, typography, radii, and shared utility classes on every new
+  page and component — no one-off palettes or visual styles.
