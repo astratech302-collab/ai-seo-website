@@ -1,0 +1,31 @@
+{
+  "_comment": "Single source of truth for all brand colors. Edit values here and they propagate everywhere via CSS variables (see src/lib/theme.js + src/components/theme/ThemeVars.jsx). Do NOT hardcode hex values in components.",
+  "brand": {
+    "DEFAULT": "#FF5A1F",
+    "600": "#E8470F",
+    "200": "#FFD9C7",
+    "tint": "#FFF3EC",
+    "gradient": "linear-gradient(135deg, #FF6A2B 0%, #FF5A1F 45%, #FF8A3D 100%)"
+  },
+  "surface": {
+    "DEFAULT": "#FFFFFF",
+    "soft": "#FAF9F7",
+    "ink": "#0C0C0D"
+  },
+  "ink": {
+    "DEFAULT": "#131314",
+    "muted": "#44443F",
+    "subtle": "#8A8A82"
+  },
+  "line": {
+    "DEFAULT": "rgba(18,18,16,0.09)",
+    "soft": "rgba(18,18,16,0.06)"
+  },
+  "engines": {
+    "chatgpt": { "label": "ChatGPT", "color": "#0D0D0D", "tint": "rgba(13,13,13,0.06)" },
+    "claude": { "label": "Claude", "color": "#D97757", "tint": "rgba(217,119,87,0.12)" },
+    "gemini": { "label": "Gemini", "color": "#1C69FF", "tint": "rgba(28,105,255,0.10)", "gradient": ["#4285F4", "#9B72CB", "#D96570"] },
+    "perplexity": { "label": "Perplexity", "color": "#20B8CD", "tint": "rgba(32,184,205,0.12)" },
+    "google": { "label": "Google AI", "color": "#4285F4", "tint": "rgba(66,133,244,0.10)" }
+  }
+}
