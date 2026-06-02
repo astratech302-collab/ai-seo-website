@@ -65,7 +65,7 @@ export default function CalendlyModal({ open, onOpenChange }) {
       />
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent
-          className="w-[calc(100%-1.5rem)] max-w-[440px] overflow-hidden border-0 bg-white p-0 sm:max-w-[440px]"
+          className="w-[calc(100%-1.5rem)] max-w-[1040px] overflow-hidden border-0 bg-white p-0 sm:w-[calc(100%-3rem)]"
           style={{ borderRadius: 20 }}
         >
           <DialogTitle className="sr-only">Book a demo with Solorank</DialogTitle>
@@ -74,8 +74,9 @@ export default function CalendlyModal({ open, onOpenChange }) {
           </DialogDescription>
           <div
             ref={containerRef}
-            // Calendly recommends a min width/height for inline widgets.
-            style={{ minWidth: 320, height: "min(78vh, 720px)" }}
+            // Wide enough that Calendly uses its two-pane layout (event
+            // details left, calendar right) on desktop; stacks on mobile.
+            style={{ minWidth: 280, height: "min(82vh, 700px)" }}
             aria-label="Calendly scheduling calendar"
           >
             {!scriptLoaded && (
