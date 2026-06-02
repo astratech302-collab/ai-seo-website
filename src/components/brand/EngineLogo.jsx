@@ -61,24 +61,16 @@ export function EngineLogo({ name, size = 16 }) {
       </svg>
     );
   }
-  if (k === "gemini") {
+  if (k === "gemini" || k === "perplexity") {
     return (
-      <svg {...common} viewBox="0 0 24 24" aria-hidden>
-        <path
-          d="M12 24A14.304 14.304 0 0 0 0 12 14.304 14.304 0 0 0 12 0a14.305 14.305 0 0 0 12 12 14.305 14.305 0 0 0-12 12"
-          fill="url(#srGeminiGrad)"
-        />
-      </svg>
-    );
-  }
-  if (k === "perplexity") {
-    return (
-      <svg {...common} viewBox="0 0 32 32" stroke={c} strokeWidth="2.1" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M16 5.5 V26.5" />
-        <path d="M16 9.5C10.4 9.5 6.5 12.6 6.5 16.5 6.5 20.4 10.4 23 16 23" />
-        <path d="M16 9.5C21.6 9.5 25.5 12.6 25.5 16.5 25.5 20.4 21.6 23 16 23" />
-        <path d="M6.5 12 H25.5" strokeOpacity="0.55" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element -- tiny static brand mark
+      <img
+        src={`/engines/${k}.png`}
+        alt={`${ENGINE_META[k].label} logo`}
+        width={size}
+        height={size}
+        style={{ display: "block", flexShrink: 0, objectFit: "contain" }}
+      />
     );
   }
   // google

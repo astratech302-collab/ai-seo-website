@@ -30,11 +30,13 @@ export default function CalendlyModal({ open, onOpenChange }) {
   useEffect(() => {
     if (!open || !scriptLoaded) return;
 
+    const el = containerRef.current;
+    if (!el) return;
+
     let raf;
     let tries = 0;
     const init = () => {
-      const el = containerRef.current;
-      if (!el || !window.Calendly) return;
+      if (!window.Calendly) return;
       // Wait until the portal content has actually been laid out.
       if (el.offsetWidth === 0 || el.offsetHeight === 0) {
         if (tries++ < 60) raf = requestAnimationFrame(init);
@@ -47,7 +49,7 @@ export default function CalendlyModal({ open, onOpenChange }) {
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
-      if (containerRef.current) containerRef.current.innerHTML = "";
+      el.innerHTML = "";
     };
   }, [open, scriptLoaded]);
 
