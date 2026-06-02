@@ -27,7 +27,7 @@ export default function FAQ() {
                   style={{ borderBottom: "1px solid var(--line)" }}
                 >
                   <AccordionTrigger
-                    className="items-center gap-5 rounded-none py-[22px] hover:no-underline [&>svg]:hidden!"
+                    className="cursor-pointer items-center gap-5 rounded-none py-[22px] hover:no-underline [&>svg]:hidden!"
                     style={{ color: "var(--ink)" }}
                   >
                     <span style={{ fontSize: 17.5, fontWeight: 500 }}>{f.q}</span>

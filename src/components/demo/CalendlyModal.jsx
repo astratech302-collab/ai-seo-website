@@ -13,6 +13,11 @@ import { CALENDLY_URL } from "@/config/site";
 /**
  * A modal containing the Calendly inline embed. Controlled by BookDemoProvider.
  * Every "Book a demo" CTA on the site opens this.
+ *
+ * The inline widget needs (1) widget.css to size its iframe and (2) a parent
+ * element that already has a non-zero box when initInlineWidget runs. Because
+ * the dialog mounts its content in a portal that animates in, we wait for the
+ * container to have layout (rAF poll) before initializing.
  */
 export default function CalendlyModal({ open, onOpenChange }) {
   const containerRef = useRef(null);
@@ -24,18 +29,39 @@ export default function CalendlyModal({ open, onOpenChange }) {
   // (Re)initialize the inline widget whenever the modal opens.
   useEffect(() => {
     if (!open || !scriptLoaded) return;
-    const el = containerRef.current;
-    if (!el || !window.Calendly) return;
-    el.innerHTML = "";
-    window.Calendly.initInlineWidget({ url: CALENDLY_URL, parentElement: el });
+
+    let raf;
+    let tries = 0;
+    const init = () => {
+      const el = containerRef.current;
+      if (!el || !window.Calendly) return;
+      // Wait until the portal content has actually been laid out.
+      if (el.offsetWidth === 0 || el.offsetHeight === 0) {
+        if (tries++ < 60) raf = requestAnimationFrame(init);
+        return;
+      }
+      el.innerHTML = "";
+      window.Calendly.initInlineWidget({ url: CALENDLY_URL, parentElement: el });
+    };
+    raf = requestAnimationFrame(init);
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      if (containerRef.current) containerRef.current.innerHTML = "";
+    };
   }, [open, scriptLoaded]);
 
   return (
     <>
+      <link
+        rel="stylesheet"
+        href="https://assets.calendly.com/assets/external/widget.css"
+      />
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => setScriptLoaded(true)}
+        onReady={() => setScriptLoaded(true)}
       />
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent
@@ -48,8 +74,8 @@ export default function CalendlyModal({ open, onOpenChange }) {
           </DialogDescription>
           <div
             ref={containerRef}
-            // Calendly recommends a min height for inline widgets.
-            style={{ minWidth: 280, height: "min(78vh, 720px)" }}
+            // Calendly recommends a min width/height for inline widgets.
+            style={{ minWidth: 320, height: "min(78vh, 720px)" }}
             aria-label="Calendly scheduling calendar"
           >
             {!scriptLoaded && (

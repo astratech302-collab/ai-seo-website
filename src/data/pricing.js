@@ -31,7 +31,6 @@ export const PRICING = [
       "Unlimited optimized articles",
       "Custom integrations",
       "Custom reporting & SLAs",
-      "Shopify, WordPress integration",
     ],
     cta: "Book a Demo",
     featured: true,
