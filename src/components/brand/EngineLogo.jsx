@@ -1,4 +1,5 @@
 import { colors } from "@/lib/theme";
+import { ENGINE_MARKS } from "@/data/engineMarks";
 
 // Engine metadata (label + brand color + tint) sourced from colors.json.
 export const ENGINE_META = colors.engines;
@@ -65,7 +66,7 @@ export function EngineLogo({ name, size = 16 }) {
     return (
       // eslint-disable-next-line @next/next/no-img-element -- tiny static brand mark
       <img
-        src={`/engines/${k}.png`}
+        src={ENGINE_MARKS[k]}
         alt={`${ENGINE_META[k].label} logo`}
         width={size}
         height={size}
