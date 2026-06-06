@@ -80,7 +80,7 @@ export default function Footer() {
         }}
       >
         <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
-          © 2026 Solorank, Inc.
+          © 2026 Geobuild, Inc.
         </span>
         <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
           Privacy · Terms

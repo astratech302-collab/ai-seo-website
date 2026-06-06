@@ -129,7 +129,7 @@ export default function SystemSection() {
         <SectionHead
           eyebrow="The system"
           title="One strategy agent. Five specialists. Zero idle time."
-          sub="Solorank works like a real growth team — except it never sleeps. The Strategy Agent sets direction and delegates to five sub-agents that research, create, build authority, optimize and measure in parallel."
+          sub="Geobuild works like a real growth team — except it never sleeps. The Strategy Agent sets direction and delegates to five sub-agents that research, create, build authority, optimize and measure in parallel."
           center
         />
         <div style={{ marginTop: 56 }}>

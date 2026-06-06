@@ -1,10 +1,10 @@
 export const FAQS = [
   {
-    q: "Who is Solorank for?",
+    q: "Who is Geobuild for?",
     a: "Brand owners who want to be the answer AI recommends, and agencies who want an AEO/GEO engine they can run for their clients. If your buyers ask AI before they ask Google, this is built for you.",
   },
   {
-    q: "How is an Solorank different from a traditional digital marketing agency?",
+    q: "How is Geobuild different from a traditional digital marketing agency?",
     a: "Traditional agencies bill you for people's hours, with work delivered in monthly batches that slow down as your needs grow. An AI agency runs agents continuously at machine speed, with a human strategist making the final call. The result: faster output, lower overhead, and a system built for how buyers now search — asking AI, not just Googling.",
   },
   {

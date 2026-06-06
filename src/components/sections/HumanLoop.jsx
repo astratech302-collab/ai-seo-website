@@ -48,7 +48,7 @@ export default function HumanLoop() {
           <SectionHead
             eyebrow="Human in the loop"
             title="Machine speed. Human judgment."
-            sub="Pure automation makes mistakes. Pure agencies are slow. Solorank gives you both: agents move fast, a human makes the final call — so the work is quick and right."
+            sub="Pure automation makes mistakes. Pure agencies are slow. Geobuild gives you both: agents move fast, a human makes the final call — so the work is quick and right."
           />
           <Reveal delay={180} style={{ marginTop: 28 }}>
             <BookDemoButton

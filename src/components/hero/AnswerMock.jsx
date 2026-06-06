@@ -8,7 +8,7 @@ const TABS = ["ChatGPT", "Claude", "Gemini"];
 
 /**
  * Animated AI-answer card: cycles engines (ChatGPT/Claude/Gemini), types an
- * answer, and highlights the "Solorank" citation + source row.
+ * answer, and highlights the "Geobuild" citation + source row.
  */
 export default function AnswerMock({ compact = false }) {
   const tabs = TABS;
@@ -145,7 +145,7 @@ export default function AnswerMock({ compact = false }) {
                 border: "1px solid var(--brand-200)",
               }}
             >
-              Solorank
+              Geobuild
             </span>
           )}
           {tail.slice(0, tailLen)}
@@ -194,7 +194,7 @@ export default function AnswerMock({ compact = false }) {
             }}
           >
             <span style={{ width: 12, height: 12, borderRadius: 3, background: "var(--grad)" }} />
-            solorank.com
+            geobuild.com
           </span>
           <span style={{ marginLeft: "auto", fontSize: 12.5, fontWeight: 600, color: "#21a86a" }}>
             ↑ cited #1

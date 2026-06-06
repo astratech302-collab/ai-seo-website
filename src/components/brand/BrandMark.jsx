@@ -1,8 +1,8 @@
 /**
- * Solorank brand mark — a gradient squircle holding ascending "rank" bars
+ * Geobuild brand mark — a gradient squircle holding ascending "rank" bars
  * topped by a spark (growth + being the #1 answer).
  */
-export function SolorankMark({ size = 30, radius }) {
+export function GeobuildMark({ size = 30, radius }) {
   const r = radius != null ? radius : Math.round(size * 0.3);
   return (
     <span
@@ -32,7 +32,7 @@ export function SolorankMark({ size = 30, radius }) {
 export function BrandMark({ size = 28, light = false, href = "/" }) {
   return (
     <a href={href} style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-      <SolorankMark size={size} />
+      <GeobuildMark size={size} />
       <span
         style={{
           fontWeight: 600,
@@ -41,7 +41,7 @@ export function BrandMark({ size = 28, light = false, href = "/" }) {
           color: light ? "#fff" : "var(--ink)",
         }}
       >
-        Solo<span style={{ color: "var(--brand)" }}>rank</span>
+        <span style={{ color: "var(--brand)" }}>Geo</span>build
       </span>
     </a>
   );

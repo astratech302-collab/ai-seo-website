@@ -1,4 +1,4 @@
-// AI engines Solorank optimizes for / tracks.
+// AI engines Geobuild optimizes for / tracks.
 export const ENGINES = ["ChatGPT", "Claude", "Gemini", "Perplexity", "Google AI"];
 
 // Engines whose names cycle in the hero typewriter.

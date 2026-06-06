@@ -1,8 +1,8 @@
 @AGENTS.md
 
-# Solorank — project conventions
+# Geobuild — project conventions
 
-Marketing site for **Solorank**: an agency running AEO / GEO / SEO for brands with a
+Marketing site for **Geobuild**: an agency running AEO / GEO / SEO for brands with a
 team of AI agents (one Strategy orchestrator + five specialists) and a human strategist
 making the final call. Goal: help brands become the answer ChatGPT / Claude / Gemini /
 Perplexity recommend.
@@ -109,3 +109,6 @@ and ensure no horizontal scroll (`body` has `overflow-x: hidden`).
 - Keep styling consistent across the whole site: reuse the same color scheme (the `colors.json`
   tokens / brand orange), spacing, typography, radii, and shared utility classes on every new
   page and component — no one-off palettes or visual styles.
+- **Never `git push` (or commit) unless the user explicitly asks.** Make and stage changes
+  locally; wait for an explicit "push"/"commit" instruction before publishing — pushing to
+  `main` auto-deploys to Vercel.

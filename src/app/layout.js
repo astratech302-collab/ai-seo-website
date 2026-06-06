@@ -19,9 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Solorank — Be the brand AI recommends",
+  title: "Geobuild — Be the brand AI recommends",
   description:
-    "Solorank runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.",
+    "Geobuild runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.",
 };
 
 export default function RootLayout({ children }) {

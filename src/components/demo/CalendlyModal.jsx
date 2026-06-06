@@ -108,7 +108,7 @@ export default function CalendlyModal({ open, onOpenChange }) {
           className="w-[calc(100%-1.5rem)] max-w-[1100px] overflow-hidden border-0 bg-white p-0 sm:w-[calc(100%-3rem)] sm:max-w-[1100px]"
           style={{ borderRadius: 20 }}
         >
-          <DialogTitle className="sr-only">Book a demo with Solorank</DialogTitle>
+          <DialogTitle className="sr-only">Book a demo with Geobuild</DialogTitle>
           <DialogDescription className="sr-only">
             Schedule a 30-minute demo using the calendar below.
           </DialogDescription>

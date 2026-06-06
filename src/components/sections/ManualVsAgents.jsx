@@ -127,7 +127,7 @@ export default function ManualVsAgents() {
                   letterSpacing: "0.08em",
                 }}
               >
-                With Solorank
+                With Geobuild
               </div>
               <div style={{ position: "relative", fontSize: 22, fontWeight: 600, marginTop: 8 }}>
                 A team of AI agents

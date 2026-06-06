@@ -6,7 +6,7 @@ import AnswerMock from "@/components/hero/AnswerMock";
 import BookDemoButton from "@/components/demo/BookDemoButton";
 
 const SUB =
-  "Solorank runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.";
+  "Geobuild runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.";
 
 function GlowBg() {
   return (
