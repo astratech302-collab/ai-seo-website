@@ -1,7 +1,26 @@
-/**
- * Geobuild brand mark — a gradient squircle holding ascending "rank" bars
- * topped by a spark (growth + being the #1 answer).
- */
+function SoloMark({ size, color = "#fff" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {/* open ring with gap at top-right where arrow exits */}
+      <path d="M12 5 A7 7 0 1 0 16.9 7" />
+      {/* arrow shaft */}
+      <path d="M10 14 L15.4 8.6" />
+      {/* arrow head */}
+      <path d="M11.7 8.6 L15.4 8.6 L15.4 12.3" />
+    </svg>
+  );
+}
+
 export function GeobuildMark({ size = 30, radius }) {
   const r = radius != null ? radius : Math.round(size * 0.3);
   return (
@@ -10,21 +29,15 @@ export function GeobuildMark({ size = 30, radius }) {
         width: size,
         height: size,
         borderRadius: r,
-        background: "var(--grad)",
+        background: "linear-gradient(150deg, #FF7A45, var(--brand))",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: "0 5px 16px -4px rgba(255,90,31,0.55)",
+        boxShadow: "0 4px 12px -3px rgba(251,84,24,.55)",
         flexShrink: 0,
-        position: "relative",
       }}
     >
-      <svg width={size * 0.66} height={size * 0.66} viewBox="0 0 32 32" fill="none" aria-hidden>
-        <rect x="4.4" y="18.4" width="5.6" height="8.6" rx="2.4" fill="#fff" fillOpacity="0.7" />
-        <rect x="13.2" y="12.4" width="5.6" height="14.6" rx="2.4" fill="#fff" fillOpacity="0.88" />
-        <rect x="22" y="6.4" width="5.6" height="20.6" rx="2.4" fill="#fff" />
-        <circle cx="24.8" cy="3.4" r="2.15" fill="#fff" />
-      </svg>
+      <SoloMark size={size * 0.56} />
     </span>
   );
 }
@@ -35,13 +48,14 @@ export function BrandMark({ size = 28, light = false, href = "/" }) {
       <GeobuildMark size={size} />
       <span
         style={{
-          fontWeight: 600,
-          fontSize: size * 0.7,
-          letterSpacing: "-0.035em",
+          fontWeight: 800,
+          fontSize: size * 0.69,
+          letterSpacing: "-0.02em",
+          lineHeight: 1,
           color: light ? "#fff" : "var(--ink)",
         }}
       >
-        <span style={{ color: "var(--brand)" }}>Geo</span>build
+        Geo<span style={{ color: "var(--brand)" }}>build</span>
       </span>
     </a>
   );

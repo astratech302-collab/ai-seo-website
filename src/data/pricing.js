@@ -10,6 +10,7 @@ export const PRICING = [
     features: [
       "Dedicated SEO/GEO Strategist",
       "Human-expert vetted keyword & topic selection",
+      "75 prompts tracked",
       "100 optimized articles",
       "Reddit engagement",
       "Weekly progress calls",
@@ -28,6 +29,7 @@ export const PRICING = [
     feature: "",
     featuresHeader: "Includes everything in Growth, plus",
     features: [
+      "300 prompts tracked",
       "Unlimited optimized articles",
       "Custom integrations",
       "Custom reporting & SLAs",

@@ -6,9 +6,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { FAQS } from "@/data/faqs";
-
-export default function FAQ() {
+export default function FAQ({ faqs }) {
+  const items = faqs ?? [];
   return (
     <section
       id="faq"
@@ -19,7 +18,7 @@ export default function FAQ() {
         <SectionHead eyebrow="FAQ" title="Questions, answered." center />
         <div style={{ marginTop: 40 }}>
           <Accordion type="single" collapsible defaultValue="item-0">
-            {FAQS.map((f, i) => (
+            {items.map((f, i) => (
               <Reveal key={i} delay={i * 50}>
                 <AccordionItem
                   value={`item-${i}`}
@@ -30,7 +29,7 @@ export default function FAQ() {
                     className="cursor-pointer items-center gap-5 rounded-none py-[22px] hover:no-underline [&>svg]:hidden!"
                     style={{ color: "var(--ink)" }}
                   >
-                    <span style={{ fontSize: 17.5, fontWeight: 500 }}>{f.q}</span>
+                    <span style={{ fontSize: 17.5, fontWeight: 500 }}>{f.q ?? f.question}</span>
                     <span
                       aria-hidden
                       className="shrink-0"
@@ -79,7 +78,7 @@ export default function FAQ() {
                         maxWidth: 680,
                       }}
                     >
-                      {f.a}
+                      {f.a ?? f.answer}
                     </p>
                   </AccordionContent>
                 </AccordionItem>

@@ -108,6 +108,44 @@ function AgentCard({ a, i }) {
           >
             {a.short}
           </p>
+          <ul
+            style={{
+              marginTop: 16,
+              display: "flex",
+              flexDirection: "column",
+              gap: 9,
+              paddingTop: 16,
+              borderTop: a.lead ? "1px solid rgba(255,255,255,0.1)" : "1px solid var(--line-soft)",
+            }}
+          >
+            {a.does.map((item) => (
+              <li
+                key={item}
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 9,
+                  fontSize: 13.5,
+                  lineHeight: 1.45,
+                }}
+              >
+                <span
+                  style={{
+                    color: "var(--brand)",
+                    flexShrink: 0,
+                    marginTop: 1,
+                    fontSize: 12,
+                    fontWeight: 600,
+                  }}
+                >
+                  ✓
+                </span>
+                <span style={{ color: a.lead ? "rgba(255,255,255,0.62)" : "var(--ink-2)" }}>
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Reveal>

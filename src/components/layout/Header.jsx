@@ -1,20 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
 import { GradientDefs } from "@/components/brand/EngineLogo";
-import { useBookDemo } from "@/components/demo/BookDemoProvider";
 
 const LINKS = [
-  ["How it works", "#system"],
-  ["Process", "#human"],
-  ["Pricing", "#pricing"],
-  ["FAQ", "#faq"],
+  ["How it works", "/#system"],
+  ["Process", "/#human"],
+  ["Pricing", "/pricing"],
+  ["FAQ", "/pricing#faq"],
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const { openDemo } = useBookDemo();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 16);
@@ -68,14 +67,13 @@ export default function Header() {
             ))}
           </nav>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <button
-              type="button"
+            <Link
+              href="/contact-us"
               className="btn btn-primary"
               style={{ padding: "10px 18px", fontSize: 14 }}
-              onClick={openDemo}
             >
               Book a demo
-            </button>
+            </Link>
           </div>
         </div>
         <style>{`@media (max-width: 820px){ .hdr-nav{ display:none !important; } }`}</style>

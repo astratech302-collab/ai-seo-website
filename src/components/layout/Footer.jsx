@@ -6,10 +6,10 @@ const COLS = [
 ];
 
 const HREFS = {
-  "How it works": "#system",
-  Pricing: "#pricing",
-  FAQ: "#faq",
-  Contact: "#cta",
+  "How it works": "/#system",
+  Pricing: "/pricing",
+  FAQ: "/pricing#faq",
+  Contact: "/contact-us",
 };
 
 export default function Footer() {

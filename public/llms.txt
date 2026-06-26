@@ -1,0 +1,40 @@
+# Geobuild
+
+> Geobuild helps brands become the answer ChatGPT, Claude, Gemini and Perplexity recommend. We run AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call.
+
+## Pages
+
+- [Home](https://geobuild.ai/): Overview of Geobuild's agent-run AEO, GEO and SEO services
+- [Pricing](https://geobuild.ai/pricing): Plan options ($800/mo Growth, $1,200/mo Scale) and FAQ
+- [Get Started](https://geobuild.ai/contact-us): Book a 30-minute strategy demo
+
+## About
+
+Geobuild is an AI agency specialising in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and traditional SEO. Our system pairs a team of AI agents with a human strategist who reviews and approves all output before it reaches your brand.
+
+We optimise for ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews — tracking share of voice across every engine so clients know exactly where they are being recommended and where they are not.
+
+## The Agent System
+
+Geobuild operates one Strategy Agent (orchestrator) and five specialist sub-agents that run in parallel:
+
+- **Research Agent** — tracks how AI engines see your brand today; surfaces competitor citations and prompt gaps
+- **Content Agent** — writes answer-first pages, comparisons and FAQs structured for LLM extractability
+- **Backlink Agent** — earns mentions and links from the high-trust sources AI engines weight most heavily
+- **Optimizer Agent** — handles schema, entity markup, internal linking and technical on-page structure
+- **Analyzer Agent** — monitors rankings and mentions across every AI engine; feeds results back to Strategy
+
+## Services
+
+- **AEO (Answer Engine Optimisation)**: Getting cited inside ChatGPT, Claude, Gemini and Perplexity answers
+- **GEO (Generative Engine Optimisation)**: Optimising content for generative AI search results
+- **SEO**: Traditional Google search ranking and organic traffic growth
+
+## Pricing
+
+- **Growth** — $800/mo: Dedicated strategist, human-vetted keyword selection, 75 prompts tracked, 100 optimised articles, Reddit engagement, weekly calls, custom backlink strategy, Shopify/WordPress integration
+- **Scale** — $1,200/mo: Everything in Growth plus 300 prompts tracked, unlimited articles, custom integrations and reporting
+
+## Contact
+
+Book a strategy demo: https://geobuild.ai/contact-us

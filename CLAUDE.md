@@ -43,6 +43,7 @@ src/
 **Adding a new page:** create `src/app/<route>/page.js`. It automatically inherits the
 Header/Footer/providers from `layout.js`. Reuse `sections/`, `brand/`, `ui/` components.
 Keep page-specific sections under `sections/` (or a route-scoped folder if they grow).
+**Always add the new route to `src/app/sitemap.js` at the same time.**
 
 ## Colors — single source of truth
 
@@ -109,6 +110,7 @@ and ensure no horizontal scroll (`body` has `overflow-x: hidden`).
 - Keep styling consistent across the whole site: reuse the same color scheme (the `colors.json`
   tokens / brand orange), spacing, typography, radii, and shared utility classes on every new
   page and component — no one-off palettes or visual styles.
+- **Sitemap:** always update `src/app/sitemap.js` when adding or removing a public route.
 - **Never `git push` (or commit) unless the user explicitly asks.** Make and stage changes
   locally; wait for an explicit "push"/"commit" instruction before publishing — pushing to
   `main` auto-deploys to Vercel.

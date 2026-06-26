@@ -1,16 +1,15 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="sr-fav" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FF6A2B" />
-      <stop offset="0.45" stop-color="#FF5A1F" />
-      <stop offset="1" stop-color="#FF8A3D" />
+    <linearGradient id="gb-fav" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF7A45" />
+      <stop offset="1" stop-color="#FF5A1F" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="19.2" fill="url(#sr-fav)" />
-  <g transform="translate(10.88 10.88) scale(1.32)">
-    <rect x="4.4" y="18.4" width="5.6" height="8.6" rx="2.4" fill="#fff" fill-opacity="0.7" />
-    <rect x="13.2" y="12.4" width="5.6" height="14.6" rx="2.4" fill="#fff" fill-opacity="0.88" />
-    <rect x="22" y="6.4" width="5.6" height="20.6" rx="2.4" fill="#fff" />
-    <circle cx="24.8" cy="3.4" r="2.15" fill="#fff" />
+  <rect width="64" height="64" rx="19.2" fill="url(#gb-fav)" />
+  <!-- SoloMark: open ring + arrow, scaled to fit the 64×64 tile -->
+  <g transform="translate(12, 12) scale(1.667)" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M12 5 A7 7 0 1 0 16.9 7" />
+    <path d="M10 14 L15.4 8.6" />
+    <path d="M11.7 8.6 L15.4 8.6 L15.4 12.3" />
   </g>
 </svg>

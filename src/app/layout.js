@@ -1,9 +1,11 @@
 import { Roboto, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ThemeVars from "@/components/theme/ThemeVars";
 import { BookDemoProvider } from "@/components/demo/BookDemoProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { CLARITY_ID } from "@/config/site";
 
 const roboto = Roboto({
   variable: "--font-sans",
@@ -30,6 +32,13 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <Script
+        id="clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`,
+        }}
+      />
       <body className="min-h-full flex flex-col">
         <ThemeVars />
         <BookDemoProvider>

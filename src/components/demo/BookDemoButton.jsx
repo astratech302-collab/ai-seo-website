@@ -1,17 +1,5 @@
-"use client";
+import Link from "next/link";
 
-import { useBookDemo } from "@/components/demo/BookDemoProvider";
-
-/**
- * The canonical "Book a demo" CTA. Opens the Calendly modal.
- * Use this for every demo-booking action so behavior stays consistent.
- *
- * Props:
- *  - label: button text (default "Book a demo")
- *  - showArrow: render the trailing → (default true)
- *  - className: button classes (default `btn btn-primary`)
- *  - style: inline style overrides
- */
 export default function BookDemoButton({
   label = "Book a demo",
   showArrow = true,
@@ -19,11 +7,10 @@ export default function BookDemoButton({
   style,
   ...rest
 }) {
-  const { openDemo } = useBookDemo();
   return (
-    <button type="button" className={className} style={style} onClick={openDemo} {...rest}>
+    <Link href="/contact-us" className={className} style={style} {...rest}>
       {label}
       {showArrow && <span className="arr">→</span>}
-    </button>
+    </Link>
   );
 }
