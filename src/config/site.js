@@ -1,6 +1,6 @@
 // Site-wide configuration constants.
 export const CALENDLY_URL = "https://calendly.com/karan-geobuild/30min";
-export const SITE_URL = "https://geobuild.ai";
+export const SITE_URL = "https://geobuild.in";
 export const API_URL = "https://api.geobuild.in";
 export const CLARITY_ID = "xd11knc0rt";
 export const PRICING_JSON_URL =

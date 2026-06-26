@@ -4,9 +4,9 @@
 
 ## Pages
 
-- [Home](https://geobuild.ai/): Overview of Geobuild's agent-run AEO, GEO and SEO services
-- [Pricing](https://geobuild.ai/pricing): Plan options ($800/mo Growth, $1,200/mo Scale) and FAQ
-- [Get Started](https://geobuild.ai/contact-us): Book a 30-minute strategy demo
+- [Home](https://geobuild.in/): Overview of Geobuild's agent-run AEO, GEO and SEO services
+- [Pricing](https://geobuild.in/pricing): Plan options ($800/mo Growth, $1,200/mo Scale) and FAQ
+- [Get Started](https://geobuild.in/contact-us): Book a 30-minute strategy demo
 
 ## About
 
@@ -37,4 +37,4 @@ Geobuild operates one Strategy Agent (orchestrator) and five specialist sub-agen
 
 ## Contact
 
-Book a strategy demo: https://geobuild.ai/contact-us
+Book a strategy demo: https://geobuild.in/contact-us
