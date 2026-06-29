@@ -113,4 +113,4 @@ and ensure no horizontal scroll (`body` has `overflow-x: hidden`).
 - **Sitemap:** always update `src/app/sitemap.js` when adding or removing a public route.
 - **Never `git push` (or commit) unless the user explicitly asks.** Make and stage changes
   locally; wait for an explicit "push"/"commit" instruction before publishing — pushing to
-  `main` auto-deploys to Vercel.
+  `main` auto-deploys via **AWS Amplify** (not Vercel).
