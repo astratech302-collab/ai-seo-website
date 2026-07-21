@@ -1,5 +1,4 @@
 import { Roboto, Geist_Mono } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
