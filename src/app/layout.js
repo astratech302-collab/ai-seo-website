@@ -1,4 +1,5 @@
-import { Roboto, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import ThemeVars from "@/components/theme/ThemeVars";
@@ -7,10 +8,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { CLARITY_ID } from "@/config/site";
 
-const roboto = Roboto({
+const roobert = localFont({
   variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  src: "./fonts/Roobert-Variable.ttf",
+  weight: "100 900",
   display: "swap",
 });
 
@@ -23,14 +24,14 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Geobuild — Be the brand AI recommends",
   description:
-    "Geobuild runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.",
+    "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${roboto.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${roobert.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <Script

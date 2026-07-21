@@ -1,5 +1,4 @@
 import Hero from "@/components/sections/Hero";
-import ProblemSection from "@/components/sections/ProblemSection";
 import HumanLoop from "@/components/sections/HumanLoop";
 import SystemSection from "@/components/sections/SystemSection";
 import ManualVsAgents from "@/components/sections/ManualVsAgents";
@@ -26,7 +25,6 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <ProblemSection />
       <HumanLoop />
       <SystemSection />
       <ManualVsAgents />

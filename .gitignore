@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only assets & tooling (not part of the deploy)
+/roobert-font-family/
+/roobert-font-family.zip
+/audits/
+/.claude/
