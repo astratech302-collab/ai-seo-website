@@ -30,6 +30,13 @@ export default function MixpanelProvider() {
     mixpanel.init(MIXPANEL_TOKEN, {
       autocapture: true,
       record_sessions_percent: 100,
+      // Session Replay masks all text + inputs and blocks images/media by
+      // default. Unmask everything so replays show the real rendered page.
+      // Note: this means anything typed into forms (e.g. the contact form)
+      // is captured verbatim in recordings.
+      record_mask_all_text: false,
+      record_mask_all_inputs: false,
+      record_block_selector: "",
       persistence: "localStorage",
     });
   }, []);
