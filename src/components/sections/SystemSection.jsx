@@ -166,7 +166,7 @@ export default function SystemSection() {
       <div className="wrap">
         <SectionHead
           eyebrow="The system"
-          title="One strategy agent. Five specialists. Zero idle time."
+          title="One strategy agent. Four specialists. Zero idle time."
           sub="Geobuild works like a real growth team — except it never sleeps. The Strategy Agent sets direction and delegates to five sub-agents that research, create, build authority, optimize and measure in parallel."
           center
         />

@@ -6,7 +6,7 @@ import AnswerMock from "@/components/hero/AnswerMock";
 import BookDemoButton from "@/components/demo/BookDemoButton";
 
 const SUB =
-  "Geobuild runs AEO, GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.";
+  "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.";
 
 function GlowBg() {
   return (
@@ -77,7 +77,7 @@ export default function Hero() {
             }}
           >
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--brand)" }} />
-            Agent-run AEO · GEO · SEO
+            Agent-run GEO · SEO
           </span>
         </Reveal>
 

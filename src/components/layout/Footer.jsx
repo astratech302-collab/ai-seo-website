@@ -1,16 +1,6 @@
+import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
-
-const COLS = [
-  ["Product", ["How it works", "Pricing", "FAQ"]],
-  ["Company", ["Contact"]],
-];
-
-const HREFS = {
-  "How it works": "/#system",
-  Pricing: "/pricing",
-  FAQ: "/pricing#faq",
-  Contact: "/contact-us",
-};
+import { FOOTER_COLS } from "@/data/nav";
 
 export default function Footer() {
   return (
@@ -21,11 +11,8 @@ export default function Footer() {
         background: "var(--surface)",
       }}
     >
-      <div
-        className="wrap foot-grid"
-        style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr", gap: 40 }}
-      >
-        <div>
+      <div className="wrap foot-grid">
+        <div className="foot-brand">
           <BrandMark />
           <p
             style={{
@@ -39,8 +26,9 @@ export default function Footer() {
             Agent-run AEO, GEO and SEO with a human final call. Be the brand AI recommends.
           </p>
         </div>
-        {COLS.map(([h, items]) => (
-          <div key={h}>
+
+        {FOOTER_COLS.map((col) => (
+          <div key={col.heading}>
             <div
               className="mono"
               style={{
@@ -51,22 +39,24 @@ export default function Footer() {
                 marginBottom: 14,
               }}
             >
-              {h}
+              {col.heading}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {items.map((it) => (
-                <a
-                  key={it}
-                  href={HREFS[it] || "#"}
+              {col.links.map((it) => (
+                <Link
+                  key={it.label}
+                  href={it.href}
+                  className="foot-link"
                   style={{ fontSize: 14, color: "var(--ink-2)", textDecoration: "none" }}
                 >
-                  {it}
-                </a>
+                  {it.label}
+                </Link>
               ))}
             </div>
           </div>
         ))}
       </div>
+
       <div
         className="wrap"
         style={{
@@ -86,7 +76,22 @@ export default function Footer() {
           Privacy · Terms
         </span>
       </div>
-      <style>{`@media (max-width: 760px){ .foot-grid{ grid-template-columns: 1fr 1fr !important; } } @media (max-width: 560px){ .foot-grid > div:first-child{ grid-column: 1 / -1; } }`}</style>
+
+      <style>{`
+        .foot-grid {
+          display: grid;
+          grid-template-columns: 1.6fr repeat(4, 1fr);
+          gap: 40px;
+        }
+        .foot-link:hover { color: var(--ink) !important; }
+        @media (max-width: 900px) {
+          .foot-grid { grid-template-columns: repeat(3, 1fr); }
+          .foot-brand { grid-column: 1 / -1; margin-bottom: 8px; }
+        }
+        @media (max-width: 560px) {
+          .foot-grid { grid-template-columns: 1fr 1fr; }
+        }
+      `}</style>
     </footer>
   );
 }

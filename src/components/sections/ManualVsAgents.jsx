@@ -13,7 +13,7 @@ const NEW_WAY = [
   ["Days, not months", "Research, drafting and optimization run in parallel."],
   ["Real-time updates", "Content re-optimizes itself as the engines shift."],
   ["Daily brand monitoring", "See where you're cited across every AI engine, every day."],
-  ["Always-on coverage", "A six-agent team watches your whole category, 24/7."],
+  ["Always-on coverage", "A five-agent team watches your whole category, 24/7."],
   ["Proactive", "Issues are caught and fixed before they hurt your visibility."],
 ];
 

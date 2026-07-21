@@ -68,6 +68,33 @@ Effect tokens that aren't colors (shadows, radii) live in the `:root` block of `
 `Roboto` (UI, `--font-sans`) + `Geist Mono` (mono / eyebrows, `--font-geist-mono`), loaded
 via `next/font/google` in `layout.js`. Use the `.mono` class or `font-mono` for monospace.
 
+## Images & assets
+
+**Main images (raster / PNG / JPG, logos, icon artwork, hero imagery) live on S3, not in
+the repo.** Upload them to the bucket path `geobuild-admin-config/assets/website_assets/`
+(region `ap-south-1`) and reference them via the `ASSET_BASE` constant in
+`src/config/site.js` — never hardcode the full S3 URL in a component:
+
+```js
+import { ASSET_BASE } from "@/config/site";
+// -> https://geobuild-admin-config.s3.ap-south-1.amazonaws.com/assets/website_assets
+<img src={`${ASSET_BASE}/strategy-agent.png`} alt="" />
+```
+
+- Use clean, descriptive **kebab-case** filenames (`strategy-agent.png`, `ai-seo.png`) — no
+  underscores, no redundant `-icon` suffixes, no duplicate variants.
+- Export raster icons at **256×256, transparent PNG** (matches the agent/service icon set).
+- Upload with `--content-type image/png` and a long `--cache-control`; the bucket serves
+  public reads, so the URLs work directly client-side.
+- **Do not** drop loose images into `public/` — that folder is for served text assets only
+  (`llms.txt`) and documented dev sources (`engines/*.png`, base64 regeneration source for
+  `data/engineMarks.js`).
+
+**Small SVGs may stay in the repo, but only inside a dedicated folder** (`public/icons/`),
+never loose in the `public/` root. Purely presentational marks (brand mark, favicon
+`app/icon.svg`, decorative UI) that are written as inline `<svg>` in components stay inline —
+they are not "assets" and need neither S3 nor a folder.
+
 ## Reusable utility classes (globals.css)
 
 `.wrap` (1180px max content column), `.section-pad` (section vertical rhythm),
