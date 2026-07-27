@@ -132,6 +132,12 @@ export function OptimizerMockStyles() {
       <style>{`
         .op-scale { max-width: 560px; }
         .op-pipe-row { grid-template-columns: 2.3fr 0.9fr 0.8fr; }
+        @media (max-width: 640px) {
+          .op-scale { max-width: none; }
+          /* Page + Status only (drop Type) for a legible mobile card. */
+          .op-pipe-row { grid-template-columns: 1fr auto; }
+          .op-pipe-row > :nth-child(2) { display: none; }
+        }
       `}</style>
     </>
   );

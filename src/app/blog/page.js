@@ -1,39 +1,47 @@
 import Reveal from "@/components/motion/Reveal";
-import BookDemoButton from "@/components/demo/BookDemoButton";
+import BlogGrid from "@/components/blog/BlogGrid";
+import JsonLd from "@/components/seo/JsonLd";
+import { blogSchema, breadcrumbSchema } from "@/lib/schema";
+import { getAllPosts, getCategories } from "@/data/blog";
 
 export const metadata = {
-  title: "Blog — Geobuild",
+  title: "Blog — AEO, GEO & AI Search Playbooks | Geobuild",
   description:
-    "Playbooks and field notes on Answer Engine Optimization, GEO and AI search. Coming soon.",
+    "Playbooks and field notes on Answer Engine Optimization, GEO and AI search — how brands become the answer ChatGPT, Claude, Gemini and Perplexity recommend.",
+  alternates: { canonical: "/blog" },
 };
 
-export default function BlogPage() {
+export const revalidate = 3600;
+
+export default async function BlogPage() {
+  const posts = await getAllPosts();
+  const categories = getCategories(posts);
+
   return (
-    <section className="section-pad">
-      <div className="wrap" style={{ maxWidth: 720 }}>
+    <section className="section-pad" style={{ paddingTop: "clamp(52px, 5vw, 76px)" }}>
+      <JsonLd
+        schema={[
+          blogSchema({
+            name: metadata.title,
+            description: metadata.description,
+            path: "/blog",
+            posts,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+          ]),
+        ]}
+      />
+      <div className="wrap">
         <Reveal>
-          <span className="eyebrow">Blog</span>
-        </Reveal>
-        <Reveal delay={60}>
-          <h1
-            className="h-tight"
-            style={{ fontSize: "clamp(34px, 5vw, 56px)", letterSpacing: "-0.025em", marginTop: 18 }}
-          >
-            Field notes on AI search.
+          <h1 style={{ fontSize: "clamp(38px, 5.4vw, 64px)", fontWeight: 600, letterSpacing: "-0.03em" }}>
+            Latest blogs
           </h1>
         </Reveal>
-        <Reveal delay={120}>
-          <p style={{ fontSize: 18, color: "var(--ink-2)", marginTop: 18, lineHeight: 1.6 }}>
-            We&apos;re putting together playbooks on Answer Engine Optimization, GEO and how
-            brands win recommendations from ChatGPT, Claude, Gemini and Perplexity. Check back
-            soon — or book a demo and we&apos;ll walk you through it directly.
-          </p>
-        </Reveal>
-        <Reveal delay={180}>
-          <div style={{ marginTop: 30 }}>
-            <BookDemoButton />
-          </div>
-        </Reveal>
+        <div style={{ marginTop: 40 }}>
+          <BlogGrid posts={posts} categories={categories} />
+        </div>
       </div>
     </section>
   );

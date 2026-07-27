@@ -103,10 +103,21 @@ export default function AgentFeatureShowcase({ agent }) {
             const Mock = entry.mocks[i];
             return (
               <div className="afs-row" key={f.title}>
-                <div className="afs-copy">
+                <div className="afs-head-area">
                   <Reveal>
                     <span className="mono afs-num">{String(i + 1).padStart(2, "0")}</span>
                     <h2 className="h-tight afs-h">{f.title}</h2>
+                  </Reveal>
+                </div>
+                <div className="afs-mock">
+                  {Mock && (
+                    <Reveal delay={80}>
+                      <Mock />
+                    </Reveal>
+                  )}
+                </div>
+                <div className="afs-body-area">
+                  <Reveal>
                     <p className="afs-d">{f.body || f.desc}</p>
                     {f.why?.length > 0 && (
                       <div className="afs-why">
@@ -130,13 +141,6 @@ export default function AgentFeatureShowcase({ agent }) {
                     )}
                   </Reveal>
                 </div>
-                <div className="afs-mock">
-                  {Mock && (
-                    <Reveal delay={80}>
-                      <Mock />
-                    </Reveal>
-                  )}
-                </div>
               </div>
             );
           })}
@@ -154,10 +158,18 @@ export default function AgentFeatureShowcase({ agent }) {
         .afs-title { font-size: clamp(30px, 4vw, 46px); letter-spacing: -0.025em; }
         .afs-rows { display: flex; flex-direction: column; gap: 104px; margin-top: 64px; }
         .afs-row {
-          display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: "head mock" "body mock";
+          grid-template-rows: auto 1fr;
+          column-gap: 56px;
+          align-items: start;
         }
-        .afs-row:nth-child(even) .afs-copy { order: 2; }
-        .afs-row:nth-child(even) .afs-mock { order: 1; }
+        .afs-head-area { grid-area: head; }
+        .afs-body-area { grid-area: body; }
+        .afs-mock { grid-area: mock; align-self: start; }
+        /* Zigzag: even rows flip the mock to the left. */
+        .afs-row:nth-child(even) { grid-template-areas: "mock head" "mock body"; }
         .afs-num { font-size: 13px; color: var(--brand-600); letter-spacing: 0.04em; }
         .afs-h { font-size: clamp(26px, 3.2vw, 38px); letter-spacing: -0.025em; margin-top: 14px; }
         .afs-d { font-size: 17px; color: var(--ink-2); line-height: 1.65; margin-top: 18px; max-width: 460px; }
@@ -177,9 +189,15 @@ export default function AgentFeatureShowcase({ agent }) {
         .afs-mock { min-width: 0; }
         @media (max-width: 900px) {
           .afs-rows { gap: 68px; }
-          .afs-row { grid-template-columns: 1fr; gap: 30px; }
-          .afs-row:nth-child(even) .afs-copy { order: 0; }
-          .afs-row:nth-child(even) .afs-mock { order: 0; }
+          /* Vertical order on mobile: heading → image → subheading/why/CTA. */
+          .afs-row,
+          .afs-row:nth-child(even) {
+            grid-template-columns: 1fr;
+            grid-template-rows: none;
+            grid-template-areas: "head" "mock" "body";
+            row-gap: 22px;
+          }
+          .afs-mock { margin: 2px 0; }
         }
       `}</style>
     </section>

@@ -31,10 +31,11 @@ export function GradientDefs() {
   );
 }
 
-/** Brand-colored AI engine logo. */
-export function EngineLogo({ name, size = 16 }) {
+/** Brand-colored AI engine logo. `color` overrides the brand color (e.g. white
+ *  on a dark background) for the SVG-based marks (ChatGPT fill, Claude stroke). */
+export function EngineLogo({ name, size = 16, color }) {
   const k = engineKey(name);
-  const c = ENGINE_META[k].color;
+  const c = color || ENGINE_META[k].color;
   const common = { width: size, height: size, style: { display: "block", flexShrink: 0 } };
 
   if (k === "chatgpt") {

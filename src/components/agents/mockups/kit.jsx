@@ -242,6 +242,25 @@ export function KitStyles() {
       .hf-eyebrow { font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
       .hf-textline { height: 8px; border-radius: 5px; background: var(--surface-soft); }
       .hf-check { color: #17864b; font-weight: 800; }
+
+      /* Mobile: shrink the decorative stage and pin the overlay panel to overlap
+         the card's bottom-right corner (contained), for a short "screenshot" look. */
+      @media (max-width: 640px) {
+        .hf-stage { padding: 14px; border-radius: 18px; }
+        .hf-float {
+          position: absolute !important;
+          left: auto !important;
+          top: auto !important;
+          right: 8px !important;
+          bottom: 8px !important;
+          width: auto !important;
+          max-width: 64%;
+          padding: 11px 13px;
+          box-shadow: 0 14px 30px -14px rgba(20,16,12,0.5);
+        }
+        .hf-card-body { padding: 14px; }
+        .hf-card-head { padding: 13px 14px; }
+      }
     `}</style>
   );
 }

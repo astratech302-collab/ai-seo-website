@@ -476,6 +476,27 @@ export function ContentMockStyles() {
       .dash-flow-step.is-done { color:var(--d-green); background:var(--d-greenSoft); }
       .dash-flow-step.is-now { color:var(--d-orangeText); background:var(--d-orangeSoft); }
       .dash-flow-arrow { color:var(--d-text3); font-size:11px; }
+
+      /* Mobile: un-float every overlay panel (stack in flow), stack the split
+         editor, and let the wide markdown table scroll instead of crushing. */
+      @media (max-width: 640px) {
+        .dash-float,
+        .dash-float-gen,
+        .dash-float-create,
+        .dash-float-tr,
+        .dash-float-br,
+        .dash-float-bl {
+          position: static !important;
+          inset: auto !important;
+          width: auto !important;
+          margin-top: 12px;
+          box-shadow: 0 12px 26px -16px rgba(20,16,12,0.4);
+        }
+        .dash-split { grid-template-columns: 1fr; }
+        .dash-split-main { border-right: none; border-bottom: 1px solid var(--d-border); }
+        .dash-mtable { display: block; overflow-x: auto; }
+        .dash-h1 { font-size: 20px; }
+      }
     `}</style>
   );
 }

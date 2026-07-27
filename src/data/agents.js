@@ -24,7 +24,6 @@ export const AGENTS = [
         why: [
           "A plan built on your real positioning beats generic tactics",
           "Every agent then optimizes toward what actually makes you different",
-          "You brief it once — the whole team works from the same truth",
         ],
         cta: "Map your strategy",
       },
@@ -35,7 +34,6 @@ export const AGENTS = [
         why: [
           "You attack the gaps competitors have left wide open",
           "You stop pouring effort in where rivals are unbeatable",
-          "You see exactly who you're up against in AI answers",
         ],
         cta: "See your competitive gaps",
       },
@@ -45,7 +43,6 @@ export const AGENTS = [
         body: "Strategy turns all of that into a prioritized plan — the exact prompts and pages worth winning, in the order that gets results fastest — and assigns the work across the team.",
         why: [
           "Effort goes to the highest-impact wins first",
-          "Nothing happens at random — every task has a reason",
           "You approve the plan; the agents execute it",
         ],
         cta: "Get your game plan",
@@ -57,7 +54,6 @@ export const AGENTS = [
         why: [
           "The plan gets sharper every month, not stale",
           "You never keep spending on tactics that don't work",
-          "Results feed straight back into the next sprint",
         ],
         cta: "See it adapt",
       },
@@ -65,7 +61,6 @@ export const AGENTS = [
     why: "You get one clear direction instead of scattered tactics. Every other agent works toward the same goal, and the plan gets sharper every month.",
     does: [
       "Builds the AEO / GEO / SEO roadmap",
-      "Prioritizes high-intent prompts",
       "Coordinates the sub-agents",
     ],
   },
@@ -88,7 +83,6 @@ export const AGENTS = [
         body: "Research runs the real questions your buyers ask straight through ChatGPT, Claude, Gemini and Perplexity — then records who each engine names and where you land.",
         why: [
           "You see your brand through the AIs' eyes, not guesses",
-          "Every major engine is checked, not just one",
           "It tracks real buyer questions, not vanity keywords",
         ],
         cta: "Track your prompts",
@@ -100,7 +94,6 @@ export const AGENTS = [
         why: [
           "You can't fix what you can't see",
           "Each gap is a customer picking a competitor",
-          "Blind spots become a clear, ranked to-do list",
         ],
         cta: "Find your blind spots",
       },
@@ -111,7 +104,6 @@ export const AGENTS = [
         why: [
           "You learn who to beat and why they win",
           "Share of voice becomes a number you can track",
-          "You spot rivals rising before they pull ahead",
         ],
         cta: "See who AI recommends",
       },
@@ -122,7 +114,6 @@ export const AGENTS = [
         why: [
           "Findings become action, not another report",
           "The team works the highest-opportunity prompts first",
-          "Research and Strategy stay in lock-step",
         ],
         cta: "Get your target list",
       },
@@ -130,7 +121,6 @@ export const AGENTS = [
     why: "You stop guessing. You can see, in black and white, where AI recommends you — and where it recommends someone else.",
     does: [
       "Tracks share of voice across models",
-      "Surfaces competitor citations",
       "Finds prompt & content gaps",
     ],
   },
@@ -154,7 +144,6 @@ export const AGENTS = [
         why: [
           "The right angle is what makes AI pick your page over a generic one",
           "You skip writing content that never had a chance to rank",
-          "Every piece targets a real question people ask AI",
         ],
         cta: "See it find your angle",
       },
@@ -164,7 +153,6 @@ export const AGENTS = [
         body: "The draft reads like a person wrote it — clear, specific and natural. Then it's run through AI-detection and refined until it reads as genuinely human, not machine-made filler.",
         why: [
           "AI engines quietly demote content that looks machine-generated",
-          "Readers trust and stay on pages that sound human",
           "Natural writing is what gets quoted — stiff filler doesn't",
         ],
         cta: "Get content that sounds human",
@@ -174,7 +162,6 @@ export const AGENTS = [
         desc: "Clear headings and direct answers that LLMs can lift and quote.",
         body: "The page is laid out the way answer engines read it: a direct answer up top, clear headings, comparison tables and FAQs — plus schema markup so machines can parse and attribute every part.",
         why: [
-          "AI lifts answers straight from pages it can parse cleanly",
           "Clear structure makes your brand the source it quotes",
           "Schema helps you surface in rich results and AI answers",
         ],
@@ -187,7 +174,6 @@ export const AGENTS = [
         why: [
           "Wrong facts destroy the trust AI places in your whole site",
           "Sourced, accurate claims are far more likely to be cited",
-          "A human catches the nuance automation misses",
         ],
         cta: "Get expert-reviewed content",
       },
@@ -196,7 +182,6 @@ export const AGENTS = [
     does: [
       "Drafts answer-models content",
       "Structures for extractability",
-      "Aligns to target prompts",
     ],
   },
   {
@@ -219,7 +204,6 @@ export const AGENTS = [
         why: [
           "Problems get caught in days, not quarters",
           "You always know how each page is performing",
-          "Monitoring runs automatically, around the clock",
         ],
         cta: "Put pages on watch",
       },
@@ -230,7 +214,6 @@ export const AGENTS = [
         why: [
           "Early warning beats a nasty surprise later",
           "You protect the wins you fought hard for",
-          "Declines get triaged the moment they start",
         ],
         cta: "Catch drops early",
       },
@@ -241,7 +224,6 @@ export const AGENTS = [
         why: [
           "A page you won last quarter keeps winning",
           "Refreshed content re-earns its citations",
-          "No page is left to quietly decay",
         ],
         cta: "Refresh weak pages",
       },
@@ -252,7 +234,6 @@ export const AGENTS = [
         why: [
           "AI can only quote pages it can parse cleanly",
           "Schema unlocks rich results and AI answers",
-          "Good structure makes every other effort pay off",
         ],
         cta: "Make pages machine-readable",
       },
@@ -261,7 +242,6 @@ export const AGENTS = [
     does: [
       "Schema & entity markup",
       "On-page + technical fixes",
-      "Crawl & render hygiene",
     ],
   },
   {
@@ -283,7 +263,6 @@ export const AGENTS = [
         body: "Analyzer tracks your visibility as it happens — rankings and mentions across every AI engine, updated continuously.",
         why: [
           "You see movement the moment it happens",
-          "Every engine in one place, no manual checking",
           "Decisions run on live data, not last month's",
         ],
         cta: "Track your visibility",
@@ -294,7 +273,6 @@ export const AGENTS = [
         body: "It measures how often AI recommends you versus your competitors — turning “are we winning?” into a number you can actually watch.",
         why: [
           "Share of voice is the score that matters",
-          "You can prove progress to the whole team",
           "You spot competitors gaining before it hurts",
         ],
         cta: "Measure your share",
@@ -305,7 +283,6 @@ export const AGENTS = [
         body: "Analyzer turns all of it into plain-English reports and dashboards anyone can read — no jargon, just what changed and why.",
         why: [
           "Everyone understands the results, not just specialists",
-          "Reports ship automatically on schedule",
           "You spend time acting, not building slides",
         ],
         cta: "See your reports",
@@ -317,7 +294,6 @@ export const AGENTS = [
         why: [
           "Insight becomes the next round of work",
           "The whole system compounds over time",
-          "Nothing useful gets lost between cycles",
         ],
         cta: "Close the loop",
       },
@@ -326,7 +302,6 @@ export const AGENTS = [
     does: [
       "Live rank & mention tracking",
       "Share-of-voice reporting",
-      "Feeds the next sprint",
     ],
   },
 ];

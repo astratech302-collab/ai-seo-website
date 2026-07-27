@@ -8,6 +8,8 @@ import AgentFeatureShowcase, {
   AgentHeroMedia,
 } from "@/components/agents/AgentFeatureShowcase";
 import FinalCTA from "@/components/sections/FinalCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
 import { ASSET_BASE } from "@/config/site";
 
 const getAgent = (slug) => AGENTS.find((a) => a.slug === slug) || null;
@@ -21,8 +23,9 @@ export async function generateMetadata({ params }) {
   const agent = getAgent(slug);
   if (!agent) return {};
   return {
-    title: `${agent.name} — Geobuild`,
-    description: agent.short,
+    title: `${agent.name} — Agent-Run AEO, GEO & SEO | Geobuild`,
+    description: agent.desc || agent.short,
+    alternates: { canonical: `/agents/${slug}` },
   };
 }
 
@@ -42,8 +45,24 @@ export default async function AgentPage({ params }) {
     })),
   };
 
+  const path = `/agents/${agent.slug}`;
+
   return (
     <>
+      <JsonLd
+        schema={[
+          serviceSchema({
+            name: agent.name,
+            description: agent.short,
+            path,
+            serviceType: agent.role,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: agent.name, path },
+          ]),
+        ]}
+      />
       <DetailPage
         kind="Agent"
         data={agent}

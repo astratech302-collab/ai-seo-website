@@ -220,6 +220,28 @@ export function DashBaseStyles() {
       .dash-search { display:flex; align-items:center; gap:9px; border:1px solid var(--d-border); border-radius:10px;
         padding:8px 12px; font-size:12.5px; color:var(--d-text3); }
       .dash-search-ic { width:12px; height:12px; border-radius:999px; border:2px solid var(--d-text3); opacity:.6; }
+
+      /* Mobile: crop the mock to a short "screenshot" — the overlay badge is
+         pinned to overlap the card's bottom-right corner (contained, so it never
+         overflows the viewport), and table rows are trimmed (see screens.jsx). */
+      @media (max-width: 640px) {
+        .dash-float {
+          position: absolute !important;
+          left: auto !important;
+          top: auto !important;
+          right: 8px !important;
+          bottom: 8px !important;
+          width: auto !important;
+          max-width: 64%;
+          padding: 11px 13px;
+          box-shadow: 0 14px 30px -14px rgba(20,16,12,0.5);
+        }
+        .dash-top-title { font-size: 15px; }
+        .dash-top-meta { font-size: 12px; }
+        .dash-td-title { font-size: 13.5px; }
+        .dash-chip { font-size: 12px; padding: 4px 11px; }
+        .dash-barlabel { font-size: 13px; width: auto; }
+      }
     `}</style>
   );
 }

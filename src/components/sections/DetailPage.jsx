@@ -23,8 +23,9 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
 
   return (
     <>
-      {/* Hero */}
-      <section className="section-pad" style={{ paddingBottom: 40 }}>
+      {/* Hero — modest top padding so content clears the sticky header with a
+          little breathing room, without a large empty gap. */}
+      <section className="section-pad" style={{ paddingTop: "clamp(52px, 5vw, 76px)", paddingBottom: 40 }}>
         <div className="wrap">
           <div className={`detail-hero${heroMedia ? " has-media" : ""}`}>
             <div className="detail-hero-copy">
@@ -143,30 +144,6 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
         </div>
       </section>
 
-      {/* Why it's required — 3 stat-backed pointers */}
-      {data.whyRequired && (
-        <section className="section-pad" style={{ paddingTop: 72, paddingBottom: 36 }}>
-          <div className="wrap">
-            <Reveal>
-              <div className="wr-head">
-                <h2 className="h-tight wr-title">{data.whyRequired.heading}</h2>
-                <p className="wr-sub">{data.whyRequired.sub}</p>
-              </div>
-            </Reveal>
-            <div className="wr-cards">
-              {data.whyRequired.points.map((p, i) => (
-                <Reveal key={p.title} delay={60 + i * 70}>
-                  <div className="wr-card">
-                    <span className="wr-ic" aria-hidden>{p.icon}</span>
-                    <h3 className="wr-card-t">{p.title}</h3>
-                    <p className="wr-card-d">{p.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Per-feature zigzag showcase (replaces how + feature cards when provided) */}
       {showcase}
@@ -356,7 +333,7 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
                       {it.icon && (
                         <span className="detail-rel-ic" aria-hidden>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={it.icon} alt="" width={26} height={26} style={{ display: "block" }} />
+                          <img src={it.icon} alt={`${it.name} icon`} width={26} height={26} style={{ display: "block" }} />
                         </span>
                       )}
                       <span style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)" }}>
@@ -383,20 +360,6 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
       )}
 
       <style>{`
-        .wr-head { text-align: center; max-width: 760px; margin: 0 auto 40px; }
-        .wr-title { font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -0.025em; }
-        .wr-sub { font-size: 17px; color: var(--ink-2); line-height: 1.6; margin-top: 18px; }
-        .wr-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-        .wr-card {
-          border: 1px solid var(--line); border-radius: 18px; padding: 26px 24px;
-          background: var(--surface-soft); height: 100%;
-          transition: border-color .18s ease, transform .18s ease;
-        }
-        .wr-card:hover { border-color: rgba(18,18,16,0.14); transform: translateY(-2px); }
-        .wr-ic { font-size: 30px; line-height: 1; display: block; }
-        .wr-card-t { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin-top: 16px; }
-        .wr-card-d { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; margin-top: 10px; }
-        @media (max-width: 760px) { .wr-cards { grid-template-columns: 1fr; } }
         .detail-hero-copy { max-width: 820px; }
         .detail-hero.has-media {
           display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;

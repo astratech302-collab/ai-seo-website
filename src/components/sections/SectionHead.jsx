@@ -1,7 +1,11 @@
 import Reveal from "@/components/motion/Reveal";
 
-/** Shared eyebrow + title + sub heading block used across sections. */
-export default function SectionHead({ eyebrow, title, sub, center, children }) {
+/**
+ * Shared eyebrow + title + sub heading block used across sections.
+ * `as` sets the heading tag ("h2" default). Use "h1" when this is the page's
+ * single main heading (a page must have exactly one h1).
+ */
+export default function SectionHead({ eyebrow, title, sub, center, children, as: Heading = "h2" }) {
   return (
     <div
       style={{
@@ -14,7 +18,7 @@ export default function SectionHead({ eyebrow, title, sub, center, children }) {
         <span className="eyebrow">{eyebrow}</span>
       </Reveal>
       <Reveal delay={60}>
-        <h2
+        <Heading
           style={{
             fontSize: "clamp(27px, 2.9vw, 38px)",
             marginTop: 18,
@@ -23,7 +27,7 @@ export default function SectionHead({ eyebrow, title, sub, center, children }) {
           }}
         >
           {title}
-        </h2>
+        </Heading>
       </Reveal>
       {sub && (
         <Reveal delay={120}>

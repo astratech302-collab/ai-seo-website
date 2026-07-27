@@ -1,20 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import SectionHead from "@/components/sections/SectionHead";
 import { AGENTS, AGENT_ICONS } from "@/data/agents";
+import { track } from "@/lib/track";
+import { ASSET_BASE } from "@/config/site";
 
 function AgentCard({ a, i }) {
   const [hover, setHover] = useState(false);
   return (
     <Reveal delay={i * 60} style={{ height: "100%" }}>
-      <div
+      <Link
+        href={`/agents/${a.slug}`}
+        onClick={() => track("button_clicked/agent_card_system", { agent: a.slug })}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
           position: "relative",
+          display: "block",
           height: "100%",
+          textDecoration: "none",
           background: a.lead ? "var(--surface-ink)" : "#fff",
           color: a.lead ? "#fff" : "var(--ink)",
           border: a.lead ? "none" : "1px solid var(--line)",
@@ -49,55 +56,97 @@ function AgentCard({ a, i }) {
           style={{
             position: "relative",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "space-between",
+            gap: 12,
           }}
         >
+          <div style={{ display: "flex", alignItems: "center", gap: 13, minWidth: 0 }}>
+            <span
+              style={{
+                width: 44,
+                height: 44,
+                borderRadius: 11,
+                flexShrink: 0,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: a.lead ? "var(--grad)" : "var(--brand-tint)",
+                fontSize: 21,
+                color: "#fff",
+              }}
+            >
+              {/* Same imported icon set as the header mega-menu (S3 PNGs).
+                  Exception: the lead card's tile is orange, where the orange PNG
+                  has no contrast — so it keeps the original white glyph. */}
+              {a.lead ? (
+                AGENT_ICONS[a.code]
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={`${ASSET_BASE}/${a.slug}.png`}
+                  alt={`${a.name} icon`}
+                  width={24}
+                  height={24}
+                  style={{ display: "block" }}
+                />
+              )}
+            </span>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <h3 style={{ fontSize: 18.5, fontWeight: 600, lineHeight: 1.15 }}>{a.name}</h3>
+                {a.lead && (
+                  <span
+                    className="tag-pill"
+                    style={{
+                      borderColor: "rgba(255,255,255,0.18)",
+                      color: "#fff",
+                      background: "rgba(255,255,255,0.06)",
+                      fontSize: 10,
+                    }}
+                  >
+                    MAIN
+                  </span>
+                )}
+              </div>
+              <div
+                className="mono"
+                style={{
+                  fontSize: 11.5,
+                  color: a.lead ? "var(--brand-200)" : "var(--brand-600)",
+                  marginTop: 4,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {a.role}
+              </div>
+            </div>
+          </div>
           <span
+            aria-hidden
             style={{
-              width: 44,
-              height: 44,
-              borderRadius: 11,
+              width: 32,
+              height: 32,
+              borderRadius: "50%",
+              flexShrink: 0,
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 21,
-              background: a.lead ? "var(--grad)" : "var(--brand-tint)",
+              fontSize: 16,
+              lineHeight: 1,
+              background: a.lead ? "rgba(255,255,255,0.08)" : "var(--surface-soft)",
+              border: a.lead ? "1px solid rgba(255,255,255,0.14)" : "1px solid var(--line)",
               color: a.lead ? "#fff" : "var(--brand-600)",
+              transform: hover ? "translate(3px, -3px)" : "none",
+              opacity: hover ? 1 : 0.75,
+              transition: "transform .25s ease, opacity .25s ease",
             }}
           >
-            {AGENT_ICONS[a.code]}
+            ↗
           </span>
         </div>
         <div style={{ position: "relative", marginTop: 18 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <h3 style={{ fontSize: 18.5, fontWeight: 600 }}>{a.name}</h3>
-            {a.lead && (
-              <span
-                className="tag-pill"
-                style={{
-                  borderColor: "rgba(255,255,255,0.18)",
-                  color: "#fff",
-                  background: "rgba(255,255,255,0.06)",
-                  fontSize: 10,
-                }}
-              >
-                MAIN
-              </span>
-            )}
-          </div>
-          <div
-            className="mono"
-            style={{
-              fontSize: 11.5,
-              color: a.lead ? "var(--brand-200)" : "var(--brand-600)",
-              marginTop: 5,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            {a.role}
-          </div>
           <p
             style={{
               fontSize: 14.5,
@@ -147,7 +196,7 @@ function AgentCard({ a, i }) {
             ))}
           </ul>
         </div>
-      </div>
+      </Link>
     </Reveal>
   );
 }

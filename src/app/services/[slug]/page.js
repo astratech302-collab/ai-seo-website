@@ -7,6 +7,8 @@ import AgentFeatureShowcase, {
   AgentHeroMedia,
 } from "@/components/agents/AgentFeatureShowcase";
 import FinalCTA from "@/components/sections/FinalCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
 import { ASSET_BASE } from "@/config/site";
 
 export function generateStaticParams() {
@@ -18,8 +20,9 @@ export async function generateMetadata({ params }) {
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.name} — Geobuild`,
-    description: service.short,
+    title: `${service.name} — AEO, GEO & SEO Service | Geobuild`,
+    description: service.desc || service.short,
+    alternates: { canonical: `/services/${slug}` },
   };
 }
 
@@ -39,8 +42,24 @@ export default async function ServicePage({ params }) {
     })),
   };
 
+  const path = `/services/${service.slug}`;
+
   return (
     <>
+      <JsonLd
+        schema={[
+          serviceSchema({
+            name: service.name,
+            description: service.short,
+            path,
+            serviceType: service.role,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: service.name, path },
+          ]),
+        ]}
+      />
       <DetailPage
         kind="Service"
         data={service}

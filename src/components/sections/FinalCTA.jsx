@@ -1,5 +1,6 @@
 import Reveal from "@/components/motion/Reveal";
 import BookDemoButton from "@/components/demo/BookDemoButton";
+import AskEngines from "@/components/sections/AskEngines";
 
 export default function FinalCTA() {
   return (
@@ -74,9 +75,14 @@ export default function FinalCTA() {
                   marginTop: 34,
                 }}
               >
-                <BookDemoButton className="btn btn-primary" style={{ padding: "16px 30px", fontSize: 16 }} />
+                <BookDemoButton
+                  event="button_clicked/book_demo_final_cta"
+                  className="btn btn-primary"
+                  style={{ padding: "16px 30px", fontSize: 16 }}
+                />
                 <BookDemoButton
                   label="Get a free AI audit"
+                  event="button_clicked/get_ai_audit_final_cta"
                   showArrow={false}
                   className="btn"
                   style={{
@@ -88,6 +94,8 @@ export default function FinalCTA() {
                   }}
                 />
               </div>
+
+              <AskEngines />
             </div>
           </div>
         </Reveal>

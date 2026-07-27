@@ -37,7 +37,7 @@ function Caret({ open }) {
   );
 }
 
-function IconTile({ glyph, img, size = 44, scale = 0.55 }) {
+function IconTile({ glyph, img, size = 44, scale = 0.55, alt = "" }) {
   return (
     <span
       style={{
@@ -56,7 +56,7 @@ function IconTile({ glyph, img, size = 44, scale = 0.55 }) {
     >
       {img ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={img} alt="" width={size * scale} height={size * scale} style={{ display: "block" }} />
+        <img src={img} alt={alt} width={size * scale} height={size * scale} style={{ display: "block" }} />
       ) : (
         glyph
       )}
@@ -181,6 +181,7 @@ function PromoCard({ promo }) {
 }
 
 function MenuLink({ href, title, desc, glyph, img, imgScale, onClick }) {
+  const tileAlt = img ? `${title} icon` : "";
   return (
     <Link
       href={href}
@@ -195,7 +196,7 @@ function MenuLink({ href, title, desc, glyph, img, imgScale, onClick }) {
         alignItems: "flex-start",
       }}
     >
-      {(glyph != null || img) && <IconTile glyph={glyph} img={img} scale={imgScale} />}
+      {(glyph != null || img) && <IconTile glyph={glyph} img={img} scale={imgScale} alt={tileAlt} />}
       <span>
         <span style={{ display: "block", fontSize: 14, fontWeight: 600, color: "var(--ink)", letterSpacing: "-0.005em" }}>
           {title}

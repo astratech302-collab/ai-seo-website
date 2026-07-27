@@ -28,7 +28,6 @@ export const SERVICES = [
         why: [
           "You target questions that drive real buying decisions",
           "No effort wasted on prompts nobody asks",
-          "Every page is built to answer a real query",
         ],
         cta: "Map your prompts",
       },
@@ -37,7 +36,6 @@ export const SERVICES = [
         desc: "Pages structured the way LLMs extract and quote, so you're the source.",
         body: "We write answer-first pages, comparisons and FAQs structured exactly the way LLMs extract and quote — so your brand becomes the source the model pulls from.",
         why: [
-          "AI quotes pages it can lift a clean answer from",
           "Answer-first structure gets you cited, not skimmed",
           "You become the source, not a footnote",
         ],
@@ -49,7 +47,6 @@ export const SERVICES = [
         body: "We work every lever — content, authority and structure — until your brand is named and cited in the answers themselves, across all four major engines.",
         why: [
           "Being cited is what puts you in the recommendation",
-          "Coverage across engines, not just one",
           "Citations compound into lasting visibility",
         ],
         cta: "Earn your citations",
@@ -61,7 +58,6 @@ export const SERVICES = [
         why: [
           "You can prove the work is moving the needle",
           "Spot rivals gaining before they pull ahead",
-          "Every cycle is guided by real data",
         ],
         cta: "Track share of voice",
       },
@@ -97,7 +93,6 @@ export const SERVICES = [
         why: [
           "AI Overviews appear on up to 60% of searches",
           "Being in the answer beats ranking below it",
-          "You stay visible as the SERP turns generative",
         ],
         cta: "Win AI Overviews",
       },
@@ -108,7 +103,6 @@ export const SERVICES = [
         why: [
           "AI favors sources with clear topical depth",
           "Authority lifts you across many related queries",
-          "Entities help AI understand exactly who you are",
         ],
         cta: "Build your authority",
       },
@@ -119,7 +113,6 @@ export const SERVICES = [
         why: [
           "Only 38% of AI citations come from the top 10",
           "Relevance, not rank, wins the citation",
-          "You capture demand at the moment of intent",
         ],
         cta: "Win the queries",
       },
@@ -130,7 +123,6 @@ export const SERVICES = [
         why: [
           "AI can only cite what it can parse cleanly",
           "Schema unlocks rich results and AI answers",
-          "Clean structure makes all your content work harder",
         ],
         cta: "Make pages readable",
       },
@@ -165,7 +157,6 @@ export const SERVICES = [
         body: "We add the structured data — Organization, FAQ, Product, Article and more — that lets Google and AI models parse, attribute and quote your pages correctly.",
         why: [
           "Rich-result pages earn up to 82% higher CTR",
-          "Schema unlocks AI answers and rich snippets",
           "Correct markup stops AI misattributing you",
         ],
         cta: "Add structured data",
@@ -177,7 +168,6 @@ export const SERVICES = [
         why: [
           "A page that can't be crawled can't be cited",
           "Clean indexing means nothing valuable is hidden",
-          "AI bots need the same access search crawlers do",
         ],
         cta: "Fix crawl issues",
       },
@@ -187,7 +177,6 @@ export const SERVICES = [
         body: "We tune Core Web Vitals — loading, interactivity and stability — so your pages are fast for users and favored by ranking systems.",
         why: [
           "53% of mobile users leave sites slower than 3s",
-          "Only 33% of sites pass all Core Web Vitals",
           "Speed lifts both rankings and conversions",
         ],
         cta: "Speed up your site",
@@ -199,7 +188,6 @@ export const SERVICES = [
         why: [
           "Internal links tell AI what matters most",
           "Good structure surfaces your best pages",
-          "Authority flows exactly where you direct it",
         ],
         cta: "Improve site structure",
       },
@@ -235,7 +223,6 @@ export const SERVICES = [
         why: [
           "Reddit is the #1 cited source in AI answers",
           "You focus where it moves the recommendation",
-          "No guessing which threads matter",
         ],
         cta: "Find the threads",
       },
@@ -245,7 +232,6 @@ export const SERVICES = [
         body: "We build authentic, on-topic presence in those threads — genuine contributions that earn mentions, never spam or fake accounts that get you banned.",
         why: [
           "Authenticity is what communities and AI trust",
-          "Real participation outlasts any growth hack",
           "No risk of bans that erase your presence",
         ],
         cta: "Earn real mentions",
@@ -257,7 +243,6 @@ export const SERVICES = [
         why: [
           "AI describes you the way Reddit does",
           "Shape the story before competitors do",
-          "Community sentiment feeds the recommendation",
         ],
         cta: "Shape the narrative",
       },
@@ -268,7 +253,6 @@ export const SERVICES = [
         why: [
           "Reddit is ~21% of Google AI Overview citations",
           "Mentions become citations, not just goodwill",
-          "471M weekly users amplify every win",
         ],
         cta: "Turn mentions into citations",
       },

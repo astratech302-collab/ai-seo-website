@@ -1,11 +1,14 @@
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
+import JsonLd from "@/components/seo/JsonLd";
+import { webPageSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { PRICING_JSON_URL, FAQS_JSON_URL } from "@/config/site";
 
 export const metadata = {
-  title: "Pricing — Geobuild",
+  title: "Pricing — Agent-Run AEO, GEO & SEO Plans | Geobuild",
   description:
     "Transparent pricing for agent-run AEO, GEO and SEO. Every plan is human-approved. Start where you are today.",
+  alternates: { canonical: "/pricing" },
 };
 
 export const revalidate = 3600;
@@ -38,6 +41,20 @@ export default async function PricingPage() {
 
   return (
     <>
+      <JsonLd
+        schema={[
+          webPageSchema({
+            name: metadata.title,
+            description: metadata.description,
+            path: "/pricing",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Pricing", path: "/pricing" },
+          ]),
+          faqPageSchema(faqs),
+        ]}
+      />
       <Pricing plans={pricingData?.pricing_plans ?? []} />
       <FAQ faqs={faqs} />
     </>

@@ -4,7 +4,9 @@ import SystemSection from "@/components/sections/SystemSection";
 import ManualVsAgents from "@/components/sections/ManualVsAgents";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
-import { FAQS_JSON_URL } from "@/config/site";
+import JsonLd from "@/components/seo/JsonLd";
+import { webPageSchema, faqPageSchema } from "@/lib/schema";
+import { FAQS_JSON_URL, ORG_DESCRIPTION } from "@/config/site";
 
 export const revalidate = 3600;
 
@@ -24,6 +26,16 @@ export default async function Home() {
   const faqs = await getFaqs();
   return (
     <>
+      <JsonLd
+        schema={[
+          webPageSchema({
+            name: "Geobuild — Be the Brand AI Recommends",
+            description: ORG_DESCRIPTION,
+            path: "/",
+          }),
+          faqPageSchema(faqs),
+        ]}
+      />
       <Hero />
       <HumanLoop />
       <SystemSection />

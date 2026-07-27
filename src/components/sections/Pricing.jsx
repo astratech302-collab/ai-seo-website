@@ -7,6 +7,7 @@ export default function Pricing({ plans = [] }) {
     <section id="pricing" className="section-pad">
       <div className="wrap">
         <SectionHead
+          as="h1"
           eyebrow="Pricing"
           title="Plans that scale with your growth."
           center

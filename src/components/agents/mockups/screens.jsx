@@ -295,6 +295,34 @@ export function ScreensStyles() {
       .scr-rt-b { flex:1; display:flex; flex-direction:column; min-width:0; }
       .scr-rt-sub { font-size:11px; font-weight:600; color:#FF4500; }
       .scr-rt-t { font-size:13px; font-weight:600; color:var(--d-text); margin-top:2px; line-height:1.3; }
+
+      /* Mobile: simplify dense tables to their essential columns with larger
+         text, so each screen reads as a clean, legible mobile card. */
+      @media (max-width: 640px) {
+        .scr-compact { max-width: none; }
+        .scr-engpills { gap: 6px; }
+        .scr-engpill { font-size: 12px; padding: 5px 10px; }
+
+        /* Crop the table to a header + 2 rows so the mock stays a short,
+           screenshot-style card (the overlay badge overlaps the bottom). */
+        .dash-table .dash-tr:nth-child(n+4) { display: none; }
+
+        /* Tracked prompts → Prompt + Cited only (drop Position + Brands). */
+        .scr-tp-row { grid-template-columns: 1fr auto; gap: 12px; }
+        .scr-tp-row > :nth-child(2),
+        .scr-tp-row > :nth-child(3) { display: none; }
+        .dash-td-title { font-size: 14px; }
+
+        /* Technical audit → Issue + Priority only (drop Channel + Solution). */
+        .scr-tech-row { grid-template-columns: 1fr auto; gap: 12px; }
+        .scr-tech-row > :nth-child(2),
+        .scr-tech-row > :nth-child(4) { display: none; }
+
+        .scr-ebar-name { width: 104px; font-size: 13px; }
+        .scr-kpis { grid-template-columns: 1fr 1fr; }
+        .scr-ac-q { font-size: 15px; }
+        .scr-ac-a { font-size: 14px; }
+      }
     `}</style>
   );
 }

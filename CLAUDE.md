@@ -120,6 +120,84 @@ Every demo CTA must open the Calendly modal — **do not** create ad-hoc booking
   Calendly inline embed) is mounted once by `BookDemoProvider` in `layout.js`.
 - The Calendly URL is in `src/config/site.js` (`CALENDLY_URL`).
 
+## Mixpanel events
+
+Mixpanel is initialized once in `components/analytics/MixpanelProvider.jsx` (production
+builds only) with autocapture + session replay on. **In addition to autocapture, every
+interactive element — every button, link, icon, toggle, tab, form submit — must fire an
+explicit named event** so we get clean, intentional analytics.
+
+- Fire events with the `track(event, props)` helper from `@/lib/track` — never call
+  `mixpanel.track` directly. It no-ops safely in dev.
+- **Event name format (mandatory, site-wide):** a top-down hierarchy joined with `/`, going
+  from the broadest category down to the specific element:
+
+  ```
+  <action>/<element_descriptor>
+  ```
+
+  The descriptor reads specific-thing → where-it-lives, e.g.:
+
+  - `button_clicked/twitter_icon_footer`
+  - `button_clicked/linkedin_icon_footer`
+  - `button_clicked/book_demo_header`
+
+  Actions are snake_case past-tense (`button_clicked`, `link_clicked`, `form_submitted`,
+  `tab_switched`). Keep the whole name lowercase snake_case with `/` only between hierarchy
+  levels. Everything descriptive goes **into the event name**, top-down — extra context goes
+  in `props`.
+
+- **Whenever you add or change any interactive element, you MUST add its `track()` call and
+  register it in `MIXPANEL_EVENTS.md`** (element descriptor → event name → properties). Keep
+  that file in sync — it's the single source of truth for what's tracked.
+
+## Structured data (JSON-LD)
+
+**Every page must emit schema.org structured data as JSON-LD**, machine-readable for search
+engines and AI, following Google's guidelines:
+https://developers.google.com/search/docs/appearance/structured-data/search-gallery
+(validate with the Rich Results Test). Structured data must describe content the user
+actually sees on the page — never mark up content that isn't there.
+
+- **Never hardcode JSON-LD inline in a page.** Build it from data with the pure helpers in
+  `src/lib/schema.js` (`organizationSchema`, `websiteSchema`, `serviceSchema`,
+  `webPageSchema`, `contactPageSchema`, `faqPageSchema`, `blogSchema`, `blogPostingSchema`,
+  `breadcrumbSchema`) and render with `<JsonLd schema={…} />` (`components/seo/JsonLd.jsx`).
+  Pass one object or an array — an array is wrapped in an `@graph` and shares one script tag.
+- `layout.js` emits site-wide `Organization` + `WebSite` on every page. Each page adds its
+  own type on top (e.g. `Service` + `BreadcrumbList` on detail pages, `FAQPage` from the
+  fetched FAQs on pricing/contact, `Blog`/`BlogPosting` on the blog).
+- **Dynamic, not hardcoded:** derive fields from `src/data/*`, page `metadata`, or fetched
+  content. Blog posts drive `BlogPosting` entries automatically via the `posts` array — when
+  a post source exists, entries generate themselves. Add a new builder to `schema.js` (don't
+  inline objects) when a new page type needs a new schema type.
+- Org identity (name, description, social `sameAs`) lives in `src/config/site.js`
+  (`ORG_NAME`, `ORG_DESCRIPTION`, `SOCIAL_LINKS`) — the single source shared by the footer
+  and the structured data.
+
+## Page SEO essentials (every page)
+
+Each page must satisfy these on-page SEO/GEO checks. Wire them through Next
+`metadata` (or `generateMetadata` for dynamic routes) — never hand-write `<head>` tags.
+
+- **Canonical (required):** `layout.js` sets `metadataBase: new URL(SITE_URL)`; every page
+  sets `alternates: { canonical: "/its-path" }` (relative — Next makes it absolute). Dynamic
+  routes set it in `generateMetadata` from the slug.
+- **Title ~50–60 chars, descriptive:** end with `| Geobuild` (or `— Geobuild`). Don't ship
+  bare 2–3 word titles. Templates in use: agents `"<Name> — Agent-Run AEO, GEO & SEO | Geobuild"`,
+  services `"<Name> — AEO, GEO & SEO Service | Geobuild"`.
+- **Meta description ~150–160 chars:** detail pages use the long `desc` field (not the short
+  `short`) so descriptions aren't truncated-short.
+- **Exactly one `<h1>` per page:** section headings are `<h2>` via `SectionHead`. When a
+  section IS the page's main heading (e.g. `/pricing`), pass `SectionHead as="h1"`. Never zero
+  or multiple h1s; don't skip heading levels.
+- **Descriptive `alt` on informative images:** logos/icons that convey meaning get real alt
+  text (e.g. `alt={`${name} icon`}`); only purely decorative images use `alt=""`.
+- **Structured data:** see "Structured data (JSON-LD)" above — every page emits it.
+- **Content visibility:** keep primary content in the DOM and visible by default. Accordions
+  (FAQ) are fine as long as the same content is also exposed via `FAQPage` JSON-LD, which is
+  how machines read it; don't hide primary copy behind `display:none`.
+
 ## Responsive
 
 Mobile-first / all-screen. Section components carry their own breakpoints (scoped `<style>`
