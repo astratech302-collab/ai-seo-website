@@ -3,6 +3,7 @@ import SectionHead from "@/components/sections/SectionHead";
 import BookDemoButton from "@/components/demo/BookDemoButton";
 
 export default function Pricing({ plans = [] }) {
+  const cols = Math.min(Math.max(plans.length, 1), 3);
   return (
     <section id="pricing" className="section-pad">
       <div className="wrap">
@@ -17,11 +18,11 @@ export default function Pricing({ plans = [] }) {
           className="price-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2,1fr)",
+            gridTemplateColumns: `repeat(${cols},1fr)`,
             gap: 20,
             marginTop: 52,
             alignItems: "stretch",
-            maxWidth: 900,
+            maxWidth: cols >= 3 ? 1180 : 900,
             marginLeft: "auto",
             marginRight: "auto",
           }}
@@ -149,7 +150,10 @@ export default function Pricing({ plans = [] }) {
             </Reveal>
           ))}
         </div>
-        <style>{`@media (max-width: 720px){ .price-grid{ grid-template-columns: 1fr !important; } }`}</style>
+        <style>{`
+          @media (max-width: 1024px){ .price-grid{ grid-template-columns: repeat(2,1fr) !important; } }
+          @media (max-width: 720px){ .price-grid{ grid-template-columns: 1fr !important; } }
+        `}</style>
       </div>
     </section>
   );
