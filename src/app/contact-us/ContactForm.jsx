@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { CALENDLY_URL, API_URL } from "@/config/site";
+import { CALENDLY_URL } from "@/config/site";
 
 // Accepts bare domains (acme.com), www., and full URLs with optional path/query.
 // Scheme is optional in input but normalised to https:// before sending to the API.
@@ -192,7 +192,7 @@ export default function ContactForm() {
     };
 
     try {
-      const res = await fetch(`${API_URL}/website-inbound`, {
+      const res = await fetch("/api/website-inbound", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
