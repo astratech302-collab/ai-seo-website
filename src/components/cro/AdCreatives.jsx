@@ -1,4 +1,4 @@
-// Realistic-looking ad creatives (Google Search, Google Shopping, Instagram, YouTube)
+// Realistic-looking ad creatives (Google Ads, Google Shopping, Instagram, YouTube)
 // and a photo-based store page, used inside the CRO / Ad-to-Landing mockups.
 // Brand + store are fictional; platform logos identify the channel only.
 import { DEMO_IMG, DEMO_STORE } from "@/data/demoAssets";
@@ -14,6 +14,17 @@ export function GoogleG({ size = 18 }) {
       <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
       <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
       <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+    </svg>
+  );
+}
+
+/** Google Ads mark: yellow + blue tilted bars with a green dot. */
+export function GoogleAdsLogo({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden style={{ display: "block", flexShrink: 0 }}>
+      <rect x="5.4" y="3" width="5.6" height="17" rx="2.8" transform="rotate(30 8.2 11.5)" fill="#FBBC04" />
+      <rect x="13" y="3" width="5.6" height="17" rx="2.8" transform="rotate(-30 15.8 11.5)" fill="#4285F4" />
+      <circle cx="5.3" cy="19" r="2.9" fill="#34A853" />
     </svg>
   );
 }
@@ -42,6 +53,31 @@ export function YouTubeLogo({ size = 18 }) {
     <svg width={size * 1.4} height={size} viewBox="0 0 28 20" aria-hidden style={{ display: "block", flexShrink: 0 }}>
       <rect width="28" height="20" rx="5.5" fill="#FF0000" />
       <path d="M11.2 5.8v8.4l7.3-4.2z" fill="#fff" />
+    </svg>
+  );
+}
+
+export function MetaLogo({ size = 16 }) {
+  return (
+    <svg width={size * 1.2} height={size} viewBox="0 0 24 20" aria-hidden style={{ display: "block", flexShrink: 0 }}>
+      <path
+        d="M12 10c-1.9-3-3.6-5.2-5.7-5.2C3.9 4.8 2.2 7 2.2 10s1.7 5.2 4.1 5.2c2.1 0 3.8-2.2 5.7-5.2zm0 0c1.9 3 3.6 5.2 5.7 5.2 2.4 0 4.1-2.2 4.1-5.2s-1.7-5.2-4.1-5.2C15.6 4.8 13.9 7 12 10z"
+        fill="none"
+        stroke="#0866FF"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function TikTokLogo({ size = 16 }) {
+  const note = "M15.6 2c.3 2.3 1.7 3.9 3.9 4.1v2.9a6.7 6.7 0 0 1-3.8-1.2v6a5.5 5.5 0 1 1-4.7-5.4v3a2.6 2.6 0 1 0 1.8 2.5V2z";
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden style={{ display: "block", flexShrink: 0 }}>
+      <path d={note} fill="#25F4EE" transform="translate(-0.9 -0.7)" />
+      <path d={note} fill="#FE2C55" transform="translate(0.9 0.7)" />
+      <path d={note} fill="#111" />
     </svg>
   );
 }
@@ -79,11 +115,15 @@ function RetargetIcon({ size = 16 }) {
 export function ChannelLogo({ channel, size = 16 }) {
   switch (channel) {
     case "search":
-      return <GoogleG size={size} />;
+      return <GoogleAdsLogo size={size} />;
     case "shopping":
       return <ShoppingBagIcon size={size} />;
     case "youtube":
       return <YouTubeLogo size={size} />;
+    case "meta":
+      return <MetaLogo size={size} />;
+    case "tiktok":
+      return <TikTokLogo size={size} />;
     case "ugc":
       return <CreatorIcon size={size} />;
     case "retargeting":
@@ -130,10 +170,10 @@ const frame = {
 function GoogleSearchAd({ ad }) {
   return (
     <div style={{ ...frame, fontFamily: "Arial, Helvetica, sans-serif", padding: 16 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, border: "1px solid #dfe1e5", borderRadius: 24, padding: "8px 14px", boxShadow: "0 1px 6px rgba(32,33,36,.12)" }}>
-        <GoogleG size={18} />
-        <span style={{ fontSize: 14, color: "#202124", flex: 1 }}>{ad.query}</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden><circle cx="10" cy="10" r="6.5" fill="none" stroke="#4285F4" strokeWidth="2.4" /><path d="m15 15 6 6" stroke="#4285F4" strokeWidth="2.4" strokeLinecap="round" /></svg>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <GoogleAdsLogo size={18} />
+        <span style={{ fontSize: 13, color: "#5f6368" }}>Google Ads</span>
+        <span style={{ marginLeft: "auto", fontSize: 11, color: "#5f6368" }}>Ad</span>
       </div>
       <div style={{ marginTop: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -157,8 +197,8 @@ function GoogleShoppingAd({ ad }) {
   return (
     <div style={{ ...frame, fontFamily: "Arial, Helvetica, sans-serif", padding: 14 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-        <GoogleG size={16} />
-        <span style={{ fontSize: 13, color: "#5f6368" }}>Shopping</span>
+        <GoogleAdsLogo size={16} />
+        <span style={{ fontSize: 13, color: "#5f6368" }}>Google Ads · Shopping</span>
         <span style={{ marginLeft: "auto", fontSize: 11, color: "#5f6368" }}>Sponsored</span>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
@@ -238,6 +278,26 @@ function YouTubeAd({ ad }) {
   );
 }
 
+function TikTokAd({ ad }) {
+  return (
+    <div style={{ ...frame, background: "#000", border: "1px solid #222", maxWidth: 300, margin: "0 auto", position: "relative" }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={DEMO_IMG.routine} alt={`${DEMO_STORE.product} TikTok ad`} width={300} height={420} style={{ width: "100%", aspectRatio: "9 / 13", objectFit: "cover", objectPosition: "center 30%", display: "block", opacity: 0.95 }} />
+      <div aria-hidden style={{ position: "absolute", right: 10, bottom: 92, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, color: "#fff", fontSize: 11 }}>
+        <span style={{ width: 34, height: 34, borderRadius: 99, background: "#fff", color: "#111", fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>D</span>
+        <span>♥<br />12.4K</span>
+        <span>💬<br />318</span>
+        <span>➦<br />Share</span>
+      </div>
+      <div style={{ position: "absolute", left: 12, right: 60, bottom: 54, color: "#fff", lineHeight: 1.35 }}>
+        <div style={{ fontSize: 14, fontWeight: 700 }}>@dewlab <span style={{ fontWeight: 500, opacity: 0.8, fontSize: 11 }}>· Sponsored</span></div>
+        <div style={{ fontSize: 12.5, marginTop: 3 }}>{ad.caption}</div>
+      </div>
+      <div style={{ position: "absolute", left: 10, right: 10, bottom: 10, background: "#FE2C55", color: "#fff", textAlign: "center", fontWeight: 700, fontSize: 13.5, borderRadius: 6, padding: "10px 0" }}>{ad.cta || "Shop now"}</div>
+    </div>
+  );
+}
+
 /** channel: search | shopping | meta | youtube | ugc | retargeting. `ad` comes from data/cro.js. */
 export function AdCreative({ channel, ad }) {
   switch (channel) {
@@ -247,6 +307,8 @@ export function AdCreative({ channel, ad }) {
       return <GoogleShoppingAd ad={ad} />;
     case "youtube":
       return <YouTubeAd ad={ad} />;
+    case "tiktok":
+      return <TikTokAd ad={ad} />;
     case "ugc":
       return <InstagramAd ad={ad} image={DEMO_IMG.routine} handle="mia.glows" sub="Paid partnership with dewlab" />;
     case "retargeting":

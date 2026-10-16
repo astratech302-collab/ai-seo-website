@@ -35,8 +35,8 @@ export default function AdToLandingPage() {
         heroMedia={<AgentHeroMedia slug={ADS_PRODUCT.slug} />}
         showcase={
           <>
-            <ChannelShowcase data={CHANNELS} />
             <AgentFeatureShowcase agent={ADS_PRODUCT} />
+            <ChannelShowcase data={CHANNELS} />
           </>
         }
       />

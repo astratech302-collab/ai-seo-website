@@ -30,50 +30,51 @@ export const ADS_PRODUCT = {
   role: "ADS",
   tagline: "New · Built for e-commerce",
   short: "A personalized landing page for every ad and channel you run",
-  desc: "Every channel brings shoppers with different expectations. We build a landing page for each ad, so every visitor lands on a page that continues what they just clicked.",
+  desc: "Connect your Meta and Google ad accounts. We read every ad, suggest what each page should say, and build a landing page that continues it.",
   metaTitle: "Personalized Ad-to-Landing Pages for E-commerce | Geobuild",
   metaDescription:
     "A dedicated landing page for every ad and channel you run. Geobuild matches each page to the ad that brought the visitor, so e-commerce clicks turn into orders.",
   features: [
     {
-      title: "Share your ads",
-      desc: "Tell us which ads and channels you run for the product.",
-      body: "You share the ads you run for a product across search, shopping, social, video and creators. That tells us what each visitor was promised before they land.",
+      title: "Connect your ad accounts",
+      desc: "Link your Meta and Google accounts in a few clicks.",
+      body: "Connect your Meta and Google ad accounts, and any other platform you run on. You stay in control of what we can see.",
       why: [
-        "We start from the promise the ad made",
-        "Every channel and audience is covered",
+        "No exporting or uploading ads by hand",
+        "Every platform you run on, in one place",
       ],
-      cta: "Share your ads",
+      cta: "Connect your accounts",
     },
     {
-      title: "We match a page type to each ad",
-      desc: "The right landing-page approach for every ad.",
-      body: "We suggest the landing-page approach that fits each ad: search-intent pages, product-first pages, hook-led pages, social-proof pages and more.",
+      title: "We fetch every ad",
+      desc: "We read all your ads from all your accounts.",
+      body: "We pull in every ad from every connected account: the creative, headline, copy, offer and audience, so we know what each visitor was promised.",
       why: [
-        "Message match between the ad and the page",
-        "Each channel's visitor gets what they expect",
+        "Nothing gets missed or re-typed",
+        "We start from the real promise each ad makes",
       ],
-      cta: "Match your pages",
+      cta: "Import your ads",
     },
     {
-      title: "We build the personalized pages",
-      desc: "One page per ad, in your brand.",
-      body: "We build a personalized page for each ad, with the headline, hero visual, proof and call to action tuned to the ad and the intent behind that channel.",
+      title: "We suggest the changes for each ad",
+      desc: "Page copy and content, suggested per ad.",
+      body: "For each ad we generate suggested copy and content for its landing page: the headline, hero image, offer and proof that fit that ad and its audience. You review and approve.",
+      why: [
+        "Every page matches the ad that sends the click",
+        "A strategist reviews the suggestions with you",
+      ],
+      cta: "See the suggestions",
+    },
+    {
+      title: "We create the landing pages",
+      desc: "A personalized page for every ad, built for you.",
+      body: "Once you approve, we create the landing pages for you, one per ad, in your brand and ready to send traffic to.",
       why: [
         "Visitors land on a page that continues the ad",
-        "One product, a different page for every ad",
+        "You get the pages built, not just advice",
+        "Conversion rates increase by up to 40% for customers",
       ],
-      cta: "Build your pages",
-    },
-    {
-      title: "Test and refine",
-      desc: "Keep the pages that win and improve the rest.",
-      body: "We compare how each page performs and keep refining, so the pages that convert best stay and the weaker ones get improved.",
-      why: [
-        "You keep what works",
-        "Pages get better over time, not stale",
-      ],
-      cta: "Start refining",
+      cta: "Get your pages",
     },
   ],
   why: "You pay for every click. A landing page that matches the ad gives that click the best chance of becoming an order.",
@@ -82,13 +83,13 @@ export const ADS_PRODUCT = {
 // Channel switcher content (ad-to-landing page). Fictional store: Dewlab / Glow Serum.
 // `image` keys map to DEMO_IMG in data/demoAssets.js.
 export const CHANNELS = {
-  eyebrow: "Multi-channel personalization",
-  title: "Same product. A different page for every ad.",
-  sub: "Each channel brings a different shopper with a different expectation. Choose a channel to see how the page changes.",
+  eyebrow: "Works with every platform",
+  title: "Meta, Google, TikTok, YouTube and more.",
+  sub: "Wherever you run ads, we build the page that continues them. Pick a platform to see how the page changes.",
   items: [
     {
       key: "search",
-      label: "Google Search",
+      label: "Google Ads",
       expects: "An answer to the exact query they typed.",
       changes: ["Headline echoes the search term", "Key benefits and shipping near the top", "Fast route to add-to-cart"],
       ad: {
@@ -124,20 +125,12 @@ export const CHANNELS = {
       page: { image: "howto", imagePos: "center 40%", headline: "How to use Glow Serum", sub: "The same routine from the video, right here.", chips: ["Watch demo", "3 steps"], price: "$34" },
     },
     {
-      key: "ugc",
-      label: "UGC / Creator",
-      expects: "The creator's recommendation, and proof it's real.",
-      changes: ["Social-proof-first layout", "Creator quote in the hero", "Real customer photos and reviews"],
+      key: "tiktok",
+      label: "TikTok",
+      expects: "The same feel as the video, in a page that loads fast.",
+      changes: ["Creator-style hero that matches the video", "Fast, thumb-friendly mobile layout", "Real reviews and photos near the top"],
       ad: { cta: "Shop now", caption: "My 3-step morning routine. Link in bio." },
       page: { image: "routine", imagePos: "center 30%", headline: "Mia's morning routine", quote: "“The only serum I reach for every day.”", sub: "Reviewed by 2,184 customers.", chips: ["Creator pick"], price: "$34" },
-    },
-    {
-      key: "retargeting",
-      label: "Retargeting",
-      expects: "Their last visit, and an answer to what held them back.",
-      changes: ["Shorter page", "Removes the likely objection (returns, sizing)", "Product they viewed, ready to buy"],
-      ad: { cta: "Shop now", headline: "Still thinking it over?", caption: "Free returns on every order. Your Glow Serum is waiting." },
-      page: { image: "product", banner: "Free 30-day returns", headline: "Still thinking it over?", sub: "Your Glow Serum is waiting. Free returns on every order.", chips: ["Free returns"], price: "$34" },
     },
   ],
 };

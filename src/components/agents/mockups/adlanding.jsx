@@ -30,28 +30,11 @@ function Page({ k, compact }) {
 }
 
 const ADS = [
-  { key: "search", ad: "“vitamin c serum for dull skin”", channel: "Google Search", page: "Search-intent page" },
-  { key: "shopping", ad: "Glow Serum, 30 ml · $34.00", channel: "Google Shopping", page: "Product-first page" },
-  { key: "meta", ad: "Reel: “Your morning glow”", channel: "Instagram", page: "Hook-led page" },
-  { key: "ugc", ad: "Creator: “My 3-step routine”", channel: "Creator", page: "Social-proof page" },
+  { key: "search", ad: "“vitamin c serum for dull skin”", channel: "Google Ads" },
+  { key: "shopping", ad: "Glow Serum, 30 ml · $34.00", channel: "Google Shopping" },
+  { key: "meta", ad: "Reel: “Your morning glow”", channel: "Meta" },
+  { key: "youtube", ad: "Video: “How to use Glow Serum”", channel: "YouTube" },
 ];
-
-function AdsTable({ third }) {
-  return (
-    <div className="dash-table">
-      <div className="dash-tr dash-th al-row">
-        <span>Ad</span><span>Channel</span><span>{third}</span>
-      </div>
-      {ADS.map((a) => (
-        <div className="dash-tr al-row" key={a.key}>
-          <span className="dash-td-title al-ad"><ChannelLogo channel={a.key} size={16} />{a.ad}</span>
-          <span className="dash-td-muted">{a.channel}</span>
-          <span className="dash-td-muted">{third === "Landing page" ? a.page : "Ready to share"}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export function AdsHeroMock() {
   const search = byKey("search");
@@ -70,93 +53,114 @@ export function AdsHeroMock() {
   );
 }
 
-/* 0 — Share your ads */
-function ShareMock() {
+/* 0 — Connect your ad accounts */
+function ConnectMock() {
+  const rows = [
+    { k: "meta", n: "Meta Ads", s: "Connected", tone: "green" },
+    { k: "search", n: "Google Ads", s: "Connected", tone: "green" },
+    { k: "tiktok", n: "TikTok Ads", s: "Connect", tone: "orange" },
+    { k: "youtube", n: "YouTube", s: "Connect", tone: "orange" },
+  ];
   return (
     <MockStage>
       <div className="dash-card">
-        <TopHead title="Your ads" meta="What you run for Glow Serum" right={<span className="dash-btn-primary">+ Add ad</span>} />
-        <AdsTable third="Status" />
+        <TopHead title="Ad accounts" meta="Connect the platforms you run ads on" />
+        <div className="dash-table">
+          {rows.map((r) => (
+            <div className="dash-tr al-conn" key={r.k}>
+              <span className="dash-td-title al-ad"><ChannelLogo channel={r.k} size={22} />{r.n}</span>
+              {r.s === "Connected" ? <Chip tone="green">✓ Connected</Chip> : <span className="dash-btn-primary">Connect</span>}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="dash-float" style={{ right: -14, bottom: -16, width: 168 }}>
-        <Chip tone="green">4 channels</Chip>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>Search, shopping, social, creator</p>
+      <div className="dash-float" style={{ right: -14, bottom: -16, width: 170 }}>
+        <Chip tone="green">2 connected</Chip>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>You choose what we can see.</p>
       </div>
     </MockStage>
   );
 }
 
-/* 1 — We match a page type */
-function MatchMock() {
+/* 1 — We fetch every ad */
+function FetchMock() {
   return (
     <MockStage>
       <div className="dash-card">
-        <TopHead title="Page match" meta="The right page type for each ad" right={<Chip tone="violet">Suggested</Chip>} />
-        <AdsTable third="Landing page" />
+        <TopHead title="Ads imported" meta="From all connected accounts" right={<Chip tone="green">24 ads</Chip>} />
+        <div className="dash-table">
+          <div className="dash-tr dash-th al-row">
+            <span>Ad</span><span>Platform</span><span>Status</span>
+          </div>
+          {ADS.map((a) => (
+            <div className="dash-tr al-row" key={a.key}>
+              <span className="dash-td-title al-ad"><ChannelLogo channel={a.key} size={16} />{a.ad}</span>
+              <span className="dash-td-muted">{a.channel}</span>
+              <span><Chip tone="green">Imported</Chip></span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="dash-float" style={{ right: -14, top: 70, width: 170 }}>
-        <span className="dash-eyebrow">Why</span>
-        <p style={{ fontSize: 12.5, color: "var(--d-text2)", marginTop: 6 }}>Each channel&apos;s visitor expects something different.</p>
+        <span className="dash-eyebrow">Read</span>
+        <p style={{ fontSize: 12.5, color: "var(--d-text2)", marginTop: 6 }}>Creative, copy, offer and audience for every ad.</p>
       </div>
     </MockStage>
   );
 }
 
-/* 2 — We build the pages */
+/* 2 — We suggest the changes for each ad */
+function SuggestMock() {
+  const rows = [
+    { t: "Headline", v: "Vitamin C Serum for Dull Skin", tone: "orange" },
+    { t: "Hero image", v: "Product close-up, amber bottle", tone: "violet" },
+    { t: "Offer", v: "Free shipping over $40", tone: "green" },
+    { t: "Proof", v: "4.8 ★ from 2,184 reviews", tone: "amber" },
+  ];
+  return (
+    <MockStage>
+      <div className="dash-card">
+        <TopHead title="Suggestions" meta="For: “vitamin c serum for dull skin”" right={<span className="dash-btn-primary">Approve all</span>} />
+        <div className="dash-table">
+          {rows.map((r) => (
+            <div className="dash-tr al-sug" key={r.t}>
+              <span><Chip tone={r.tone}>{r.t}</Chip></span>
+              <span className="dash-td-title">{r.v}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="dash-float" style={{ right: -14, bottom: -16, width: 176 }}>
+        <span className="dash-eyebrow" style={{ color: "#1A9E63" }}>✓ Strategist reviewed</span>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 6 }}>You approve before anything is built.</p>
+      </div>
+    </MockStage>
+  );
+}
+
+/* 3 — We create the landing pages */
 function BuildMock() {
   return (
     <MockStage>
       <div className="al-pair">
         <div>
-          <div className="al-cap"><ChannelLogo channel="search" size={15} /><Chip tone="neutral">Google Search</Chip></div>
-          <Page k="search" />
+          <div className="al-cap"><ChannelLogo channel="search" size={15} /><Chip tone="neutral">Google Ads</Chip></div>
+          <Page k="search" compact />
         </div>
         <div>
-          <div className="al-cap"><ChannelLogo channel="meta" size={15} /><Chip tone="neutral">Instagram</Chip></div>
-          <Page k="meta" />
+          <div className="al-cap"><ChannelLogo channel="meta" size={15} /><Chip tone="neutral">Meta</Chip></div>
+          <Page k="meta" compact />
         </div>
       </div>
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 172 }}>
-        <Chip tone="green">✓ Same product</Chip>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>A different page for every ad.</p>
+        <Chip tone="green">✓ Pages ready</Chip>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>One page for every ad.</p>
       </div>
     </MockStage>
   );
 }
 
-/* 3 — Test and refine */
-function RefineMock() {
-  const rows = [
-    { k: "search", p: "Search-intent page", v: "3.4%", tone: "green", s: "Winning" },
-    { k: "meta", p: "Hook-led page", v: "2.9%", tone: "amber", s: "Testing" },
-    { k: "ugc", p: "Social-proof page", v: "3.1%", tone: "green", s: "Winning" },
-  ];
-  return (
-    <MockStage>
-      <div className="dash-card">
-        <TopHead title="Page results" meta="Which pages keep winning" right={<Chip tone="neutral">Last 14 days</Chip>} />
-        <div className="dash-table">
-          <div className="dash-tr dash-th al-row">
-            <span>Page</span><span>Order rate</span><span>Status</span>
-          </div>
-          {rows.map((r) => (
-            <div className="dash-tr al-row" key={r.p}>
-              <span className="dash-td-title al-ad"><ChannelLogo channel={r.k} size={16} />{r.p}</span>
-              <span className="dash-td-muted">{r.v}</span>
-              <span><Chip tone={r.tone}>{r.s}</Chip></span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="dash-float" style={{ right: -14, bottom: -16, width: 168 }}>
-        <Chip tone="orange">Refining</Chip>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>Keep what works, improve the rest.</p>
-      </div>
-    </MockStage>
-  );
-}
-
-const AD_MOCKS = [ShareMock, MatchMock, BuildMock, RefineMock];
+const AD_MOCKS = [ConnectMock, FetchMock, SuggestMock, BuildMock];
 export default AD_MOCKS;
 
 export function AdLandingMockStyles() {
@@ -165,6 +169,8 @@ export function AdLandingMockStyles() {
       <DashBaseStyles />
       <style>{`
         .al-row { grid-template-columns: 1.7fr 1fr 1.2fr; }
+        .al-conn { grid-template-columns: 1fr auto; }
+        .al-sug { grid-template-columns: auto 1fr; }
         .al-ad { display: flex; align-items: center; gap: 8px; }
         .al-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .al-cap { margin-bottom: 8px; display: flex; align-items: center; gap: 7px; }
