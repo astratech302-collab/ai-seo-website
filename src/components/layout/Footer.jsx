@@ -48,7 +48,7 @@ export default function Footer() {
               lineHeight: 1.55,
             }}
           >
-            Agent-run AEO, GEO and SEO with a human final call. Be the brand AI recommends.
+            Everything to get sales for your store.
           </p>
 
           <div style={{ display: "flex", gap: 10, marginTop: 20 }}>

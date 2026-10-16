@@ -20,8 +20,10 @@ export async function generateMetadata({ params }) {
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.name} — AEO, GEO & SEO Service | Geobuild`,
-    description: service.desc || service.short,
+    title:
+      service.metaTitle ||
+      `${service.name} — AEO, GEO & SEO Service | Geobuild`,
+    description: service.metaDescription || service.desc || service.short,
     alternates: { canonical: `/services/${slug}` },
   };
 }
@@ -31,16 +33,18 @@ export default async function ServicePage({ params }) {
   const service = getService(slug);
   if (!service) notFound();
 
-  const related = {
-    heading: "More services",
-    hrefBase: "/services",
-    items: SERVICES.filter((s) => s.slug !== slug).map((s) => ({
-      slug: s.slug,
-      name: s.name,
-      short: s.short,
-      icon: `${ASSET_BASE}/${s.slug}.png`,
-    })),
-  };
+  const related = service.standalone
+    ? null
+    : {
+        heading: "More services",
+        hrefBase: "/services",
+        items: SERVICES.filter((s) => s.slug !== slug).map((s) => ({
+          slug: s.slug,
+          name: s.name,
+          short: s.short,
+          icon: `${ASSET_BASE}/${s.iconFile || s.slug}.png`,
+        })),
+      };
 
   const path = `/services/${service.slug}`;
 
@@ -68,7 +72,7 @@ export default async function ServicePage({ params }) {
         showcase={hasShowcase(service.slug) ? <AgentFeatureShowcase agent={service} /> : null}
         related={related}
       />
-      <FinalCTA />
+      {!service.standalone && <FinalCTA />}
     </>
   );
 }

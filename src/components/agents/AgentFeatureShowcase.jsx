@@ -11,6 +11,8 @@ import AEO_MOCKS, { AeoMockStyles, AeoHeroMock } from "./mockups/aeo";
 import AISEARCH_MOCKS, { AiSearchMockStyles, AiSearchHeroMock } from "./mockups/aisearch";
 import TECH_MOCKS, { TechnicalSeoMockStyles, TechnicalSeoHeroMock } from "./mockups/technicalseo";
 import REDDIT_MOCKS, { RedditMockStyles, RedditHeroMock } from "./mockups/reddit";
+import CRO_MOCKS, { CroMockStyles, CroHeroMock } from "./mockups/cro";
+import AD_MOCKS, { AdLandingMockStyles, AdsHeroMock } from "./mockups/adlanding";
 
 /** Hero-media registry: the overview product screen shown beside the hero copy. */
 const HERO = {
@@ -24,6 +26,8 @@ const HERO = {
   "ai-seo": AiSearchHeroMock,
   "technical-seo": TechnicalSeoHeroMock,
   "reddit-marketing": RedditHeroMock,
+  "conversion-rate-optimization": CroHeroMock,
+  "ad-to-landing-pages": AdsHeroMock,
 };
 
 /** Each agent's styles bundle (base + screens + agent-specific). */
@@ -38,6 +42,8 @@ const HERO_STYLES = {
   "ai-seo": AiSearchMockStyles,
   "technical-seo": TechnicalSeoMockStyles,
   "reddit-marketing": RedditMockStyles,
+  "conversion-rate-optimization": CroMockStyles,
+  "ad-to-landing-pages": AdLandingMockStyles,
 };
 
 export function hasHeroMedia(slug) {
@@ -79,6 +85,8 @@ const REGISTRY = {
   "ai-seo": { mocks: AISEARCH_MOCKS, styles: [AiSearchMockStyles] },
   "technical-seo": { mocks: TECH_MOCKS, styles: [TechnicalSeoMockStyles] },
   "reddit-marketing": { mocks: REDDIT_MOCKS, styles: [RedditMockStyles] },
+  "conversion-rate-optimization": { mocks: CRO_MOCKS, styles: [CroMockStyles] },
+  "ad-to-landing-pages": { mocks: AD_MOCKS, styles: [AdLandingMockStyles] },
 };
 
 export function hasShowcase(slug) {

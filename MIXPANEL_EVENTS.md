@@ -42,3 +42,6 @@ initializes in production builds only).
 | Share — LinkedIn | Blog post | `link_clicked/share_linkedin_blog_post` | `{ url }` | `src/components/blog/ShareRow.jsx` |
 | Share — Facebook | Blog post | `link_clicked/share_facebook_blog_post` | `{ url }` | `src/components/blog/ShareRow.jsx` |
 | Share — Email | Blog post | `link_clicked/share_email_blog_post` | `{ url }` | `src/components/blog/ShareRow.jsx` |
+| Dismiss (×) | Announcement banner | `button_clicked/dismiss_announcement_banner` | — | `src/components/layout/AnnouncementBanner.jsx` |
+| Banner link | Announcement banner | `link_clicked/cro_announcement_banner` | — | `src/components/layout/AnnouncementBanner.jsx` |
+| Channel tab (search, shopping, meta, youtube, ugc, retargeting) | Ad-to-Landing page | `tab_switched/ad_channel_<key>` | — | `src/components/cro/ChannelShowcase.jsx` |

@@ -264,6 +264,68 @@ export const SERVICES = [
       "Shape the community narrative",
     ],
   },
+  {
+    slug: "conversion-rate-optimization",
+    name: "Conversion Rate Optimization",
+    role: "CRO",
+    tagline: "New · Built for e-commerce",
+    iconFile: "optimizer-agent", // header/related icon (reuses an existing S3 asset)
+    metaTitle: "Conversion Rate Optimization for E-commerce | Geobuild",
+    metaDescription:
+      "Geobuild reviews session recordings of your product pages, finds what stops customers from buying, and implements the fixes. CRO built for e-commerce brands.",
+    short: "Find out why shoppers leave your product pages, then fix it",
+    desc: "We watch session recordings of your product pages, find the pain points that stop customers from buying, and implement and test the fixes with you.",
+    features: [
+      {
+        title: "Watch the session recordings",
+        desc: "See how real shoppers use your product page: where they click, hesitate and leave.",
+        body: "We review session recordings of real shoppers on your product page. We see where they click, where they hesitate, what they scroll past and the moment they leave.",
+        why: [
+          "You see what customers actually do, not what you assume",
+          "Friction that never shows in a dashboard becomes visible",
+        ],
+        cta: "See your shoppers' sessions",
+      },
+      {
+        title: "Find the pain points",
+        desc: "A ranked list of what stops customers from buying that product.",
+        body: "We turn what we see into a ranked list of pain points for that particular product page, so you know which problems cost you the most orders.",
+        why: [
+          "You fix the biggest problems first",
+          "Every finding is backed by real sessions",
+        ],
+        cta: "Find your pain points",
+      },
+      {
+        title: "Get the insights",
+        desc: "Clear recommendations on what to change, in priority order.",
+        body: "You get specific recommendations on what to change on the page, ordered by impact and effort, with a human strategist reviewing every one.",
+        why: [
+          "No guesswork about what to change",
+          "A strategist signs off before anything ships",
+        ],
+        cta: "Get your insights",
+      },
+      {
+        title: "Implement and test",
+        desc: "We make the changes and test them against your current page.",
+        body: "We implement the changes and test them against your current page, so you keep what wins and drop what doesn't.",
+        why: [
+          "Changes are proven before they stay",
+          "You get the fixes shipped, not just a report",
+        ],
+        cta: "Start testing",
+      },
+    ],
+    why: "You already paid for the traffic. CRO makes sure more of those visitors become orders, starting with the evidence of why they leave.",
+    does: [
+      "Review session recordings of your product pages",
+      "Find the pain points that stop purchases",
+      "Implement and test the changes",
+    ],
+    // No related cards or closing CTA band on this page.
+    standalone: true,
+  },
 ];
 
 export function getService(slug) {

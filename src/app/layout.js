@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeVars from "@/components/theme/ThemeVars";
 import MixpanelProvider from "@/components/analytics/MixpanelProvider";
 import { BookDemoProvider } from "@/components/demo/BookDemoProvider";
+import AnnouncementBanner from "@/components/layout/AnnouncementBanner";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }) {
         <ThemeVars />
         <MixpanelProvider />
         <BookDemoProvider>
+          <AnnouncementBanner />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

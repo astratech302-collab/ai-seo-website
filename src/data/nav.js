@@ -2,6 +2,7 @@
 // read from here so the two never drift. Link builders derive from agents/services data.
 import { AGENTS } from "@/data/agents";
 import { SERVICES } from "@/data/services";
+import { ADS_NAV } from "@/data/cro";
 
 export const agentHref = (slug) => `/agents/${slug}`;
 export const serviceHref = (slug) => `/services/${slug}`;
@@ -40,7 +41,10 @@ export const PROMO = {
 export const FOOTER_COLS = [
   {
     heading: "Product",
-    links: AGENTS.map((a) => ({ label: a.name, href: agentHref(a.slug) })),
+    links: [
+      ...AGENTS.map((a) => ({ label: a.name, href: agentHref(a.slug) })),
+      { label: ADS_NAV.name, href: ADS_NAV.href },
+    ],
   },
   {
     heading: "Services",

@@ -3,16 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
-import { GradientDefs, EngineLogo } from "@/components/brand/EngineLogo";
+import { GradientDefs } from "@/components/brand/EngineLogo";
 import { AGENTS, AGENT_ICONS } from "@/data/agents";
-import { ENGINES } from "@/data/engines";
-import { RESOURCES, PROMO, agentHref, serviceHref } from "@/data/nav";
+import { RESOURCES, agentHref, serviceHref } from "@/data/nav";
 import { SERVICES } from "@/data/services";
+import { ADS_NAV } from "@/data/cro";
 import { ASSET_BASE } from "@/config/site";
-
-// Subtle film-grain overlay for the promo cards (no image asset needed).
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 /* ---- shared bits ---------------------------------------------------------- */
 
@@ -79,6 +75,7 @@ const SERVICE_TILE_IMG = {
   "ai-seo": `${ASSET_BASE}/ai-seo.png`,
   "technical-seo": `${ASSET_BASE}/technical-seo.png`,
   "reddit-marketing": `${ASSET_BASE}/reddit-marketing.png`,
+  "conversion-rate-optimization": `${ASSET_BASE}/optimizer-agent.png`, // reuses an existing icon
 };
 
 // Resources dropdown icons (label → png on S3).
@@ -86,99 +83,6 @@ const RESOURCE_TILE_IMG = {
   Blog: `${ASSET_BASE}/blog.png`,
   FAQ: `${ASSET_BASE}/faq.png`,
 };
-
-function PromoCard({ promo }) {
-  return (
-    <Link
-      href={promo.href}
-      className="bg-grad"
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "var(--r, 16px)",
-        padding: 24,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        minHeight: 240,
-        color: "#fff",
-        textDecoration: "none",
-        boxShadow: "var(--shadow-orange)",
-      }}
-    >
-      <span
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: GRAIN,
-          opacity: 0.16,
-          mixBlendMode: "overlay",
-          pointerEvents: "none",
-        }}
-      />
-      <div style={{ position: "relative" }}>
-        <span
-          className="mono"
-          style={{
-            fontSize: 11,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            opacity: 0.85,
-          }}
-        >
-          {promo.eyebrow}
-        </span>
-        <div
-          style={{
-            fontSize: 22,
-            fontWeight: 700,
-            letterSpacing: "-0.02em",
-            marginTop: 12,
-            lineHeight: 1.15,
-          }}
-        >
-          {promo.title}
-        </div>
-        <p style={{ fontSize: 13.5, lineHeight: 1.55, marginTop: 10, opacity: 0.92 }}>
-          {promo.blurb}
-        </p>
-      </div>
-      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <span
-          style={{
-            display: "inline-flex",
-            gap: 8,
-            padding: 8,
-            borderRadius: 10,
-            background: "rgba(255,255,255,0.16)",
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          {ENGINES.slice(0, 4).map((e) => (
-            <span
-              key={e}
-              style={{
-                width: 22,
-                height: 22,
-                borderRadius: 6,
-                background: "#fff",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <EngineLogo name={e} size={13} />
-            </span>
-          ))}
-        </span>
-        <span style={{ fontSize: 13.5, fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 6 }}>
-          {promo.cta} <span className="arr">→</span>
-        </span>
-      </div>
-    </Link>
-  );
-}
 
 function MenuLink({ href, title, desc, glyph, img, imgScale, onClick }) {
   const tileAlt = img ? `${title} icon` : "";
@@ -231,9 +135,10 @@ function ProductPanel({ onNav }) {
             />
           ))}
         </div>
-      </div>
-      <div className="mega-promo">
-        <PromoCard promo={PROMO.product} />
+        <div className="mega-eyebrow" style={{ marginTop: 14 }}>Products</div>
+        <div className="mega-col-2">
+          <MenuLink href={ADS_NAV.href} title={ADS_NAV.name} desc={ADS_NAV.short} glyph={ADS_NAV.role.slice(0, 1)} img={AGENT_TILE_IMG["content-agent"]} onClick={onNav} />
+        </div>
       </div>
     </div>
   );
@@ -257,9 +162,6 @@ function ServicesPanel({ onNav }) {
             />
           ))}
         </div>
-      </div>
-      <div className="mega-promo">
-        <PromoCard promo={PROMO.services} />
       </div>
     </div>
   );
@@ -425,10 +327,7 @@ export default function Header() {
         @keyframes megaIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
         .mega-card-sm { max-width: 320px; padding: 14px; margin-left: 372px; }
 
-        .mega-grid { display: grid; grid-template-columns: 2fr 1.15fr; gap: 30px; align-items: start; }
-        .mega-features { grid-column: 1 / 2; }
-        .mega-services { grid-column: 1 / 2; }
-        .mega-promo { grid-column: 2 / 3; }
+        .mega-grid { display: grid; grid-template-columns: 1fr; align-items: start; }
         .mega-col-2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; row-gap: 6px; }
         .mega-eyebrow {
           font-size: 12.5px; font-weight: 600;
@@ -440,11 +339,6 @@ export default function Header() {
 
         .hdr-burger { display: none; }
 
-        @media (max-width: 900px) {
-          .mega-grid { grid-template-columns: 1fr 1fr; }
-          .mega-promo { display: none; }
-          .mega-features, .mega-services { grid-column: 1 / 3; }
-        }
         @media (max-width: 820px) {
           .hdr-nav { display: none !important; }
           .hdr-cta { display: none !important; }
@@ -493,6 +387,7 @@ function MobileDrawer({ onClose }) {
           {AGENTS.map((a) => (
             <MdRow key={a.slug} href={agentHref(a.slug)} label={a.name} onClose={onClose} />
           ))}
+          <MdRow href={ADS_NAV.href} label={ADS_NAV.name} onClose={onClose} />
         </MdAcc>
         <MdAcc id="services" title="Services" open={section === "services"} onToggle={toggle}>
           {SERVICES.map((s) => (

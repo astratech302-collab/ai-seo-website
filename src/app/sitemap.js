@@ -2,6 +2,7 @@ import { SITE_URL } from "@/config/site";
 import { AGENTS } from "@/data/agents";
 import { SERVICES } from "@/data/services";
 import { getAllPosts } from "@/data/blog";
+import { ADS_PATH } from "@/data/cro";
 
 export default async function sitemap() {
   const now = new Date();
@@ -11,6 +12,7 @@ export default async function sitemap() {
     { path: "/pricing", changeFrequency: "monthly", priority: 0.8 },
     { path: "/contact-us", changeFrequency: "monthly", priority: 0.6 },
     { path: "/blog", changeFrequency: "weekly", priority: 0.6 },
+    { path: ADS_PATH, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const agentRoutes = AGENTS.map((a) => ({
