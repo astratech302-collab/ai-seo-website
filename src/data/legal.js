@@ -1,4 +1,4 @@
-// Legal copy for /privacy and /terms. Content is data: each section is
+// Legal copy for /privacy-policy and /terms-and-conditions. Content is data: each section is
 // { id, title, body: [string | { list: string[] }] }. Operator identity comes from
 // LEGAL in config/site.js so it can be swapped when the company is registered.
 import { ORG_NAME, LEGAL, SITE_URL } from "@/config/site";
@@ -7,7 +7,7 @@ const who = `${ORG_NAME}, operated by ${LEGAL.operator} (${LEGAL.entityType})`;
 const mail = LEGAL.email;
 
 export const PRIVACY = {
-  path: "/privacy",
+  path: "/privacy-policy",
   title: "Privacy Policy — How Geobuild Handles Your Data | Geobuild",
   description:
     "How Geobuild collects, uses and protects personal data, including Google Ads and Meta account data you connect, and how to access, correct or delete it.",
@@ -144,7 +144,7 @@ export const PRIVACY = {
 };
 
 export const TERMS = {
-  path: "/terms",
+  path: "/terms-and-conditions",
   title: "Terms of Service — Using Geobuild's Site & Services | Geobuild",
   description:
     "The terms that apply when you use the Geobuild website and our agent-run AEO, GEO and SEO services, including connecting ad accounts and booking demos.",

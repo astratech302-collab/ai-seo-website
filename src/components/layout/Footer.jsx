@@ -118,7 +118,7 @@ export default function Footer() {
         </span>
         <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
           <Link
-            href="/privacy"
+            href="/privacy-policy"
             className="foot-link"
             style={{ color: "inherit", textDecoration: "none" }}
             onClick={() => track("link_clicked/privacy_link_footer")}
@@ -127,7 +127,7 @@ export default function Footer() {
           </Link>
           {" · "}
           <Link
-            href="/terms"
+            href="/terms-and-conditions"
             className="foot-link"
             style={{ color: "inherit", textDecoration: "none" }}
             onClick={() => track("link_clicked/terms_link_footer")}

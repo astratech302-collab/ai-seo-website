@@ -13,8 +13,8 @@ export default async function sitemap() {
     { path: "/contact-us", changeFrequency: "monthly", priority: 0.6 },
     { path: "/blog", changeFrequency: "weekly", priority: 0.6 },
     { path: ADS_PATH, changeFrequency: "monthly", priority: 0.8 },
-    { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
-    { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/terms-and-conditions", changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const agentRoutes = AGENTS.map((a) => ({
