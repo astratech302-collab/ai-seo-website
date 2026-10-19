@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BrandMark } from "@/components/brand/BrandMark";
 import { FOOTER_COLS } from "@/data/nav";
 import { track } from "@/lib/track";
-import { SOCIAL_LINKS } from "@/config/site";
+import { SOCIAL_LINKS, ORG_NAME } from "@/config/site";
 
 const SOCIALS = [
   {
@@ -114,10 +114,26 @@ export default function Footer() {
         }}
       >
         <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
-          © 2026 Geobuild, Inc.
+          © 2026 {ORG_NAME}
         </span>
         <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
-          Privacy · Terms
+          <Link
+            href="/privacy"
+            className="foot-link"
+            style={{ color: "inherit", textDecoration: "none" }}
+            onClick={() => track("link_clicked/privacy_link_footer")}
+          >
+            Privacy
+          </Link>
+          {" · "}
+          <Link
+            href="/terms"
+            className="foot-link"
+            style={{ color: "inherit", textDecoration: "none" }}
+            onClick={() => track("link_clicked/terms_link_footer")}
+          >
+            Terms
+          </Link>
         </span>
       </div>
 

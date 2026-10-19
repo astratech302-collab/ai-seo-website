@@ -27,3 +27,17 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/geobuild-ai",
   twitter: "https://x.com/geobuildai",
 };
+
+// Legal identity for the Terms of Service + Privacy Policy. Geobuild is not yet a
+// registered company, so these name the individual operating it. When the company
+// is incorporated, update `operator` / `entityType` / `address` here and both
+// pages (and their JSON-LD) update automatically.
+export const LEGAL = {
+  operator: "Karan Jain",
+  entityType: "sole proprietor",
+  email: "karan@geobuild.in",
+  country: "India",
+  governingLaw: "the laws of India",
+  effectiveDate: "2026-10-19",
+  effectiveDateLabel: "October 19, 2026",
+};

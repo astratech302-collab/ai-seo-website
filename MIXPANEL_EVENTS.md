@@ -45,3 +45,5 @@ initializes in production builds only).
 | Dismiss (×) | Announcement banner | `button_clicked/dismiss_announcement_banner` | — | `src/components/layout/AnnouncementBanner.jsx` |
 | Banner link | Announcement banner | `link_clicked/cro_announcement_banner` | — | `src/components/layout/AnnouncementBanner.jsx` |
 | Channel tab (search, shopping, meta, youtube, ugc, retargeting) | Ad-to-Landing page | `tab_switched/ad_channel_<key>` | — | `src/components/cro/ChannelShowcase.jsx` |
+| Privacy link | Footer | `link_clicked/privacy_link_footer` | — | `src/components/layout/Footer.jsx` |
+| Terms link | Footer | `link_clicked/terms_link_footer` | — | `src/components/layout/Footer.jsx` |
