@@ -45,3 +45,7 @@ next-env.d.ts
 /roobert-font-family.zip
 /audits/
 /.claude/
+
+# google-ads-mapper local artifacts
+/google-ads-mapper/.venv/
+/google-ads-mapper/var/
