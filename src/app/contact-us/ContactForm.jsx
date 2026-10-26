@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { CALENDLY_URL } from "@/config/site";
+import { CALENDLY_URL, AI_SEO_ENABLED } from "@/config/site";
 
 // Accepts bare domains (acme.com), www., and full URLs with optional path/query.
 // Scheme is optional in input but normalised to https:// before sending to the API.
@@ -258,12 +258,14 @@ export default function ContactForm() {
                   color: "var(--ink)",
                 }}
               >
-                Tell us about your brand
+                {AI_SEO_ENABLED ? "Tell us about your brand" : "Tell us about your Shopify store"}
               </h1>
 <div style={{ marginTop: 36, display: "flex", flexDirection: "column", gap: 14 }}>
                 {[
                   "30-minute focused strategy session",
-                  "We audit your AI visibility beforehand",
+                  AI_SEO_ENABLED
+                    ? "We audit your AI visibility beforehand"
+                    : "We review your ads and product pages beforehand",
                   "No sales pressure — just a real plan",
                   "Free for qualified brands",
                 ].map((item) => (

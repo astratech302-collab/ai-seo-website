@@ -32,6 +32,8 @@ initializes in production builds only).
 | Ask Gemini | Final CTA | `button_clicked/ask_gemini_final_cta` | — | `src/components/sections/AskEngines.jsx` |
 | Ask Perplexity | Final CTA | `button_clicked/ask_perplexity_final_cta` | — | `src/components/sections/AskEngines.jsx` |
 | Book a demo | Final CTA | `button_clicked/book_demo_final_cta` | — | `src/components/sections/FinalCTA.jsx` |
+| Book a demo | Hero (CRO home) | `button_clicked/book_demo_hero` | — | `src/components/sections/HeroCro.jsx` |
+| See how it works | Hero (CRO home) | `link_clicked/see_how_it_works_hero` | — | `src/components/sections/HeroCro.jsx` |
 | Get a free AI audit | Final CTA | `button_clicked/get_ai_audit_final_cta` | — | `src/components/sections/FinalCTA.jsx` |
 | Agent card | System section | `button_clicked/agent_card_system` | `{ agent }` — agent slug | `src/components/sections/SystemSection.jsx` |
 | Blog card | Blog index | `link_clicked/blog_card_blog_index` | `{ slug }` | `src/components/blog/BlogCard.jsx` |

@@ -8,7 +8,7 @@ import BookDemoButton from "@/components/demo/BookDemoButton";
 const SUB =
   "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.";
 
-function GlowBg() {
+export function GlowBg() {
   return (
     <div
       aria-hidden

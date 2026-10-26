@@ -8,16 +8,18 @@ import RelatedPosts from "@/components/blog/RelatedPosts";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/data/blog";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, AI_SEO_ENABLED } from "@/config/site";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
+  if (!AI_SEO_ENABLED) return [];
   const posts = await getAllPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }) {
+  if (!AI_SEO_ENABLED) return {};
   const { slug } = await params;
   const posts = await getAllPosts();
   const post = getPostBySlug(posts, slug);
@@ -46,6 +48,7 @@ function Avatar({ author }) {
 }
 
 export default async function BlogPostPage({ params }) {
+  if (!AI_SEO_ENABLED) notFound();
   const { slug } = await params;
   const posts = await getAllPosts();
   const post = getPostBySlug(posts, slug);

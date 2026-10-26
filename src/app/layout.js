@@ -11,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import ScrollToTop from "@/components/util/ScrollToTop";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, AI_SEO_ENABLED, ORG_DESCRIPTION } from "@/config/site";
 
 const roobert = localFont({
   variable: "--font-sans",
@@ -30,9 +30,12 @@ export const metadata = {
   // metadataBase lets every page emit an absolute canonical from a relative
   // `alternates.canonical` path (see each page's metadata).
   metadataBase: new URL(SITE_URL),
-  title: "Geobuild — Be the Brand AI Recommends | AEO, GEO & SEO",
-  description:
-    "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity.",
+  title: AI_SEO_ENABLED
+    ? "Geobuild — Be the Brand AI Recommends | AEO, GEO & SEO"
+    : "Geobuild — Hyperpersonalization at Scale for Shopify Stores",
+  description: AI_SEO_ENABLED
+    ? "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity."
+    : ORG_DESCRIPTION,
   alternates: { canonical: "/" },
 };
 
@@ -50,7 +53,8 @@ export default function RootLayout({ children }) {
         <ThemeVars />
         <MixpanelProvider />
         <BookDemoProvider>
-          <AnnouncementBanner />
+          {/* "New: CRO" banner is stale now that CRO is the whole product. Re-enable by flipping AI_SEO_ENABLED. */}
+          {AI_SEO_ENABLED && <AnnouncementBanner />}
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

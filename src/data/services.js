@@ -1,9 +1,11 @@
+import { AI_SEO_ENABLED } from "@/config/site";
+
 // The services Geobuild sells. Same shape as agents (data/agents.js) so the shared
 // DetailPage template renders both uniformly. Edit copy here — not in components.
 //
 // Service pages: hero (name + short + desc) → whyRequired (3 stat pointers) →
 // feature zigzag (features[] with body/why/cta + mockups) → why → related → CTA.
-export const SERVICES = [
+export const ALL_SERVICES = [
   {
     slug: "answer-engine-optimization",
     name: "Answer Engine Optimization",
@@ -268,11 +270,11 @@ export const SERVICES = [
     slug: "conversion-rate-optimization",
     name: "Conversion Rate Optimization",
     role: "CRO",
-    tagline: "New · Built for e-commerce",
+    tagline: "Built for Shopify stores",
     iconFile: "optimizer-agent", // header/related icon (reuses an existing S3 asset)
-    metaTitle: "Conversion Rate Optimization for E-commerce | Geobuild",
+    metaTitle: "Conversion Rate Optimization for Shopify | Geobuild",
     metaDescription:
-      "Geobuild reviews session recordings of your product pages, finds what stops customers from buying, and implements the fixes. CRO built for e-commerce brands.",
+      "Geobuild reviews session recordings of your product pages, finds what stops customers from buying, and implements the fixes. CRO built for Shopify stores.",
     short: "Find out why shoppers leave your product pages, then fix it",
     desc: "We watch session recordings of your product pages, find the pain points that stop customers from buying, and implement and test the fixes with you.",
     features: [
@@ -327,6 +329,12 @@ export const SERVICES = [
     standalone: true,
   },
 ];
+
+// Only CRO is live while AI_SEO_ENABLED is false; the AEO/GEO/SEO services stay in
+// ALL_SERVICES but are hidden from nav, sitemap and routes.
+export const SERVICES = AI_SEO_ENABLED
+  ? ALL_SERVICES
+  : ALL_SERVICES.filter((s) => s.slug === "conversion-rate-optimization");
 
 export function getService(slug) {
   return SERVICES.find((s) => s.slug === slug) || null;

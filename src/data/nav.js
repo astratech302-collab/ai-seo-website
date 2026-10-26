@@ -3,19 +3,23 @@
 import { AGENTS } from "@/data/agents";
 import { SERVICES } from "@/data/services";
 import { ADS_NAV } from "@/data/cro";
+import { AI_SEO_ENABLED } from "@/config/site";
 
 export const agentHref = (slug) => `/agents/${slug}`;
 export const serviceHref = (slug) => `/services/${slug}`;
 
 // Product mega-menu: Strategy (lead) is featured, the rest are the specialist grid.
-export const FEATURED_AGENT = AGENTS.find((a) => a.lead) || AGENTS[0];
+export const FEATURED_AGENT = AGENTS.find((a) => a.lead) || AGENTS[0] || null;
 export const SPECIALIST_AGENTS = AGENTS.filter((a) => !a.lead);
 
 // Resources dropdown.
-export const RESOURCES = [
-  { label: "Blog", href: "/blog", desc: "Playbooks on AEO, GEO and AI search." },
-  { label: "FAQ", href: "/pricing#faq", desc: "Answers to the questions we hear most." },
-];
+// Blog + FAQ (pricing page) are AI-SEO content, hidden with the flag.
+export const RESOURCES = AI_SEO_ENABLED
+  ? [
+      { label: "Blog", href: "/blog", desc: "Playbooks on AEO, GEO and AI search." },
+      { label: "FAQ", href: "/pricing#faq", desc: "Answers to the questions we hear most." },
+    ]
+  : [];
 
 // Promo cards shown on the right of each mega-menu.
 export const PROMO = {
@@ -32,7 +36,7 @@ export const PROMO = {
     title: "AEO · GEO · SEO, run end to end",
     blurb:
       "From answer-engine content to Reddit and technical foundations — one team, one system.",
-    href: serviceHref(SERVICES[0].slug),
+    href: serviceHref(SERVICES[0]?.slug ?? ""),
     cta: "Explore services",
   },
 };
@@ -58,7 +62,7 @@ export const FOOTER_COLS = [
     heading: "Company",
     links: [
       { label: "Contact", href: "/contact-us" },
-      { label: "Pricing", href: "/pricing" },
+      ...(AI_SEO_ENABLED ? [{ label: "Pricing", href: "/pricing" }] : []),
     ],
   },
-];
+].filter((col) => col.links.length > 0);

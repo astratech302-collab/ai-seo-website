@@ -1,8 +1,10 @@
+import { AI_SEO_ENABLED } from "@/config/site";
+
 // The agent team. One Strategy orchestrator + four specialists.
 //
 // Landing page (SystemSection) uses: name, role, short, desc, does[].
 // Agent detail pages additionally use: tagline, how{heading,sub}, features[{title,desc}], why.
-export const AGENTS = [
+export const ALL_AGENTS = [
   {
     code: "A-00",
     slug: "strategy-agent",
@@ -305,6 +307,9 @@ export const AGENTS = [
     ],
   },
 ];
+
+// The AI-SEO agent team is hidden while AI_SEO_ENABLED is false (kept in ALL_AGENTS).
+export const AGENTS = AI_SEO_ENABLED ? ALL_AGENTS : [];
 
 // Glyph per agent, used by the agent grid + system viz.
 export const AGENT_ICONS = {

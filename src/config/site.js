@@ -19,8 +19,17 @@ export const ASSET_BASE =
 // Organization identity — single source of truth for the footer, structured data
 // (JSON-LD), and anywhere else the brand's canonical details are needed.
 export const ORG_NAME = "Geobuild";
-export const ORG_DESCRIPTION =
+
+// Product pivot switch. The site is now Shopify-only CRO / hyperpersonalization.
+// All AEO / GEO / SEO surfaces (agents, SEO services, blog, pricing, AI-audit copy)
+// are kept in the code but hidden while this is false. Flip to true to bring them back.
+export const AI_SEO_ENABLED = false;
+
+export const AI_SEO_ORG_DESCRIPTION =
   "Geobuild runs AEO, GEO and SEO with a team of AI agents and a human strategist making the final call — so your brand becomes the answer ChatGPT, Claude, Gemini and Perplexity recommend.";
+export const CRO_ORG_DESCRIPTION =
+  "Geobuild turns every ad click into a landing page made for that shopper. Hyperpersonalization at scale, built for Shopify stores.";
+export const ORG_DESCRIPTION = AI_SEO_ENABLED ? AI_SEO_ORG_DESCRIPTION : CRO_ORG_DESCRIPTION;
 
 // Official social profiles (used by the footer + Organization `sameAs`).
 export const SOCIAL_LINKS = {

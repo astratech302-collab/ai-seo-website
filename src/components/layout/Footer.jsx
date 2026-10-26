@@ -140,7 +140,7 @@ export default function Footer() {
       <style>{`
         .foot-grid {
           display: grid;
-          grid-template-columns: 1.6fr repeat(4, 1fr);
+          grid-template-columns: 1.6fr repeat(${FOOTER_COLS.length}, 1fr);
           gap: 40px;
         }
         .foot-link:hover { color: var(--ink) !important; }

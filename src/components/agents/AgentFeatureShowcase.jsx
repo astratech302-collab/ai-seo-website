@@ -12,7 +12,8 @@ import AISEARCH_MOCKS, { AiSearchMockStyles, AiSearchHeroMock } from "./mockups/
 import TECH_MOCKS, { TechnicalSeoMockStyles, TechnicalSeoHeroMock } from "./mockups/technicalseo";
 import REDDIT_MOCKS, { RedditMockStyles, RedditHeroMock } from "./mockups/reddit";
 import CRO_MOCKS, { CroMockStyles, CroHeroMock } from "./mockups/cro";
-import AD_MOCKS, { AdLandingMockStyles, AdsHeroMock } from "./mockups/adlanding";
+import AD_MOCKS, { AdLandingMockStyles, AdsHeroMock, BuildMock } from "./mockups/adlanding";
+import { IntentMock, SegmentMock, WidgetMock, HyperMockStyles } from "./mockups/personalize";
 
 /** Hero-media registry: the overview product screen shown beside the hero copy. */
 const HERO = {
@@ -87,6 +88,7 @@ const REGISTRY = {
   "reddit-marketing": { mocks: REDDIT_MOCKS, styles: [RedditMockStyles] },
   "conversion-rate-optimization": { mocks: CRO_MOCKS, styles: [CroMockStyles] },
   "ad-to-landing-pages": { mocks: AD_MOCKS, styles: [AdLandingMockStyles] },
+  hyperpersonalization: { mocks: [IntentMock, SegmentMock, WidgetMock, BuildMock], styles: [HyperMockStyles] },
 };
 
 export function hasShowcase(slug) {

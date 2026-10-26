@@ -8,7 +8,7 @@ import { AGENTS, AGENT_ICONS } from "@/data/agents";
 import { RESOURCES, agentHref, serviceHref } from "@/data/nav";
 import { SERVICES } from "@/data/services";
 import { ADS_NAV } from "@/data/cro";
-import { ASSET_BASE } from "@/config/site";
+import { ASSET_BASE, AI_SEO_ENABLED } from "@/config/site";
 
 /* ---- shared bits ---------------------------------------------------------- */
 
@@ -121,21 +121,25 @@ function ProductPanel({ onNav }) {
   return (
     <div className="mega-grid">
       <div className="mega-features mega-services">
-        <div className="mega-eyebrow">Agents</div>
-        <div className="mega-col-2">
-          {AGENTS.map((a) => (
-            <MenuLink
-              key={a.slug}
-              href={agentHref(a.slug)}
-              title={a.name}
-              desc={a.short}
-              glyph={AGENT_ICONS[a.code]}
-              img={AGENT_TILE_IMG[a.slug]}
-              onClick={onNav}
-            />
-          ))}
-        </div>
-        <div className="mega-eyebrow" style={{ marginTop: 14 }}>Products</div>
+        {AGENTS.length > 0 && (
+          <>
+            <div className="mega-eyebrow">Agents</div>
+            <div className="mega-col-2">
+              {AGENTS.map((a) => (
+                <MenuLink
+                  key={a.slug}
+                  href={agentHref(a.slug)}
+                  title={a.name}
+                  desc={a.short}
+                  glyph={AGENT_ICONS[a.code]}
+                  img={AGENT_TILE_IMG[a.slug]}
+                  onClick={onNav}
+                />
+              ))}
+            </div>
+          </>
+        )}
+        <div className="mega-eyebrow" style={AGENTS.length > 0 ? { marginTop: 14 } : undefined}>Products</div>
         <div className="mega-col-2">
           <MenuLink href={ADS_NAV.href} title={ADS_NAV.name} desc={ADS_NAV.short} glyph={ADS_NAV.role.slice(0, 1)} img={AGENT_TILE_IMG["content-agent"]} onClick={onNav} />
         </div>
@@ -176,6 +180,9 @@ function ResourcesPanel({ onNav }) {
     </div>
   );
 }
+
+// Resources (blog + FAQ) is AI-SEO content and is empty while the flag is off.
+const NAV_MENUS = ["Product", "Services", ...(RESOURCES.length > 0 ? ["Resources"] : [])];
 
 const MENUS = {
   Product: ProductPanel,
@@ -246,7 +253,7 @@ export default function Header() {
             <BrandMark />
 
             <nav className="hdr-nav" style={{ display: "flex", gap: 4 }}>
-              {["Product", "Services", "Resources"].map((name) => (
+              {NAV_MENUS.map((name) => (
                 <button
                   key={name}
                   type="button"
@@ -260,9 +267,11 @@ export default function Header() {
                   <Caret open={open === name} />
                 </button>
               ))}
-              <Link href="/pricing" className="hdr-trigger" onMouseEnter={scheduleClose}>
-                Pricing
-              </Link>
+              {AI_SEO_ENABLED && (
+                <Link href="/pricing" className="hdr-trigger" onMouseEnter={scheduleClose}>
+                  Pricing
+                </Link>
+              )}
             </nav>
           </div>
 
@@ -394,14 +403,18 @@ function MobileDrawer({ onClose }) {
             <MdRow key={s.slug} href={serviceHref(s.slug)} label={s.name} onClose={onClose} />
           ))}
         </MdAcc>
-        <MdAcc id="resources" title="Resources" open={section === "resources"} onToggle={toggle}>
-          {RESOURCES.map((r) => (
-            <MdRow key={r.label} href={r.href} label={r.label} onClose={onClose} />
-          ))}
-        </MdAcc>
-        <Link href="/pricing" onClick={onClose} className="md-acc" style={{ display: "flex" }}>
-          Pricing
-        </Link>
+        {RESOURCES.length > 0 && (
+          <MdAcc id="resources" title="Resources" open={section === "resources"} onToggle={toggle}>
+            {RESOURCES.map((r) => (
+              <MdRow key={r.label} href={r.href} label={r.label} onClose={onClose} />
+            ))}
+          </MdAcc>
+        )}
+        {AI_SEO_ENABLED && (
+          <Link href="/pricing" onClick={onClose} className="md-acc" style={{ display: "flex" }}>
+            Pricing
+          </Link>
+        )}
         <Link
           href="/contact-us"
           onClick={onClose}

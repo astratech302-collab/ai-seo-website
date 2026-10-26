@@ -1,4 +1,4 @@
-// Content for the e-commerce CRO launch. Edit copy here — not in components.
+// Content for the Shopify-only CRO / hyperpersonalization product. Edit copy here — not in components.
 //   - CRO service lives in data/services.js (slug: conversion-rate-optimization)
 //   - Ad-to-Landing product page → /products/ad-to-landing-pages (below)
 // Store, ads and numbers inside mockups are fictional.
@@ -9,7 +9,7 @@ export const ADS_PATH = "/products/ad-to-landing-pages";
 // Top-of-site announcement banner.
 export const BANNER = {
   label: "New Service",
-  text: "Conversion Rate Optimization for E-commerce",
+  text: "Conversion Rate Optimization for Shopify",
   cta: "Learn more",
   href: CRO_PATH,
 };
@@ -28,12 +28,12 @@ export const ADS_PRODUCT = {
   slug: "ad-to-landing-pages",
   name: "Ad-to-Landing Pages",
   role: "ADS",
-  tagline: "New · Built for e-commerce",
+  tagline: "Built for Shopify stores",
   short: "A personalized landing page for every ad and channel you run",
   desc: "Connect your Meta and Google ad accounts. We read every ad, suggest what each page should say, and build a landing page that continues it.",
-  metaTitle: "Personalized Ad-to-Landing Pages for E-commerce | Geobuild",
+  metaTitle: "Personalized Ad-to-Landing Pages for Shopify | Geobuild",
   metaDescription:
-    "A dedicated landing page for every ad and channel you run. Geobuild matches each page to the ad that brought the visitor, so e-commerce clicks turn into orders.",
+    "A dedicated landing page for every ad and channel you run. Geobuild matches each page to the ad that brought the visitor, so Shopify clicks turn into orders.",
   features: [
     {
       title: "Connect your ad accounts",
@@ -78,6 +78,52 @@ export const ADS_PRODUCT = {
     },
   ],
   why: "You pay for every click. A landing page that matches the ad gives that click the best chance of becoming an order.",
+};
+
+// Homepage "How it works": hyperpersonalization across the whole visit, ending with
+// ad-matched landing pages. Same shape as ADS_PRODUCT so AgentFeatureShowcase renders it;
+// the mockups are registered under slug "hyperpersonalization".
+export const HYPER_PRODUCT = {
+  slug: "hyperpersonalization",
+  name: "Hyperpersonalization",
+  features: [
+    {
+      title: "We capture each visitor's intent",
+      desc: "Scrolls, views, clicks and source, as they happen.",
+      body: "We watch how every visitor behaves on your Shopify store: how far they scroll, which products they view, how long they stay and where they came from. Each signal tells us how close they are to buying.",
+      why: [
+        "You see intent, not just page views",
+        "Works for every visitor, from the first click",
+      ],
+    },
+    {
+      title: "We segment every visitor",
+      desc: "Enthusiastic, hesitant or just browsing, in real time.",
+      body: "From those signals we place each visitor in a segment, such as enthusiastic, hesitant or just browsing. The segment updates as they keep behaving, so it is never out of date.",
+      why: [
+        "Each shopper is treated by what they want now",
+        "You decide the segments and what they see",
+      ],
+    },
+    {
+      title: "We place widgets where they fit",
+      desc: "Dynamic widgets, shown to the right segment.",
+      body: "Place widgets anywhere on your store, such as a bundle offer, a free-shipping bar or a reviews carousel, and show each one only to the segment it works for.",
+      why: [
+        "The right offer reaches the right shopper",
+        "Add, move or switch off a widget any time",
+      ],
+    },
+    {
+      title: "We match every ad to its own page",
+      desc: "A landing page that continues the ad they clicked.",
+      body: "For visitors who arrive from ads, we build a landing page for each ad and channel, so the page continues the promise the ad made.",
+      why: [
+        "Visitors land on a page that continues the ad",
+        "Conversion rates increase by up to 40% for customers",
+      ],
+    },
+  ],
 };
 
 // Channel switcher content (ad-to-landing page). Fictional store: Dewlab / Glow Serum.

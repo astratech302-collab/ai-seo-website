@@ -1,6 +1,7 @@
 import Reveal from "@/components/motion/Reveal";
 import BookDemoButton from "@/components/demo/BookDemoButton";
 import AskEngines from "@/components/sections/AskEngines";
+import { AI_SEO_ENABLED } from "@/config/site";
 
 export default function FinalCTA() {
   return (
@@ -52,7 +53,7 @@ export default function FinalCTA() {
                   lineHeight: 1.05,
                 }}
               >
-                Be the answer AI gives.
+                {AI_SEO_ENABLED ? "Be the answer AI gives." : "Hyperpersonalization at scale."}
               </h2>
               <p
                 style={{
@@ -63,8 +64,9 @@ export default function FinalCTA() {
                   lineHeight: 1.55,
                 }}
               >
-                See exactly where your brand stands across ChatGPT, Claude and Gemini today — and the
-                plan to win the answers that matter.
+                {AI_SEO_ENABLED
+                  ? "See exactly where your brand stands across ChatGPT, Claude and Gemini today — and the plan to win the answers that matter."
+                  : "See what a landing page for every ad looks like on your Shopify store, and how many more clicks it can turn into orders."}
               </p>
               <div
                 style={{
@@ -80,22 +82,24 @@ export default function FinalCTA() {
                   className="btn btn-primary"
                   style={{ padding: "16px 30px", fontSize: 16 }}
                 />
-                <BookDemoButton
-                  label="Get a free AI audit"
-                  event="button_clicked/get_ai_audit_final_cta"
-                  showArrow={false}
-                  className="btn"
-                  style={{
-                    padding: "16px 28px",
-                    fontSize: 16,
-                    background: "rgba(255,255,255,0.08)",
-                    color: "#fff",
-                    border: "1px solid rgba(255,255,255,0.16)",
-                  }}
-                />
+                {AI_SEO_ENABLED && (
+                  <BookDemoButton
+                    label="Get a free AI audit"
+                    event="button_clicked/get_ai_audit_final_cta"
+                    showArrow={false}
+                    className="btn"
+                    style={{
+                      padding: "16px 28px",
+                      fontSize: 16,
+                      background: "rgba(255,255,255,0.08)",
+                      color: "#fff",
+                      border: "1px solid rgba(255,255,255,0.16)",
+                    }}
+                  />
+                )}
               </div>
 
-              <AskEngines />
+              {AI_SEO_ENABLED && <AskEngines />}
             </div>
           </div>
         </Reveal>

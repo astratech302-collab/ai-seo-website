@@ -1,8 +1,9 @@
+import { notFound } from "next/navigation";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { webPageSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
-import { PRICING_JSON_URL, FAQS_JSON_URL } from "@/config/site";
+import { PRICING_JSON_URL, FAQS_JSON_URL, AI_SEO_ENABLED } from "@/config/site";
 
 export const metadata = {
   title: "Pricing — Agent-Run AEO, GEO & SEO Plans | Geobuild",
@@ -37,6 +38,8 @@ async function getPricingFaqs() {
 }
 
 export default async function PricingPage() {
+  // AI-SEO pricing is hidden while the product is CRO-only (see AI_SEO_ENABLED).
+  if (!AI_SEO_ENABLED) notFound();
   const [pricingData, faqs] = await Promise.all([getPricingData(), getPricingFaqs()]);
 
   return (

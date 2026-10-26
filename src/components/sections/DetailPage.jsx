@@ -1,3 +1,4 @@
+import { AI_SEO_ENABLED } from "@/config/site";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import BookDemoButton from "@/components/demo/BookDemoButton";
@@ -129,9 +130,11 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
           <Reveal delay={220}>
             <div style={{ display: "flex", gap: 12, marginTop: 30, flexWrap: "wrap" }}>
               <BookDemoButton />
-              <Link href="/pricing" className="btn btn-ghost">
-                See pricing
-              </Link>
+              {AI_SEO_ENABLED && (
+                <Link href="/pricing" className="btn btn-ghost">
+                  See pricing
+                </Link>
+              )}
             </div>
           </Reveal>
             </div>

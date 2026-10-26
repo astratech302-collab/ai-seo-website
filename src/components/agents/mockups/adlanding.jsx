@@ -160,6 +160,7 @@ function BuildMock() {
   );
 }
 
+export { BuildMock };
 const AD_MOCKS = [ConnectMock, FetchMock, SuggestMock, BuildMock];
 export default AD_MOCKS;
 

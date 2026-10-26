@@ -1,8 +1,10 @@
+import { notFound } from "next/navigation";
 import Reveal from "@/components/motion/Reveal";
 import BlogGrid from "@/components/blog/BlogGrid";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 import { getAllPosts, getCategories } from "@/data/blog";
+import { AI_SEO_ENABLED } from "@/config/site";
 
 export const metadata = {
   title: "Blog — AEO, GEO & AI Search Playbooks | Geobuild",
@@ -14,6 +16,8 @@ export const metadata = {
 export const revalidate = 3600;
 
 export default async function BlogPage() {
+  // Blog is AEO/GEO content: hidden while the product is CRO-only (see AI_SEO_ENABLED).
+  if (!AI_SEO_ENABLED) notFound();
   const posts = await getAllPosts();
   const categories = getCategories(posts);
 
