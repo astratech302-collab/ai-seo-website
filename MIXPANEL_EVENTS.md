@@ -49,3 +49,7 @@ initializes in production builds only).
 | Channel tab (search, shopping, meta, youtube, ugc, retargeting) | Ad-to-Landing page | `tab_switched/ad_channel_<key>` | — | `src/components/cro/ChannelShowcase.jsx` |
 | Privacy link | Footer | `link_clicked/privacy_link_footer` | — | `src/components/layout/Footer.jsx` |
 | Terms link | Footer | `link_clicked/terms_link_footer` | — | `src/components/layout/Footer.jsx` |
+| Connect Google Ads | Google Ads page | `button_clicked/connect_google_ads_google_ads_page` | — | `src/app/google-ads/GoogleAdsConnect.jsx` |
+| Generate report | Google Ads page | `button_clicked/generate_report_google_ads_page` | accounts | `src/app/google-ads/GoogleAdsConnect.jsx` |
+| Disconnect | Google Ads page | `button_clicked/disconnect_google_ads_page` | — | `src/app/google-ads/GoogleAdsConnect.jsx` |
+| Download CSV | Google Ads page | `link_clicked/download_csv_google_ads_page` | — | `src/app/google-ads/GoogleAdsConnect.jsx` |
