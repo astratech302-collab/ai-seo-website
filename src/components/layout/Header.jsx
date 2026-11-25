@@ -8,6 +8,7 @@ import { AGENTS, AGENT_ICONS } from "@/data/agents";
 import { PRODUCT_LINKS, agentHref, serviceHref } from "@/data/nav";
 import ProductIcon from "@/components/brand/ProductIcon";
 import { SERVICES } from "@/data/services";
+import { CASE_STUDIES_PATH } from "@/data/caseStudies";
 import { track } from "@/lib/track";
 import { ASSET_BASE, AI_SEO_ENABLED } from "@/config/site";
 
@@ -168,10 +169,11 @@ function ServicesPanel({ onNav }) {
   );
 }
 
-// Order: Product, Services (menus), then Pricing and Blog (links).
+// Order: Product, Services (menus), then Pricing, Case studies and Blog (links).
 const NAV_MENUS = ["Product", "Services"];
 const NAV_LINKS = [
   { label: "Pricing", href: "/pricing", event: "link_clicked/pricing_header", mobileEvent: "link_clicked/pricing_mobile_menu" },
+  { label: "Case studies", href: CASE_STUDIES_PATH, event: "link_clicked/case-studies_header", mobileEvent: "link_clicked/case-studies_mobile_menu" },
   { label: "Blog", href: "/blog", event: "link_clicked/blog_header", mobileEvent: "link_clicked/blog_mobile_menu" },
 ];
 
@@ -358,6 +360,11 @@ export default function Header() {
         .hdr-burger { display: none; }
 
         @media (prefers-reduced-motion: reduce) { .hdr-bar { transition: none; } }
+        @media (max-width: 1040px) {
+          .hdr-bar { padding-inline: 24px; }
+          .hdr-center { gap: 0; }
+          .hdr-trigger { font-size: 14.5px; padding-inline: 8px; }
+        }
         @media (max-width: 880px) {
           .hdr-bar { padding-inline: 24px; }
           .is-float .hdr-bar { padding-inline: 18px 10px; }

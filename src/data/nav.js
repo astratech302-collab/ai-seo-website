@@ -5,6 +5,7 @@ import { SERVICES } from "@/data/services";
 import { ADS_NAV } from "@/data/cro";
 import { ONSITE_NAV } from "@/data/onsite";
 import { GROWTH_PRODUCTS } from "@/data/growth";
+import { CASE_STUDIES_PATH } from "@/data/caseStudies";
 
 export const agentHref = (slug) => `/agents/${slug}`;
 export const serviceHref = (slug) => `/services/${slug}`;
@@ -68,6 +69,7 @@ export const FOOTER_COLS = [
     links: [
       { label: "Contact", href: "/contact-us" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Case studies", href: CASE_STUDIES_PATH },
     ],
   },
 ].filter((col) => col.links.length > 0);

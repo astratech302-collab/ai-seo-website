@@ -5,6 +5,7 @@ import { getAllPosts } from "@/data/blog";
 import { ADS_PATH } from "@/data/cro";
 import { ONSITE_PATH } from "@/data/onsite";
 import { GROWTH_PRODUCTS } from "@/data/growth";
+import { CASE_STUDIES, CASE_STUDIES_PATH, caseStudyHref } from "@/data/caseStudies";
 
 export default async function sitemap() {
   const now = new Date();
@@ -14,6 +15,7 @@ export default async function sitemap() {
     { path: "/pricing", changeFrequency: "monthly", priority: 0.8 },
     { path: "/contact-us", changeFrequency: "monthly", priority: 0.6 },
     { path: "/blog", changeFrequency: "weekly", priority: 0.6 },
+    { path: CASE_STUDIES_PATH, changeFrequency: "monthly", priority: 0.6 },
     { path: ONSITE_PATH, changeFrequency: "monthly", priority: 0.8 },
     ...GROWTH_PRODUCTS.map((p) => ({ path: p.path, changeFrequency: "monthly", priority: 0.8 })),
     { path: ADS_PATH, changeFrequency: "monthly", priority: 0.8 },
@@ -33,6 +35,12 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
+  const caseStudyRoutes = CASE_STUDIES.map((c) => ({
+    path: caseStudyHref(c.slug),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   const posts = await getAllPosts();
   const blogRoutes = posts.map((p) => ({
     path: `/blog/${p.slug}`,
@@ -41,7 +49,7 @@ export default async function sitemap() {
     lastModified: p.updated || p.date,
   }));
 
-  return [...staticRoutes, ...agentRoutes, ...serviceRoutes, ...blogRoutes].map((r) => ({
+  return [...staticRoutes, ...agentRoutes, ...serviceRoutes, ...caseStudyRoutes, ...blogRoutes].map((r) => ({
     url: `${SITE_URL}${r.path}`,
     lastModified: r.lastModified ? new Date(r.lastModified) : now,
     changeFrequency: r.changeFrequency,

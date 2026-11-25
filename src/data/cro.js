@@ -144,7 +144,7 @@ export const CHANNELS = {
       label: "Google Shopping",
       expects: "The exact product, price and variant they saw.",
       changes: ["Product-first layout", "Price and size match the listing", "One clear add-to-cart"],
-      ad: { title: "Glow Serum, 30 ml", price: "$34.00", rating: "4.8 (2.1K)" },
+      ad: { title: "Glow Serum, 30 ml", price: "$34.00" },
       page: { image: "product", headline: "Glow Serum, 30 ml", sub: "The size and price from the listing, ready to buy.", chips: ["30 ml selected"], price: "$34" },
     },
     {
@@ -153,7 +153,7 @@ export const CHANNELS = {
       expects: "The hook or offer from the creative.",
       changes: ["Ad hook carried into the hero", "Lifestyle imagery", "Social proof early on the page"],
       ad: { cta: "Shop now", caption: "Your morning glow, in one drop. Meet Glow Serum." },
-      page: { image: "lifestyle", imagePos: "center 40%", headline: "Your morning glow, in one drop", sub: "Meet Glow Serum, as seen on Instagram.", chips: ["4.8 ★ reviews"], price: "$34" },
+      page: { image: "lifestyle", imagePos: "center 40%", headline: "Your morning glow, in one drop", sub: "Meet Glow Serum, as seen on Instagram.", chips: ["Customer reviews"], price: "$34" },
     },
     {
       key: "youtube",
@@ -169,7 +169,7 @@ export const CHANNELS = {
       expects: "The same feel as the video, in a page that loads fast.",
       changes: ["Creator-style hero that matches the video", "Fast, thumb-friendly mobile layout", "Real reviews and photos near the top"],
       ad: { cta: "Shop now", caption: "My 3-step morning routine. Link in bio." },
-      page: { image: "routine", imagePos: "center 30%", headline: "Mia's morning routine", quote: "“The only serum I reach for every day.”", sub: "Reviewed by 2,184 customers.", chips: ["Creator pick"], price: "$34" },
+      page: { image: "routine", imagePos: "center 30%", headline: "Mia's morning routine", sub: "The routine from the video, ready to shop.", chips: ["Creator pick"], price: "$34" },
     },
   ],
 };

@@ -3,7 +3,6 @@ import BlogGrid from "@/components/blog/BlogGrid";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 import { getAllPosts, getCategories } from "@/data/blog";
-import CloudSky from "@/components/hero/CloudSky";
 
 export const metadata = {
   title: "Blog — AI Visibility and AI Search Playbooks | Geobuild",
@@ -19,8 +18,7 @@ export default async function BlogPage() {
   const categories = getCategories(posts);
 
   return (
-    <section className="sky-panel" style={{ paddingBottom: 78 }}>
-      <CloudSky />
+    <section style={{ paddingBottom: 78 }}>
       <JsonLd
         schema={[
           blogSchema({

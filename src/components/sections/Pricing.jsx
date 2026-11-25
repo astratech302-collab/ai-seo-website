@@ -12,7 +12,7 @@ export default function Pricing({ plans = [] }) {
           eyebrow="Pricing"
           title="Plans that grow with your store."
           center
-          sub="Pick the volumes that fit your store, then book a demo for a quote."
+          sub="Pick the plan that fits your store, then book a demo for a quote."
         />
         <div
           className="price-grid"
@@ -152,6 +152,7 @@ export default function Pricing({ plans = [] }) {
         </div>
         <style>{`
           @media (max-width: 1024px){ .price-grid{ grid-template-columns: repeat(2,1fr) !important; } }
+          @media (min-width: 721px) and (max-width: 1024px){ .price-grid > :last-child:nth-child(odd){ grid-column: 1 / -1; } }
           @media (max-width: 720px){ .price-grid{ grid-template-columns: 1fr !important; } }
         `}</style>
       </div>

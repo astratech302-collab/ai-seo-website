@@ -8,17 +8,16 @@ export function AeoHeroMock() {
       <TrackedPromptsScreen
         title="AI visibility"
         meta="Where your brand shows up in AI answers"
-        badge="24 prompts"
         rows={[
-          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
-          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
+          { q: "best laptop backpack for commuting", pos: "", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
+          { q: "backpack under $80 for college", pos: "", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
           { q: "hiking backpack with bottle pocket", pos: "", brands: ["Trailco", "Packhaus"], cited: false },
         ]}
         compact
       />
       <div className="dash-float" style={{ right: -16, top: 70, width: 176 }}>
-        <div style={{ fontSize: 28, fontWeight: 800, color: "#1A9E63", letterSpacing: "-.02em" }}>+14</div>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 2 }}>new AI citations this month</p>
+        <Chip tone="green">✓ Cited</Chip>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>See which answers name your brand</p>
       </div>
     </MockStage>
   );
@@ -31,16 +30,15 @@ function MapMock() {
       <TrackedPromptsScreen
         title="Prompt map"
         meta="The high-intent questions worth winning"
-        badge="42 prompts"
         rows={[
-          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
+          { q: "best laptop backpack for commuting", pos: "", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
           { q: "hiking backpack with bottle pocket", pos: "", brands: ["Trailco", "Packhaus"], cited: false },
-          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
+          { q: "backpack under $80 for college", pos: "", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
         ]}
         compact
       />
       <div className="dash-float" style={{ right: -14, top: 70, width: 168 }}>
-        <Chip tone="amber">18 to win</Chip>
+        <Chip tone="amber">To win</Chip>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>High-intent prompts, ranked by opportunity</p>
       </div>
     </MockStage>
@@ -74,15 +72,15 @@ function CitationMock() {
         title="Citations"
         meta="Where your brand is named across engines"
         rows={[
-          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway"], cited: true },
-          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline"], cited: true },
-          { q: "hiking pack with bottle pocket", pos: "#3", brands: ["Trailco", "Northline"], cited: true },
+          { q: "best laptop backpack for commuting", pos: "", brands: ["Northline", "Peakway"], cited: true },
+          { q: "backpack under $80 for college", pos: "", brands: ["Peakway", "Northline"], cited: true },
+          { q: "hiking pack with bottle pocket", pos: "", brands: ["Trailco", "Northline"], cited: true },
         ]}
         compact
       />
       <div className="dash-float" style={{ right: -14, top: 68, width: 160 }}>
-        <div style={{ fontSize: 28, fontWeight: 800, color: "#1A9E63", letterSpacing: "-.02em" }}>+14</div>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 2 }}>new citations this month</p>
+        <Chip tone="green">✓ Named</Chip>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>Citations across the engines</p>
       </div>
     </MockStage>
   );
@@ -94,6 +92,7 @@ function SovMock() {
     <MockStage>
       <ShareBarsScreen
         title="Share of voice"
+        values={false}
         meta="How often AI recommends you vs. rivals"
         rows={[
           { name: "Peakway", hex: "#14ACBC", share: 30, change: -2 },
@@ -103,8 +102,8 @@ function SovMock() {
         ]}
       />
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 172 }}>
-        <Chip tone="green">▲ climbing</Chip>
-        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>+5 pts vs last month</p>
+        <Chip tone="green">Tracked</Chip>
+        <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>You against rivals, engine by engine</p>
       </div>
     </MockStage>
   );

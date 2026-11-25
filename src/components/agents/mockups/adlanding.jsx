@@ -22,7 +22,6 @@ function Page({ k, compact }) {
       sub={c.page.sub}
       chips={c.page.chips}
       price={c.page.price}
-      quote={c.page.quote}
       banner={c.page.banner}
       compact={compact}
     />
@@ -75,7 +74,7 @@ function ConnectMock() {
         </div>
       </div>
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 170 }}>
-        <Chip tone="green">2 connected</Chip>
+        <Chip tone="green">Connected</Chip>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>You choose what we can see.</p>
       </div>
     </MockStage>
@@ -87,7 +86,7 @@ function FetchMock() {
   return (
     <MockStage>
       <div className="dash-card">
-        <TopHead title="Ads imported" meta="From all connected accounts" right={<Chip tone="green">24 ads</Chip>} />
+        <TopHead title="Ads imported" meta="From all connected accounts" right={<Chip tone="green">Synced</Chip>} />
         <div className="dash-table">
           <div className="dash-tr dash-th al-row">
             <span>Ad</span><span>Platform</span><span>Status</span>
@@ -115,7 +114,7 @@ function SuggestMock() {
     { t: "Headline", v: "Vitamin C Serum for Dull Skin", tone: "orange" },
     { t: "Hero image", v: "Product close-up, amber bottle", tone: "violet" },
     { t: "Offer", v: "Free shipping over $40", tone: "green" },
-    { t: "Proof", v: "4.8 ★ from 2,184 reviews", tone: "amber" },
+    { t: "Proof", v: "Customer reviews near the top", tone: "amber" },
   ];
   return (
     <MockStage>

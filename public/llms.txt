@@ -10,6 +10,7 @@
 - [AI Visibility](https://geobuild.in/products/ai-visibility): Getting Shopify stores recommended in AI answers
 - [Catalog Enrichment](https://geobuild.in/products/catalog-enrichment): Turning Shopify product data into machine-readable information that AI agents can read
 - [Pricing](https://geobuild.in/pricing): Plans and pricing
+- [Case studies](https://geobuild.in/case-studies): Modelled conversion scenarios by store category (not measured customer results)
 - [Blog](https://geobuild.in/blog): Playbooks on AI visibility and AI search
 - [Answer Engine Optimization](https://geobuild.in/services/answer-engine-optimization): Getting your brand picked in AI answers
 - [Conversion Rate Optimization](https://geobuild.in/services/conversion-rate-optimization): Session-recording review, pain-point analysis and tested fixes for Shopify product pages

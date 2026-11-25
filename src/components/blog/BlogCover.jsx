@@ -14,12 +14,14 @@ export default function BlogCover({ post, big = false }) {
 
   if (cover.image) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={cover.image}
-        alt={`${post.title} cover`}
-        style={{ display: "block", width: "100%", aspectRatio: "16 / 10", objectFit: "cover", borderRadius: radius }}
-      />
+      <div className="grain" style={{ position: "relative", borderRadius: radius, overflow: "hidden" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={cover.image}
+          alt={`${post.title} cover`}
+          style={{ display: "block", width: "100%", aspectRatio: "16 / 10", objectFit: "cover" }}
+        />
+      </div>
     );
   }
 

@@ -6,10 +6,6 @@ import { EngineLogo } from "@/components/brand/EngineLogo";
 
 const TABS = ["ChatGPT", "Claude", "Gemini"];
 
-// Subtle film grain for the stage backdrop (matches the product mockups + header).
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
-
 /**
  * Animated AI-answer card: cycles engines (ChatGPT/Claude/Gemini), types an
  * answer, and highlights the "Geobuild" citation + source row. Sits on a
@@ -129,7 +125,7 @@ export default function AnswerMock({ compact = false }) {
         }
         .am-grain {
           position: absolute; inset: 0; z-index: 0; pointer-events: none;
-          background-image: ${GRAIN}; background-size: 72px 72px; mix-blend-mode: overlay;
+          background-image: var(--grain); background-size: var(--grain-size); opacity: var(--grain-opacity);
         }
         .am-card {
           position: relative; z-index: 1;

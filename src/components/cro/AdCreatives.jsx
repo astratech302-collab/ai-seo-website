@@ -147,14 +147,6 @@ function IgActions() {
   );
 }
 
-function Stars({ n = 4.8, color = "#F5A623", size = 12 }) {
-  return (
-    <span style={{ color, fontSize: size, letterSpacing: 1 }} aria-label={`${n} out of 5`}>
-      ★★★★★
-    </span>
-  );
-}
-
 /* ---------------- ad creatives ---------------- */
 
 const frame = {
@@ -210,7 +202,6 @@ function GoogleShoppingAd({ ad }) {
               <div style={{ fontSize: 15, fontWeight: 700, color: "#202124" }}>{ad.price}</div>
               <div style={{ fontSize: 12.5, color: "#1a0dab", lineHeight: 1.3, marginTop: 2 }}>{ad.title}</div>
               <div style={{ fontSize: 11.5, color: "#5f6368", marginTop: 3 }}>{DEMO_STORE.name}</div>
-              <div style={{ fontSize: 11.5, marginTop: 3, color: "#5f6368" }}><Stars /> {ad.rating}</div>
               <div style={{ fontSize: 11.5, color: "#188038", marginTop: 3 }}>Free shipping</div>
             </div>
           </div>
@@ -285,8 +276,8 @@ function TikTokAd({ ad }) {
       <img src={DEMO_IMG.routine} alt={`${DEMO_STORE.product} TikTok ad`} width={300} height={420} style={{ width: "100%", aspectRatio: "9 / 13", objectFit: "cover", objectPosition: "center 30%", display: "block", opacity: 0.95 }} />
       <div aria-hidden style={{ position: "absolute", right: 10, bottom: 92, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, color: "#fff", fontSize: 11 }}>
         <span style={{ width: 34, height: 34, borderRadius: 99, background: "#fff", color: "#111", fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>D</span>
-        <span>♥<br />12.4K</span>
-        <span>💬<br />318</span>
+        <span>♥<br />Like</span>
+        <span>💬<br />Reply</span>
         <span>➦<br />Share</span>
       </div>
       <div style={{ position: "absolute", left: 12, right: 60, bottom: 54, color: "#fff", lineHeight: 1.35 }}>
@@ -324,7 +315,7 @@ export function AdCreative({ channel, ad }) {
  * A mobile-style product page with a real photo. `children` render as an
  * absolutely-positioned overlay (used for heatmaps / session traces).
  */
-export function StorePage({ image = DEMO_IMG.product, imagePos = "center 60%", headline, sub, chips = [], price, quote, banner, compact, children }) {
+export function StorePage({ image = DEMO_IMG.product, imagePos = "center 60%", headline, sub, chips = [], price, banner, compact, children }) {
   return (
     <div style={{ ...frame, position: "relative", maxWidth: 360, margin: "0 auto" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 14px", borderBottom: "1px solid #eee" }}>
@@ -337,10 +328,6 @@ export function StorePage({ image = DEMO_IMG.product, imagePos = "center 60%", h
       <div style={{ padding: "12px 14px 14px" }}>
         <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.01em", lineHeight: 1.2 }}>{headline}</div>
         {sub && <div style={{ fontSize: 12.5, color: "#555", marginTop: 4, lineHeight: 1.4 }}>{sub}</div>}
-        {!compact && quote && <div style={{ fontSize: 12.5, color: "#333", marginTop: 8, fontStyle: "italic" }}>{quote}</div>}
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8 }}>
-          <Stars /> <span style={{ fontSize: 11.5, color: "#737373" }}>4.8 · 2,184 reviews</span>
-        </div>
         {!compact && chips.length > 0 && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
             {chips.map((c) => (

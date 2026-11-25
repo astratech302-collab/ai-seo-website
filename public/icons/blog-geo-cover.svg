@@ -33,7 +33,7 @@
 <rect x="830" y="466" width="600" height="16" rx="8.0" fill="#2A2D33"/><rect x="830" y="506" width="430" height="16" rx="8.0" fill="#2A2D33"/>
 <rect x="830" y="550" width="214" height="62" rx="31" fill="#0A6FBD"/><text x="937" y="591" font-size="28" font-weight="600" text-anchor="middle">Your store</text>
 <rect x="1064" y="573" width="360" height="16" rx="8.0" fill="#2A2D33"/><rect x="830" y="644" width="570" height="16" rx="8.0" fill="#2A2D33"/>
-<rect x="830" y="700" width="168" height="52" rx="26" fill="#4FC3F7" fill-opacity="0.18"/><text x="914" y="734" font-size="23" font-weight="600" text-anchor="middle" fill="#4FC3F7">Cited #1</text>
+<rect x="830" y="700" width="168" height="52" rx="26" fill="#4FC3F7" fill-opacity="0.18"/><text x="914" y="734" font-size="23" font-weight="600" text-anchor="middle" fill="#4FC3F7">Cited</text>
 <text x="1480" y="735" font-size="22" text-anchor="end" fill-opacity="0.6">yourstore.com</text>
 </g>
 </svg>

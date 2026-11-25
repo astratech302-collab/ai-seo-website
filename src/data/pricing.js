@@ -1,5 +1,4 @@
 // Pricing plans. No prices are shown: visitors book a demo for a quote.
-// NOTE: the volumes below are demo numbers. Confirm them before publishing.
 export const PRICING = [
   {
     id: "starter",
@@ -7,10 +6,10 @@ export const PRICING = [
     tag: "For stores starting with 1:1 session sort and a cleaner, machine-readable catalog.",
     featuresHeader: "What's included",
     features: [
-      "1:1 session sort for up to 25,000 sessions a month",
-      "Catalog enrichment for up to 250 products",
-      "5 audience-matched landing pages a month",
-      "AI visibility tracking for 25 prompts",
+      "1:1 session sort on your collection pages",
+      "Catalog enrichment for your core products",
+      "Audience-matched landing pages for your key campaigns",
+      "AI visibility tracking for your most important prompts",
       "Monthly performance report",
     ],
     cta: "Book a Demo",
@@ -23,13 +22,13 @@ export const PRICING = [
     tag: "For growing stores that want to be found, matched and converting, with services included.",
     featuresHeader: "What's included",
     features: [
-      "1:1 session sort for up to 100,000 sessions a month",
-      "Catalog enrichment for up to 1,000 products",
-      "20 audience-matched landing pages a month",
-      "AI visibility tracking for 100 prompts",
-      "AEO work on 8 pages a month",
-      "CRO review of 200 session recordings a month",
-      "Review call every two weeks",
+      "1:1 session sort sized to your traffic",
+      "Catalog enrichment across your catalog",
+      "Audience-matched landing pages across your campaigns",
+      "AI visibility tracking across your categories",
+      "Answer Engine Optimization work on your key pages",
+      "CRO review of session recordings",
+      "Regular review calls",
     ],
     cta: "Book a Demo",
     featured: true,
@@ -40,12 +39,11 @@ export const PRICING = [
     tag: "For large catalogs and high-traffic stores that need their own volumes and workflows.",
     featuresHeader: "Includes everything in Growth, plus",
     features: [
-      "500,000+ sessions a month",
-      "10,000+ products enriched",
+      "Volumes set for high-traffic stores",
+      "Enrichment for large catalogs",
       "Custom landing page volume",
-      "250+ prompts tracked",
       "Custom integrations and reporting",
-      "Weekly review call",
+      "A review schedule that fits your team",
     ],
     cta: "Book a Demo",
     featured: false,

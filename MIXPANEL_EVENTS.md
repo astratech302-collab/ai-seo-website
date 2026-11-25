@@ -59,6 +59,7 @@ initializes in production builds only).
 | Collection sorter need pill (commute, hiking, campus, budget) | `tab_switched/need_{need}_collection_sorter_{home|page}` | – |
 | Onsite Discovery hero CTA | `button_clicked/book_demo_hero_onsite_discovery` | – |
 | Header nav | `link_clicked/pricing_header` | – |
+| Header nav: Case studies | `link_clicked/case_studies_header` | – |
 | Header menu trigger (product, services) | `button_clicked/{menu}_menu_header` | – |
 | Product menu | `link_clicked/onsite_discovery_product_menu_header` | – |
 | Product menu | `link_clicked/ad_to_landing_product_menu_header` | – |
@@ -75,3 +76,9 @@ initializes in production builds only).
 | Home growth cards | `link_clicked/{ai_visibility\|catalog_enrichment}_growth_card_home` | – |
 | Header nav: Blog | `link_clicked/blog_header` | – |
 | Mobile drawer: Pricing, Blog | `link_clicked/{pricing\|blog}_mobile_menu` | – |
+| Mobile drawer: Case studies | `link_clicked/case_studies_mobile_menu` | – |
+| Footer: Case studies | `link_clicked/case_studies_footer` | – |
+| Case study card (list page) | `link_clicked/{case_study}_card_case_studies` | – |
+| Case study card (More case studies) | `link_clicked/{case_study}_card_related_case_studies` | – |
+| Case study page: back link | `link_clicked/all_case_studies_{case_study}` | – |
+| Case study page: product used | `link_clicked/{product}_products_used_{case_study}` | – |

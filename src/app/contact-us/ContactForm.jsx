@@ -178,7 +178,7 @@ export default function ContactForm() {
     if (!form.website.trim()) {
       e.website = "Required";
     } else if (!URL_RE.test(form.website.trim())) {
-      e.website = "Enter a valid website (e.g. acme.com)";
+      e.website = "Enter a valid website (e.g. yourstore.com)";
     }
     if (!form.email.trim()) e.email = "Required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email";
@@ -339,7 +339,7 @@ export default function ContactForm() {
                         type="text"
                         value={form.website}
                         onChange={set("website")}
-                        placeholder="acme.com"
+                        placeholder="yourstore.com"
                         style={{
                           ...fieldStyle,
                           borderColor: errors.website ? "var(--brand)" : "var(--line)",
@@ -355,7 +355,7 @@ export default function ContactForm() {
                         type="email"
                         value={form.email}
                         onChange={set("email")}
-                        placeholder="jane@acme.com"
+                        placeholder="you@yourstore.com"
                         style={{
                           ...fieldStyle,
                           borderColor: errors.email ? "var(--brand)" : "var(--line)",
@@ -399,7 +399,7 @@ export default function ContactForm() {
                       type="tel"
                       value={form.phone}
                       onChange={set("phone")}
-                      placeholder="+91 98765 43210"
+                      placeholder="Include your country code"
                       style={{ ...fieldStyle }}
                     />
                   </InputField>

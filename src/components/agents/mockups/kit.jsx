@@ -125,10 +125,10 @@ export function KitStyles() {
         overflow: hidden;
         isolation: isolate;
       }
-      /* grain sits above the whole creative (image from globals.css) */
+      /* grain sits on the backdrop, behind the cards (image from globals.css) */
       .hf-stage-grain {
-        position: absolute; inset: 0; z-index: 2; pointer-events: none;
-        mix-blend-mode: overlay; opacity: var(--grain-opacity);
+        position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        opacity: var(--grain-opacity);
       }
       .hf-stage-inner { position: relative; z-index: 1; }
 

@@ -76,7 +76,6 @@ export default function ChannelShowcase({ data }) {
                   sub={c.page.sub}
                   chips={c.page.chips}
                   price={c.page.price}
-                  quote={c.page.quote}
                   banner={c.page.banner}
                 />
               </div>

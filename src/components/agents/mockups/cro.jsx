@@ -1,5 +1,5 @@
 import { MockStage } from "./kit";
-import { DashBaseStyles, TopHead, Chip, TabNav, StatCard, Bars } from "./dash";
+import { DashBaseStyles, TopHead, Chip, TabNav, StatCard } from "./dash";
 import { StorePage } from "@/components/cro/AdCreatives";
 import { DEMO_IMG } from "@/data/demoAssets";
 
@@ -89,12 +89,12 @@ function RecordingsMock() {
     <MockStage>
       <div className="dash-card">
         <TopHead title="Session recordings" meta="Product page · Glow Serum" right={<Chip tone="orange">● Recording</Chip>} />
-        <TabNav tabs={[{ label: "All", count: 128 }, { label: "Rage clicks", count: 14 }, { label: "Drop-offs", count: 37 }]} active="All" />
+        <TabNav tabs={["All", "Rage clicks", "Drop-offs"]} active="All" />
         <div style={{ height: 8 }} />
         <SessionsTable rows={SESSIONS} />
       </div>
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 172 }}>
-        <Chip tone="orange">Rage clicks ×6</Chip>
+        <Chip tone="orange">Rage clicks</Chip>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 8 }}>On the size options, 0:21 in</p>
       </div>
     </MockStage>
@@ -104,23 +104,22 @@ function RecordingsMock() {
 /* 1 — Find the pain points */
 function PainPointsMock() {
   const rows = [
-    { t: "Shoppers can't find sizing info", s: "38%", tone: "orange", sev: "High" },
-    { t: "Shipping cost appears only at checkout", s: "27%", tone: "orange", sev: "High" },
-    { t: "Reviews sit below the fold", s: "19%", tone: "amber", sev: "Medium" },
-    { t: "Gallery hard to swipe on mobile", s: "11%", tone: "neutral", sev: "Low" },
+    { t: "Shoppers can't find sizing info", tone: "orange", sev: "High" },
+    { t: "Shipping cost appears only at checkout", tone: "orange", sev: "High" },
+    { t: "Reviews sit below the fold", tone: "amber", sev: "Medium" },
+    { t: "Gallery hard to swipe on mobile", tone: "neutral", sev: "Low" },
   ];
   return (
     <MockStage>
       <div className="dash-card">
         <TopHead title="Pain points" meta="Ranked for Glow Serum" right={<Chip tone="neutral">4 found</Chip>} />
         <div className="dash-table">
-          <div className="dash-tr dash-th cm-row cm-row-3">
-            <span>Pain point</span><span>Sessions hit</span><span>Severity</span>
+          <div className="dash-tr dash-th cm-row cm-row-2">
+            <span>Pain point</span><span>Severity</span>
           </div>
           {rows.map((r) => (
-            <div className="dash-tr cm-row cm-row-3" key={r.t}>
+            <div className="dash-tr cm-row cm-row-2" key={r.t}>
               <span className="dash-td-title">{r.t}</span>
-              <span className="dash-td-muted">{r.s}</span>
               <span><Chip tone={r.tone}>{r.sev}</Chip></span>
             </div>
           ))}
@@ -128,7 +127,7 @@ function PainPointsMock() {
       </div>
       <div className="dash-float" style={{ right: -14, top: 70, width: 168 }}>
         <span className="dash-eyebrow">Top issue</span>
-        <p style={{ fontSize: 12.5, color: "var(--d-text2)", marginTop: 6 }}>Sizing info is the #1 reason shoppers leave.</p>
+        <p style={{ fontSize: 12.5, color: "var(--d-text2)", marginTop: 6 }}>Make sizing information easy to find.</p>
       </div>
     </MockStage>
   );
@@ -174,11 +173,8 @@ function TestMock() {
       <div className="dash-card">
         <TopHead title="A/B test" meta="Product page · size guide placement" right={<Chip tone="green">● Running</Chip>} />
         <div className="dash-statrow" style={{ gridTemplateColumns: "1fr 1fr" }}>
-          <StatCard label="Current page" value="2.1%" delta="Control" deltaTone="orange" />
-          <StatCard label="New version" value="2.9%" delta="▲ Leading" />
-        </div>
-        <div className="dash-pad" style={{ paddingTop: 0 }}>
-          <Bars rows={[{ n: "Current page", v: 42 }, { n: "New version", v: 58, you: true }]} />
+          <StatCard label="Version A" value="Current" delta="Control" deltaTone="orange" />
+          <StatCard label="Version B" value="New" delta="In test" />
         </div>
       </div>
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 168 }}>
@@ -197,6 +193,7 @@ export function CroMockStyles() {
     <>
       <DashBaseStyles />
       <style>{`
+        .cm-row-2 { grid-template-columns: 1fr auto; }
         .cm-row-4 { grid-template-columns: 1.4fr 0.8fr 0.9fr 1.3fr; }
         .cm-row-3 { grid-template-columns: 2.2fr 0.9fr 0.8fr; }
         .cm-replay { padding: 16px; }

@@ -24,6 +24,8 @@ function Avatars({ names }) {
 
 /* Tracked Prompts — how AI engines mention/rank the brand across engines. */
 export function TrackedPromptsScreen({ title = "Tracked Prompts", meta = "How AI engines mention and rank your brand", badge, rows, engine = "ChatGPT", compact }) {
+  // The position column only shows when a row has one.
+  const ranked = rows.some((r) => r.pos);
   return (
     <div className={`dash-card ${compact ? "scr-compact" : ""}`}>
       <TopHead
@@ -38,13 +40,13 @@ export function TrackedPromptsScreen({ title = "Tracked Prompts", meta = "How AI
         ))}
       </div>
       <div className="dash-table">
-        <div className="dash-tr dash-th scr-tp-row">
-          <span>Prompt</span><span>Position</span><span>Brands mentioned</span><span>Cited</span>
+        <div className={`dash-tr dash-th scr-tp-row${ranked ? "" : " no-pos"}`}>
+          <span>Prompt</span>{ranked && <span>Position</span>}<span>Brands mentioned</span><span>Cited</span>
         </div>
         {rows.map((r) => (
-          <div className="dash-tr scr-tp-row" key={r.q}>
+          <div className={`dash-tr scr-tp-row${ranked ? "" : " no-pos"}`} key={r.q}>
             <span className="dash-td-title">{r.q}</span>
-            <span className="scr-pos">{r.pos || "—"}</span>
+            {ranked && <span className="scr-pos">{r.pos || "—"}</span>}
             <Avatars names={r.brands} />
             <span>{r.cited ? <Chip tone="green">✓ Cited</Chip> : <Chip tone="neutral">Not cited</Chip>}</span>
           </div>
@@ -82,7 +84,7 @@ export function TechnicalScreen({ title = "Technical SEO / GEO", meta = "Last cr
 }
 
 /* Engine / competitor share bars. rows: [{name, hex, share, change, you}] */
-export function ShareBarsScreen({ title = "Share of AI citations", meta, rows, head = true }) {
+export function ShareBarsScreen({ title = "Share of AI citations", meta, rows, head = true, values = true }) {
   return (
     <div className="dash-card">
       {head && <TopHead title={title} meta={meta} />}
@@ -93,8 +95,8 @@ export function ShareBarsScreen({ title = "Share of AI citations", meta, rows, h
             <div className="scr-ebar" key={b.name}>
               <span className="scr-ebar-name"><span className="scr-engdot" style={{ background: b.hex }} />{b.name}</span>
               <span className="scr-ebar-track"><span className="scr-ebar-fill" style={{ width: `${b.share}%`, background: b.hex }} /></span>
-              <span className="scr-ebar-share">{b.share}%</span>
-              <span className={`scr-ebar-chg ${b.change >= 0 ? "up" : "dn"}`}>{b.change >= 0 ? "+" : ""}{b.change}</span>
+              {values && <span className="scr-ebar-share">{b.share}%</span>}
+              {values && <span className={`scr-ebar-chg ${b.change >= 0 ? "up" : "dn"}`}>{b.change >= 0 ? "+" : ""}{b.change}</span>}
             </div>
           ))}
         </div>
@@ -228,6 +230,7 @@ export function ScreensStyles() {
       .scr-engdot { width:9px; height:9px; border-radius:999px; display:inline-block; flex-shrink:0; }
 
       .scr-tp-row { grid-template-columns: 2fr 0.6fr 1.3fr 0.9fr; }
+      @media (min-width: 641px) { .scr-tp-row.no-pos { grid-template-columns: 2fr 1.3fr 0.9fr; } }
       .scr-tech-row { grid-template-columns: 2.2fr 0.7fr 0.9fr 0.8fr; }
       .scr-pos { font-size:12.5px; font-weight:700; color:var(--d-text); }
       .scr-solution { font-size:11.5px; font-weight:600; color:var(--d-orangeText); text-align:right; }
@@ -311,6 +314,8 @@ export function ScreensStyles() {
         .scr-tp-row { grid-template-columns: 1fr auto; gap: 12px; }
         .scr-tp-row > :nth-child(2),
         .scr-tp-row > :nth-child(3) { display: none; }
+        /* without a position column, the third cell is "Cited" */
+        .scr-tp-row.no-pos > :nth-child(3) { display: block; }
         .dash-td-title { font-size: 14px; }
 
         /* Technical audit → Issue + Priority only (drop Channel + Solution). */

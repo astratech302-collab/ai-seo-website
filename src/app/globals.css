@@ -327,7 +327,6 @@ h2 {
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    mix-blend-mode: overlay;
     opacity: var(--grain-opacity);
   }
 
@@ -535,23 +534,20 @@ h2 {
   }
 }
 
-/* Film grain on creatives (gradients, mockups, photos, dark panels, covers). Overlay
-   blending leaves white areas and their text untouched. Tune strength here. */
+/* Film grain on creatives: fine light and dark specks, so it shows on pale blues as
+   well as on photos and dark panels. It sits behind text and cards. Tune strength here. */
 :root {
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch' result='t'/%3E%3CfeColorMatrix in='t' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 3.2 0 0 0 -1.6' result='light'/%3E%3CfeColorMatrix in='t' values='0 0 0 0 0.05 0 0 0 0 0.32 0 0 0 0 0.62 -3.2 0 0 0 1.6' result='dark'/%3E%3CfeMerge%3E%3CfeMergeNode in='light'/%3E%3CfeMergeNode in='dark'/%3E%3C/feMerge%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --grain-size: 160px;
-  --grain-opacity: 0.45;
+  --grain-opacity: 0.16; /* gradient backgrounds */
+  --grain-opacity-photo: 0.07; /* over photos and covers */
+  --grain-opacity-dark: 0.05; /* dark panels */
 }
 .hf-stage-grain,
-.sky-panel::after,
 .final-cta-box::after,
-.cs-pair::after,
 .flow:not(.hf-stage)::after,
 .sc-photo::after,
 .ce-photo::after,
-.fn-product::after,
-.fn-page::after,
-.cap-tile img + span::after,
 .grain::after,
 .sc-after .sc-card::after,
 .ce-code::after,
@@ -559,7 +555,6 @@ h2 {
   background-image: var(--grain);
   background-size: var(--grain-size);
 }
-.sky-panel::after,
 .final-cta-box::after,
 .sc-photo::after,
 .ce-photo::after,
@@ -572,15 +567,23 @@ h2 {
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  mix-blend-mode: overlay;
   opacity: var(--grain-opacity);
 }
-.sky-panel::after { z-index: -1; }
-/* Dark panels: overlay is invisible on near-black, so lay it on faintly behind content. */
+.sc-photo::after,
+.ce-photo::after,
+.grain::after { opacity: var(--grain-opacity-photo); }
+/* Dark panels: lay it behind the content. */
 .sc-after .sc-card,
 .ce-code,
 .detail-why { position: relative; isolation: isolate; }
 .sc-after .sc-card::after,
 .ce-code::after,
-.detail-why::after { z-index: -1; mix-blend-mode: normal; opacity: 0.09; }
+.detail-why::after { z-index: -1; opacity: var(--grain-opacity-dark); }
+/* No grain anywhere in a page's hero (sky, product window, graphics). */
+:is(.sky-hero, .sky-panel) .hf-stage-grain,
+:is(.sky-hero, .sky-panel) :is(.ce-photo, .ce-code)::after { display: none; }
 
+/* Phones and tablets: the small cards floating over product graphics would cover their text. */
+@media (max-width: 900px) {
+  .hf-stage .dash-float { display: none !important; }
+}
