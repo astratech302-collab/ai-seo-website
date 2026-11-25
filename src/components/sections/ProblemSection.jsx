@@ -100,7 +100,7 @@ export default function ProblemSection() {
             </Reveal>
           ))}
         </div>
-        <style>{`@media (max-width: 760px){ .prob-grid{ grid-template-columns: 1fr !important; } } .prob-card:hover{ border-color: var(--brand-200); box-shadow: 0 18px 40px -22px rgba(255,90,31,0.35); transform: translateY(-3px); }`}</style>
+        <style>{`@media (max-width: 760px){ .prob-grid{ grid-template-columns: 1fr !important; } } .prob-card:hover{ border-color: var(--brand-200); box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--brand) 35%, transparent); transform: translateY(-3px); }`}</style>
       </div>
     </section>
   );

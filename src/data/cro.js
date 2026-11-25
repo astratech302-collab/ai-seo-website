@@ -1,7 +1,9 @@
-// Content for the Shopify-only CRO / hyperpersonalization product. Edit copy here — not in components.
+// Content for the Shopify-only self-improving storefront product. Edit copy here — not in components.
 //   - CRO service lives in data/services.js (slug: conversion-rate-optimization)
 //   - Ad-to-Landing product page → /products/ad-to-landing-pages (below)
 // Store, ads and numbers inside mockups are fictional.
+
+import { TAGLINE } from "@/config/site";
 
 export const CRO_PATH = "/services/conversion-rate-optimization";
 export const ADS_PATH = "/products/ad-to-landing-pages";
@@ -28,7 +30,7 @@ export const ADS_PRODUCT = {
   slug: "ad-to-landing-pages",
   name: "Ad-to-Landing Pages",
   role: "ADS",
-  tagline: "Built for Shopify stores",
+  tagline: TAGLINE,
   short: "A personalized landing page for every ad and channel you run",
   desc: "Connect your Meta and Google ad accounts. We read every ad, suggest what each page should say, and build a landing page that continues it.",
   metaTitle: "Personalized Ad-to-Landing Pages for Shopify | Geobuild",
@@ -80,44 +82,35 @@ export const ADS_PRODUCT = {
   why: "You pay for every click. A landing page that matches the ad gives that click the best chance of becoming an order.",
 };
 
-// Homepage "How it works": hyperpersonalization across the whole visit, ending with
-// ad-matched landing pages. Same shape as ADS_PRODUCT so AgentFeatureShowcase renders it;
-// the mockups are registered under slug "hyperpersonalization".
-export const HYPER_PRODUCT = {
-  slug: "hyperpersonalization",
-  name: "Hyperpersonalization",
+// Homepage "How it works": read intent, sort the collection 1:1, match the audience to a
+// landing page. Same shape as ADS_PRODUCT so AgentFeatureShowcase renders it; the mockups
+// are registered under slug "storefront".
+export const STOREFRONT_PRODUCT = {
+  slug: "storefront",
+  name: "Self-improving storefront",
   features: [
     {
-      title: "We capture each visitor's intent",
-      desc: "Scrolls, views, clicks and source, as they happen.",
-      body: "We watch how every visitor behaves on your Shopify store: how far they scroll, which products they view, how long they stay and where they came from. Each signal tells us how close they are to buying.",
+      title: "We capture each shopper's intent",
+      desc: "Searches, filters, views and source, as they happen.",
+      body: "We watch how every shopper behaves on your Shopify store: what they search and filter, which products they view, how long they stay and where they came from.",
       why: [
         "You see intent, not just page views",
         "Works for every visitor, from the first click",
       ],
     },
     {
-      title: "We segment every visitor",
-      desc: "Enthusiastic, hesitant or just browsing, in real time.",
-      body: "From those signals we place each visitor in a segment, such as enthusiastic, hesitant or just browsing. The segment updates as they keep behaving, so it is never out of date.",
+      title: "We sort the collection 1:1",
+      desc: "A fresh order for each session, not for a segment.",
+      body: "Instead of grouping shoppers into segments, we re-order your collection for the one shopper looking at it, so the products that fit their need and use case come first.",
       why: [
-        "Each shopper is treated by what they want now",
-        "You decide the segments and what they see",
+        "Each shopper is served by what they want now",
+        "The order keeps adapting as they browse",
       ],
     },
     {
-      title: "We place widgets where they fit",
-      desc: "Dynamic widgets, shown to the right segment.",
-      body: "Place widgets anywhere on your store, such as a bundle offer, a free-shipping bar or a reviews carousel, and show each one only to the segment it works for.",
-      why: [
-        "The right offer reaches the right shopper",
-        "Add, move or switch off a widget any time",
-      ],
-    },
-    {
-      title: "We match every ad to its own page",
-      desc: "A landing page that continues the ad they clicked.",
-      body: "For visitors who arrive from ads, we build a landing page for each ad and channel, so the page continues the promise the ad made.",
+      title: "We match each audience to its landing page",
+      desc: "The right audience, on the right page.",
+      body: "For visitors who arrive from ads, we match each audience to a landing page built for that ad and channel, so the page continues the promise they clicked.",
       why: [
         "Visitors land on a page that continues the ad",
         "Conversion rates increase by up to 40% for customers",

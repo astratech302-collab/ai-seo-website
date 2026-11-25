@@ -74,7 +74,7 @@ export default function HumanLoop() {
                     borderRadius: 18,
                     background: isCur ? "#fff" : "transparent",
                     border: isCur ? "1px solid var(--brand-200)" : "1px solid transparent",
-                    boxShadow: isCur ? "0 20px 44px -22px rgba(255,90,31,0.45)" : "none",
+                    boxShadow: isCur ? "0 20px 44px -22px color-mix(in srgb, var(--brand) 45%, transparent)" : "none",
                     opacity: isCur ? 1 : 0.4,
                     transform: isCur ? "none" : "scale(0.985)",
                     transition: "all .5s cubic-bezier(.4,0,.2,1)",
@@ -106,7 +106,7 @@ export default function HumanLoop() {
                       fontSize: 24,
                       background: isCur ? "var(--grad)" : "rgba(18,18,16,0.05)",
                       color: isCur ? "#fff" : "var(--ink-3)",
-                      boxShadow: isCur ? "0 10px 24px -8px rgba(255,90,31,0.55)" : "none",
+                      boxShadow: isCur ? "0 10px 24px -8px color-mix(in srgb, var(--brand) 55%, transparent)" : "none",
                       transition: "all .5s cubic-bezier(.4,0,.2,1)",
                     }}
                   >

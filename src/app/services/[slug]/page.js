@@ -9,7 +9,7 @@ import AgentFeatureShowcase, {
 import FinalCTA from "@/components/sections/FinalCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { serviceSchema, breadcrumbSchema } from "@/lib/schema";
-import { ASSET_BASE } from "@/config/site";
+import ProductIcon from "@/components/brand/ProductIcon";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -42,7 +42,7 @@ export default async function ServicePage({ params }) {
           slug: s.slug,
           name: s.name,
           short: s.short,
-          icon: `${ASSET_BASE}/${s.iconFile || s.slug}.png`,
+          icon: <ProductIcon name={s.slug.replaceAll("-", "_")} />,
         })),
       };
 

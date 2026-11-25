@@ -3,7 +3,7 @@
 // designed cover card). Themes: orange (brand), ink (dark), blue.
 
 const THEMES = {
-  orange: { bg: "linear-gradient(150deg, #FF7A45, var(--brand))", fg: "#fff", sub: "rgba(255,255,255,0.82)" },
+  orange: { bg: "var(--grad)", fg: "#fff", sub: "rgba(255,255,255,0.82)" },
   ink: { bg: "linear-gradient(150deg, #23201d, var(--surface-ink))", fg: "#fff", sub: "rgba(255,255,255,0.7)" },
   blue: { bg: "linear-gradient(150deg, #3b6ff5, #1b2b6b)", fg: "#fff", sub: "rgba(255,255,255,0.82)" },
 };
@@ -27,6 +27,7 @@ export default function BlogCover({ post, big = false }) {
   return (
     <div
       aria-hidden
+      className="grain"
       style={{
         position: "relative",
         width: "100%",

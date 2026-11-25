@@ -7,16 +7,10 @@
  * server components. Render <KitStyles/> ONCE per page (the showcase does this).
  */
 
-// Subtle film grain for the mockup stage backgrounds (same texture the header uses).
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
-
 /* Gradient backdrop tile that holds an app card + floating panels. */
 export function MockStage({ children, className = "" }) {
   return (
-    <div className={`hf-stage ${className}`}>
-      <span className="hf-stage-shape" aria-hidden />
-      <span className="hf-stage-shape hf-stage-shape-2" aria-hidden />
+    <div className={`hf-stage flow flow-blue ${className}`}>
       <span className="hf-stage-grain" aria-hidden />
       <div className="hf-stage-inner">{children}</div>
     </div>
@@ -128,26 +122,13 @@ export function KitStyles() {
         position: relative;
         border-radius: 24px;
         padding: 34px;
-        background: linear-gradient(150deg, #fff4ea 0%, #ffe9db 55%, #ffe1cf 100%);
         overflow: hidden;
         isolation: isolate;
       }
-      .hf-stage-shape {
-        position: absolute; z-index: 0;
-        width: 46%; height: 130%; left: -6%; top: 18%;
-        background: #FF9E5B; opacity: 0.5;
-        border-radius: 40px; transform: rotate(-9deg);
-      }
-      .hf-stage-shape-2 {
-        left: auto; right: -10%; top: auto; bottom: -34%;
-        width: 62%; height: 46%;
-        background: #FF9E5B; opacity: 0.55; transform: rotate(-4deg);
-      }
+      /* grain sits above the whole creative (image from globals.css) */
       .hf-stage-grain {
-        position: absolute; inset: 0; z-index: 0; pointer-events: none;
-        background-image: ${GRAIN};
-        background-size: 72px 72px;
-        opacity: 1; mix-blend-mode: overlay;
+        position: absolute; inset: 0; z-index: 2; pointer-events: none;
+        mix-blend-mode: overlay; opacity: var(--grain-opacity);
       }
       .hf-stage-inner { position: relative; z-index: 1; }
 

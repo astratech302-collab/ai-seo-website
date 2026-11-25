@@ -72,7 +72,7 @@ function NarrativeMock() {
         title="Share of the conversation"
         meta="Who the community recommends"
         rows={[
-          { name: "Acme (you)", hex: "#FB5418", share: 32, change: 9 },
+          { name: "Acme (you)", hex: "var(--brand)", share: 32, change: 9 },
           { name: "HubSpot", hex: "#14ACBC", share: 28, change: -3 },
           { name: "Pipedrive", hex: "#7C5CD1", share: 22, change: 1 },
           { name: "Copper", hex: "#1A9E63", share: 18, change: -1 },

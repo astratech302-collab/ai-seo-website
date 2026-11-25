@@ -1,78 +1,53 @@
-"use client";
-
 import Reveal from "@/components/motion/Reveal";
-import BookDemoButton from "@/components/demo/BookDemoButton";
+import BrowserWindow from "@/components/hero/BrowserWindow";
+import CloudSky from "@/components/hero/CloudSky";
 import FunnelMock from "@/components/hero/FunnelMock";
-import { GlowBg } from "@/components/sections/Hero";
-import { track } from "@/lib/track";
+import StoreUrlForm from "@/components/hero/StoreUrlForm";
+import { TAGLINE } from "@/config/site";
 
 const SUB =
-  "Geobuild reads what each visitor wants, puts them in the right segment, and shows the right widgets, offers and pages in real time. Made only for Shopify stores.";
+  "Geobuild reads each shopper's intent as it happens, sorts your collections one to one for that session, and matches the right audience to the right landing page on your Shopify store.";
 
-/** Landing-page hero for the Shopify-only CRO / hyperpersonalization product. */
+/** Landing-page hero: a rounded sky panel that sits under the header. */
 export default function HeroCro() {
   return (
-    <section id="top" className="hero-section" style={{ position: "relative" }}>
-      <GlowBg />
-      <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ textAlign: "center" }}>
-          <Reveal style={{ display: "inline-block", marginBottom: 26 }}>
-            <span
-              className="tag-pill"
-              style={{
-                borderColor: "var(--brand-200)",
-                background: "var(--brand-tint)",
-                color: "var(--brand-600)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--brand)" }} />
-              Built for Shopify
-            </span>
-          </Reveal>
-          <Reveal delay={40}>
-            <h1 style={{ fontSize: "clamp(40px, 5.4vw, 70px)", fontWeight: 600, lineHeight: 1.02 }}>
-              Hyperpersonalization <span className="text-grad">at scale</span>.
-            </h1>
-          </Reveal>
-          <Reveal delay={120}>
-            <p
-              style={{
-                fontSize: 18.5,
-                color: "var(--ink-2)",
-                maxWidth: 640,
-                margin: "22px auto 0",
-                lineHeight: 1.55,
-              }}
-            >
-              {SUB}
-            </p>
-          </Reveal>
-          <Reveal delay={200} style={{ marginTop: 30 }}>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
-              <BookDemoButton
-                event="button_clicked/book_demo_hero"
-                className="btn btn-primary"
-                style={{ padding: "15px 26px", fontSize: 15.5 }}
-              />
-              <a
-                href="#how-it-works"
-                className="btn btn-ghost"
-                style={{ padding: "15px 24px", fontSize: 15.5 }}
-                onClick={() => track("link_clicked/see_how_it_works_hero")}
-              >
-                See how it works
-              </a>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={160} style={{ marginTop: 56 }}>
-          <FunnelMock />
+    <section id="top" className="sky-hero">
+      <CloudSky />
+      <div className="wrap sky-hero-inner">
+        <Reveal style={{ display: "inline-block", marginBottom: 24 }}>
+          <span className="tag-pill">{TAGLINE}</span>
+        </Reveal>
+        <Reveal delay={40}>
+          <h1 className="sky-title">
+            Self-improving
+            <br />
+            storefronts.
+          </h1>
+        </Reveal>
+        <Reveal delay={120}>
+          <p className="sky-sub">{SUB}</p>
+        </Reveal>
+        <Reveal delay={200} style={{ marginTop: 34 }}>
+          <StoreUrlForm />
+        </Reveal>
+        <Reveal delay={260} className="sky-window">
+          <BrowserWindow url="yourstore.com" title="A live visit, personalized as it happens">
+            <FunnelMock />
+          </BrowserWindow>
         </Reveal>
       </div>
       <style>{`
-        .hero-section{ padding: 72px 0 72px; }
-        @media (max-width: 760px){ .hero-section{ padding: 44px 0 32px; } }
+        .sky-hero { position: relative; margin: -70px 0 0; padding-top: 156px; overflow: hidden; isolation: isolate; }
+        .sky-hero .sky { z-index: -1; }
+        .sky-hero-inner { text-align: center; }
+        .sky-title { font-size: clamp(30px, 8.2vw, 76px); line-height: 1.06; }
+        .sky-sub { font-size: 18.5px; color: var(--ink); opacity: .78; max-width: 620px; margin: 22px auto 0; line-height: 1.55; }
+        .sky-window { margin-top: 72px; padding-bottom: 40px; }
+        @media (max-width: 760px) {
+          .sky-hero { padding-top: 112px; }
+          .sky-hero .wrap { padding-inline: 12px; }
+          .sky-window { margin-top: 44px; padding-bottom: 12px; }
+        }
       `}</style>
     </section>
   );

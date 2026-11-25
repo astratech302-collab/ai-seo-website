@@ -29,7 +29,7 @@ export function GlowBg() {
           height: 620,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(255,138,61,0.20), rgba(255,90,31,0.06) 45%, transparent 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--brand) 20%, transparent), color-mix(in srgb, var(--brand) 6%, transparent) 45%, transparent 70%)",
           filter: "blur(8px)",
         }}
       />
@@ -41,7 +41,7 @@ export function GlowBg() {
           width: 480,
           height: 480,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255,90,31,0.10), transparent 68%)",
+          background: "radial-gradient(circle, color-mix(in srgb, var(--brand) 10%, transparent), transparent 68%)",
         }}
       />
       <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.5 }}>

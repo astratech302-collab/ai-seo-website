@@ -7,7 +7,7 @@ import { EngineLogo } from "@/components/brand/EngineLogo";
  * GEO checklist, approval queue). Faithful to ../ai-seo-frontend. Data-driven.
  */
 
-const AVA = ["#FB5418", "#14ACBC", "#7C5CD1", "#1A9E63", "#C98A12", "#20808D"];
+const AVA = ["var(--brand)", "#14ACBC", "#7C5CD1", "#1A9E63", "#C98A12", "#20808D"];
 
 function Avatars({ names }) {
   const shown = names.slice(0, 3);
@@ -118,7 +118,7 @@ export function KpiRow({ cards, title, meta, right }) {
             <div className="scr-kpi-v">{c.value}<span className="scr-kpi-s">{c.suffix}</span></div>
             <svg className="scr-spark" viewBox="0 0 120 28" preserveAspectRatio="none">
               <polyline points={c.up ? "0,22 20,18 40,20 60,12 80,14 100,6 120,4" : "0,6 20,10 40,8 60,16 80,14 100,20 120,24"}
-                fill="none" stroke={c.up ? "#1A9E63" : "#FB5418"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                fill="none" stroke={c.up ? "#1A9E63" : "var(--brand)"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         ))}

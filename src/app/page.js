@@ -1,5 +1,9 @@
 import Hero from "@/components/sections/Hero";
 import HeroCro from "@/components/sections/HeroCro";
+import IntroStatement from "@/components/sections/IntroStatement";
+import CapabilityCards from "@/components/sections/CapabilityCards";
+import OnsiteSection from "@/components/sections/OnsiteSection";
+import GrowthCards from "@/components/sections/GrowthCards";
 import HumanLoop from "@/components/sections/HumanLoop";
 import SystemSection from "@/components/sections/SystemSection";
 import ManualVsAgents from "@/components/sections/ManualVsAgents";
@@ -10,7 +14,7 @@ import ChannelShowcase from "@/components/cro/ChannelShowcase";
 import JsonLd from "@/components/seo/JsonLd";
 import { webPageSchema, faqPageSchema } from "@/lib/schema";
 import { FAQS_JSON_URL, ORG_DESCRIPTION, AI_SEO_ENABLED } from "@/config/site";
-import { HYPER_PRODUCT, CHANNELS } from "@/data/cro";
+import { STOREFRONT_PRODUCT, CHANNELS } from "@/data/cro";
 
 export const revalidate = 3600;
 
@@ -37,7 +41,7 @@ export default async function Home() {
           webPageSchema({
             name: AI_SEO_ENABLED
               ? "Geobuild — Be the Brand AI Recommends"
-              : "Geobuild — Hyperpersonalization at Scale for Shopify Stores",
+              : "Geobuild — Self-Improving Storefronts for Shopify",
             description: ORG_DESCRIPTION,
             path: "/",
           }),
@@ -55,10 +59,24 @@ export default async function Home() {
       ) : (
         <>
           <HeroCro />
-          <div id="how-it-works">
-            <AgentFeatureShowcase agent={HYPER_PRODUCT} />
+          <div className="frame">
+            <IntroStatement />
+            <div className="frame-rule">
+              <CapabilityCards />
+            </div>
+            <div id="how-it-works" className="frame-rule" style={{ paddingTop: 48, scrollMarginTop: 70 }}>
+              <AgentFeatureShowcase agent={STOREFRONT_PRODUCT} />
+            </div>
+            <div className="frame-rule">
+              <OnsiteSection />
+            </div>
+            <div className="frame-rule">
+              <ChannelShowcase data={CHANNELS} />
+            </div>
+            <div className="frame-rule" style={{ marginTop: 72 }}>
+              <GrowthCards />
+            </div>
           </div>
-          <ChannelShowcase data={CHANNELS} />
         </>
       )}
       <FinalCTA />

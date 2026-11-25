@@ -13,7 +13,8 @@ import TECH_MOCKS, { TechnicalSeoMockStyles, TechnicalSeoHeroMock } from "./mock
 import REDDIT_MOCKS, { RedditMockStyles, RedditHeroMock } from "./mockups/reddit";
 import CRO_MOCKS, { CroMockStyles, CroHeroMock } from "./mockups/cro";
 import AD_MOCKS, { AdLandingMockStyles, AdsHeroMock, BuildMock } from "./mockups/adlanding";
-import { IntentMock, SegmentMock, WidgetMock, HyperMockStyles } from "./mockups/personalize";
+import { IntentMock, SessionSortMock, HyperMockStyles } from "./mockups/personalize";
+import { CatalogHeroMock, CatalogMockStyles } from "./mockups/catalog";
 
 /** Hero-media registry: the overview product screen shown beside the hero copy. */
 const HERO = {
@@ -29,6 +30,7 @@ const HERO = {
   "reddit-marketing": RedditHeroMock,
   "conversion-rate-optimization": CroHeroMock,
   "ad-to-landing-pages": AdsHeroMock,
+  "catalog-enrichment": CatalogHeroMock,
 };
 
 /** Each agent's styles bundle (base + screens + agent-specific). */
@@ -45,6 +47,7 @@ const HERO_STYLES = {
   "reddit-marketing": RedditMockStyles,
   "conversion-rate-optimization": CroMockStyles,
   "ad-to-landing-pages": AdLandingMockStyles,
+  "catalog-enrichment": CatalogMockStyles,
 };
 
 export function hasHeroMedia(slug) {
@@ -88,7 +91,7 @@ const REGISTRY = {
   "reddit-marketing": { mocks: REDDIT_MOCKS, styles: [RedditMockStyles] },
   "conversion-rate-optimization": { mocks: CRO_MOCKS, styles: [CroMockStyles] },
   "ad-to-landing-pages": { mocks: AD_MOCKS, styles: [AdLandingMockStyles] },
-  hyperpersonalization: { mocks: [IntentMock, SegmentMock, WidgetMock, BuildMock], styles: [HyperMockStyles] },
+  storefront: { mocks: [IntentMock, SessionSortMock, BuildMock], styles: [HyperMockStyles] },
 };
 
 export function hasShowcase(slug) {

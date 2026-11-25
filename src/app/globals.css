@@ -151,8 +151,8 @@
 :root {
   /* effect tokens (not colors — kept here, not in colors.json) */
   --shadow-sm: 0 1px 2px rgba(15, 15, 15, 0.04), 0 1px 1px rgba(15, 15, 15, 0.03);
-  --shadow: 0 18px 48px -24px rgba(20, 16, 12, 0.28);
-  --shadow-orange: 0 14px 40px -12px rgba(255, 90, 31, 0.45);
+  --shadow: 0 18px 48px -24px color-mix(in srgb, var(--ink) 28%, transparent);
+  --shadow-orange: 0 14px 40px -12px color-mix(in srgb, var(--brand) 45%, transparent);
   --r-sm: 10px;
   --r: 16px;
   --r-lg: 22px;
@@ -163,7 +163,7 @@ html {
 }
 body {
   line-height: 1.5;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -177,7 +177,14 @@ body {
 h1,
 h2,
 h3 {
-  letter-spacing: -0.022em;
+  letter-spacing: -0.018em;
+}
+/* Display headings: regular weight, tight. !important beats the inline weights
+   carried over from the original prototype. */
+h1,
+h2 {
+  font-weight: 450 !important;
+  letter-spacing: -0.025em !important;
 }
 
 @layer components {
@@ -197,90 +204,216 @@ h3 {
     padding: 78px 0 116px;
   }
 
-  /* eyebrow label */
-  .eyebrow {
-    font-family: var(--font-geist-mono), monospace;
-    font-size: 12px;
+  /* eyebrow: blue sentence-case label with a chevron */
+  .eyebrow,
+  .eyebrow-link {
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
     color: var(--brand-600);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
+    text-decoration: none;
   }
-  .eyebrow::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--brand);
-    box-shadow: 0 0 0 3px var(--brand-tint);
+  .eyebrow-link::after {
+    content: "\203A";
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .eyebrow-link:hover::after {
+    transform: translateX(3px);
   }
 
-  /* small uppercase pill */
+  /* small outline pill */
   .tag-pill {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-family: var(--font-geist-mono), monospace;
-    font-size: 11.5px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 5px 11px;
+    padding: 6px 14px;
     border-radius: 999px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-strong);
     color: var(--ink-2);
-    background: var(--surface);
+    background: color-mix(in srgb, var(--surface) 35%, transparent);
   }
 
   /* pill buttons */
   .btn {
     font-family: var(--font-sans), sans-serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     border: none;
     cursor: pointer;
     padding: 14px 26px;
-    border-radius: 16px;
+    border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     transition: transform 0.18s ease, box-shadow 0.25s ease, background 0.2s ease,
       color 0.2s ease, border-color 0.2s ease;
     text-decoration: none;
     white-space: nowrap;
   }
-  .btn-primary {
-    background: var(--brand);
-    color: #fff;
-  }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--line);
-  }
-  .btn-ghost:hover {
-    background: var(--surface-soft);
-    border-color: rgba(18, 18, 16, 0.18);
-  }
+  .btn-primary,
   .btn-dark {
     background: var(--ink);
-    color: #fff;
+    color: var(--surface);
   }
+  .btn-primary:hover,
   .btn-dark:hover {
     transform: translateY(-2px);
+    box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--ink) 55%, transparent);
+  }
+  .btn-ghost {
+    background: color-mix(in srgb, var(--surface) 55%, transparent);
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+  .btn-ghost:hover {
+    background: var(--surface);
   }
   .btn .arr {
     transition: transform 0.2s ease;
   }
   .btn:hover .arr {
     transform: translateX(3px);
+  }
+
+  /* flowing pastel gradient surface (cards, mockup stages) */
+  .flow {
+    --f1: var(--flow-blue-1);
+    --f2: var(--flow-blue-2);
+    --f3: var(--flow-blue-3);
+    --f4: var(--flow-blue-4);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--f1);
+  }
+  .flow-pink {
+    --f1: var(--flow-pink-1);
+    --f2: var(--flow-pink-2);
+    --f3: var(--flow-pink-3);
+    --f4: var(--flow-pink-4);
+  }
+  .flow-mint {
+    --f1: var(--flow-mint-1);
+    --f2: var(--flow-mint-2);
+    --f3: var(--flow-mint-3);
+    --f4: var(--flow-mint-4);
+  }
+  .flow::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(40% 5% at 44% 50%, var(--cloud), transparent 76%),
+      radial-gradient(30% 4% at 62% 34%, var(--cloud), transparent 76%),
+      radial-gradient(48% 17% at 34% 40%, var(--f3), transparent 72%),
+      radial-gradient(52% 20% at 62% 74%, var(--f4), transparent 72%),
+      radial-gradient(34% 30% at 78% 30%, var(--f2), transparent 74%),
+      radial-gradient(40% 24% at 22% 70%, var(--f2), transparent 74%);
+    transform: rotate(-18deg);
+    animation: flowDrift 14s ease-in-out infinite alternate;
+  }
+  .flow:not(.hf-stage)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: var(--grain-opacity);
+  }
+
+  /* "prompt" bubble that sits on a flow card */
+  .flow-bubble {
+    display: inline-block;
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* full-width sky panel behind a page's top section; sits under the header */
+  .sky-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: -70px 0 0;
+    padding-top: 70px;
+  }
+  .sky-panel > .sky {
+    z-index: -1;
+  }
+  /* darker blue so small labels stay readable on the sky */
+  .sky-panel .eyebrow {
+    color: var(--brand-700);
+  }
+
+  /* hairline vertical gridlines framing the content column */
+  .frame {
+    max-width: 1248px;
+    margin-inline: auto;
+    border-inline: 1px solid var(--line-soft);
+  }
+  .frame-rule {
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* two-tone paragraph: dark lead sentence, grey rest */
+  .two-tone {
+    color: var(--ink-3);
+  }
+  .two-tone strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* segmented pill switcher */
+  .seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px;
+    border-radius: 16px;
+    background: var(--surface-muted);
+  }
+  .seg button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-2);
+    padding: 9px 16px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .seg button:hover {
+    color: var(--ink);
+  }
+  .seg button.is-on {
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+  }
+  .seg button:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
   }
 
   /* gradient helpers */
@@ -299,9 +432,9 @@ h3 {
 @layer utilities {
   /* headings tracking, matches prototype */
   .h-tight {
-    letter-spacing: -0.012em;
-    line-height: 1.04;
-    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    font-weight: 450;
   }
 }
 
@@ -314,6 +447,30 @@ h3 {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+@keyframes flowDrift {
+  from {
+    translate: -4% -3%;
+    scale: 1;
+  }
+  to {
+    translate: 5% 4%;
+    scale: 1.12;
+  }
+}
+/* alternate gradient tones down the "How it works" rows */
+.afs-row:nth-child(3n + 2) .hf-stage {
+  --f1: var(--flow-pink-1);
+  --f2: var(--flow-pink-2);
+  --f3: var(--flow-pink-3);
+  --f4: var(--flow-pink-4);
+}
+.afs-row:nth-child(3n) .hf-stage {
+  --f1: var(--flow-mint-1);
+  --f2: var(--flow-mint-2);
+  --f3: var(--flow-mint-3);
+  --f4: var(--flow-mint-4);
 }
 
 /* typewriter caret */
@@ -373,4 +530,57 @@ h3 {
   .type-caret {
     animation: none;
   }
+  .flow::before {
+    animation: none;
+  }
 }
+
+/* Film grain on creatives (gradients, mockups, photos, dark panels, covers). Overlay
+   blending leaves white areas and their text untouched. Tune strength here. */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-size: 160px;
+  --grain-opacity: 0.45;
+}
+.hf-stage-grain,
+.sky-panel::after,
+.final-cta-box::after,
+.cs-pair::after,
+.flow:not(.hf-stage)::after,
+.sc-photo::after,
+.ce-photo::after,
+.fn-product::after,
+.fn-page::after,
+.cap-tile img + span::after,
+.grain::after,
+.sc-after .sc-card::after,
+.ce-code::after,
+.detail-why::after {
+  background-image: var(--grain);
+  background-size: var(--grain-size);
+}
+.sky-panel::after,
+.final-cta-box::after,
+.sc-photo::after,
+.ce-photo::after,
+.grain::after,
+.sc-after .sc-card::after,
+.ce-code::after,
+.detail-why::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+  opacity: var(--grain-opacity);
+}
+.sky-panel::after { z-index: -1; }
+/* Dark panels: overlay is invisible on near-black, so lay it on faintly behind content. */
+.sc-after .sc-card,
+.ce-code,
+.detail-why { position: relative; isolation: isolate; }
+.sc-after .sc-card::after,
+.ce-code::after,
+.detail-why::after { z-index: -1; mix-blend-mode: normal; opacity: 0.09; }
+

@@ -92,7 +92,7 @@ function CompetitorsMock() {
           { name: "HubSpot", hex: "#14ACBC", share: 34, change: 1 },
           { name: "Pipedrive", hex: "#7C5CD1", share: 26, change: 2 },
           { name: "Copper", hex: "#C98A12", share: 19, change: -3 },
-          { name: "Acme (you)", hex: "#FB5418", share: 12, change: 5 },
+          { name: "Acme (you)", hex: "var(--brand)", share: 12, change: 5 },
         ]}
       />
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 176 }}>
@@ -130,7 +130,7 @@ export function ResearchMockStyles() {
       <DashBaseStyles />
       <ScreensStyles />
       <style>{`
-        .rs-input { margin-top:9px; border:1px solid var(--d-orange); box-shadow:0 0 0 4px rgba(251,84,24,.14);
+        .rs-input { margin-top:9px; border:1px solid var(--d-orange); box-shadow:0 0 0 4px color-mix(in srgb, var(--brand) 14%, transparent);
           border-radius:10px; padding:11px 13px; font-size:13.5px; font-weight:500; display:flex; align-items:center; }
         .rs-caret { width:1.5px; height:16px; background:var(--d-orange); margin-left:2px; }
         .rs-models { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:10px; }

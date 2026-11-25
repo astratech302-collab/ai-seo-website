@@ -330,7 +330,7 @@ function MockStyles() {
       .mk-net-center {
         font-size: 13px; font-weight: 700; color: #fff; text-align: center;
         background: var(--grad); border-radius: 14px; padding: 18px 14px;
-        min-width: 96px; box-shadow: var(--shadow-orange, 0 16px 30px -14px rgba(255,90,31,.5));
+        min-width: 96px; box-shadow: var(--shadow-orange, 0 16px 30px -14px color-mix(in srgb, var(--brand) 50%, transparent));
       }
       .mk-net-col { display: flex; flex-direction: column; gap: 10px; flex: 1; }
       .mk-src { display: flex; align-items: center; }

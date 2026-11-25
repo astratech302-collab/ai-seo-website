@@ -114,7 +114,7 @@ export default function ManualVsAgents() {
                   width: 240,
                   height: 240,
                   borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(255,90,31,0.4), transparent 65%)",
+                  background: "radial-gradient(circle, color-mix(in srgb, var(--brand) 40%, transparent), transparent 65%)",
                 }}
               />
               <div

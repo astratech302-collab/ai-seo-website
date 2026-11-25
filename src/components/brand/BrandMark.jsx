@@ -1,4 +1,4 @@
-function SoloMark({ size, color = "#fff" }) {
+function SoloMark({ size, color = "var(--mark-fg, var(--surface))" }) {
   return (
     <svg
       width={size}
@@ -22,18 +22,17 @@ function SoloMark({ size, color = "#fff" }) {
 }
 
 export function GeobuildMark({ size = 30, radius }) {
-  const r = radius != null ? radius : Math.round(size * 0.3);
+  const r = radius != null ? radius : Math.round(size / 2);
   return (
     <span
       style={{
         width: size,
         height: size,
         borderRadius: r,
-        background: "linear-gradient(150deg, #FF7A45, var(--brand))",
+        background: "var(--mark-bg, var(--ink))",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: "0 4px 12px -3px rgba(251,84,24,.55)",
         flexShrink: 0,
       }}
     >
@@ -48,14 +47,14 @@ export function BrandMark({ size = 28, light = false, href = "/" }) {
       <GeobuildMark size={size} />
       <span
         style={{
-          fontWeight: 800,
+          fontWeight: 600,
           fontSize: size * 0.69,
           letterSpacing: "-0.02em",
           lineHeight: 1,
-          color: light ? "#fff" : "var(--ink)",
+          color: light ? "var(--surface)" : "var(--brand-text, var(--ink))",
         }}
       >
-        Geo<span style={{ color: "var(--brand)" }}>build</span>
+        Geobuild
       </span>
     </a>
   );

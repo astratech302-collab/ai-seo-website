@@ -2,6 +2,7 @@ import { AI_SEO_ENABLED } from "@/config/site";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import BookDemoButton from "@/components/demo/BookDemoButton";
+import CloudSky from "@/components/hero/CloudSky";
 
 /**
  * Shared template for agent + service detail pages. Content-driven, so new pages
@@ -26,8 +27,9 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
     <>
       {/* Hero — modest top padding so content clears the sticky header with a
           little breathing room, without a large empty gap. */}
-      <section className="section-pad" style={{ paddingTop: "clamp(52px, 5vw, 76px)", paddingBottom: 40 }}>
-        <div className="wrap">
+      <section className="sky-panel" style={{ marginBottom: 40 }}>
+        <CloudSky />
+        <div className="wrap" style={{ paddingTop: "clamp(44px, 5vw, 76px)", paddingBottom: 64 }}>
           <div className={`detail-hero${heroMedia ? " has-media" : ""}`}>
             <div className="detail-hero-copy">
           {!data.tagline && (
@@ -118,7 +120,8 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
             <p
               style={{
                 fontSize: 17,
-                color: "var(--ink-2)",
+                color: "var(--ink)",
+                opacity: 0.78,
                 marginTop: 18,
                 lineHeight: 1.6,
                 maxWidth: 640,
@@ -335,8 +338,12 @@ export default function DetailPage({ kind, data, icon, mockup, showcase, heroMed
                     <span className="detail-rel-top">
                       {it.icon && (
                         <span className="detail-rel-ic" aria-hidden>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={it.icon} alt={`${it.name} icon`} width={26} height={26} style={{ display: "block" }} />
+                          {typeof it.icon === "string" ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={it.icon} alt={`${it.name} icon`} width={26} height={26} style={{ display: "block" }} />
+                          ) : (
+                            it.icon
+                          )}
                         </span>
                       )}
                       <span style={{ fontSize: 15, fontWeight: 600, color: "var(--ink)" }}>

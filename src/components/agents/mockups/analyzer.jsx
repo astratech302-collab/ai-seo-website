@@ -58,7 +58,7 @@ function SovMock() {
         meta="Your slice of AI answers · last 30 days"
         rows={[
           { name: "HubSpot", hex: "#14ACBC", share: 28, change: -1 },
-          { name: "Acme (you)", hex: "#FB5418", share: 21, change: 3 },
+          { name: "Acme (you)", hex: "var(--brand)", share: 21, change: 3 },
           { name: "Pipedrive", hex: "#7C5CD1", share: 19, change: 1 },
           { name: "Copper", hex: "#1A9E63", share: 16, change: 0 },
         ]}
@@ -115,7 +115,7 @@ function HandoffMock() {
         right={<span className="dash-btn-primary">Approve all</span>}
       />
       <div className="dash-float" style={{ right: -14, top: 74, width: 176 }}>
-        <span className="dash-eyebrow" style={{ color: "#CF400E" }}>→ Strategy sprint</span>
+        <span className="dash-eyebrow" style={{ color: "var(--brand-600)" }}>→ Strategy sprint</span>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 7 }}>3 approved · est. +18 visibility pts</p>
       </div>
     </MockStage>

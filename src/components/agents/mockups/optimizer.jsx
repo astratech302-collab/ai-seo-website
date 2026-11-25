@@ -58,7 +58,7 @@ function SlippingMock() {
         { label: "Pages indexed", value: "212", suffix: "", delta: "6", up: true },
       ]} />
       <div className="dash-float" style={{ right: -16, bottom: -18, width: 210 }}>
-        <span className="dash-eyebrow" style={{ color: "#CF400E" }}>↓ Slipping</span>
+        <span className="dash-eyebrow" style={{ color: "var(--brand-600)" }}>↓ Slipping</span>
         <p style={{ fontSize: 12.5, color: "var(--d-text2)", lineHeight: 1.5, marginTop: 7 }}>
           3 pages lost citations this week — Optimizer queued a refresh.
         </p>

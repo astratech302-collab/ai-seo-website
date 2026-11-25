@@ -31,7 +31,6 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: "1px solid var(--line)",
         padding: "62px 0 40px",
         background: "var(--surface)",
       }}
@@ -73,16 +72,7 @@ export default function Footer() {
 
         {FOOTER_COLS.map((col) => (
           <div key={col.heading}>
-            <div
-              className="mono"
-              style={{
-                fontSize: 11.5,
-                color: "var(--ink-3)",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                marginBottom: 14,
-              }}
-            >
+            <div style={{ fontSize: 14, color: "var(--ink-3)", marginBottom: 16 }}>
               {col.heading}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -91,7 +81,8 @@ export default function Footer() {
                   key={it.label}
                   href={it.href}
                   className="foot-link"
-                  style={{ fontSize: 14, color: "var(--ink-2)", textDecoration: "none" }}
+                  style={{ fontSize: 14, color: "var(--ink)", textDecoration: "none" }}
+                  onClick={() => track(`link_clicked/${it.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_footer`)}
                 >
                   {it.label}
                 </Link>
@@ -113,10 +104,10 @@ export default function Footer() {
           gap: 12,
         }}
       >
-        <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
+        <span style={{ fontSize: 13.5, color: "var(--ink-3)" }}>
           © 2026 {ORG_NAME}
         </span>
-        <span className="mono" style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
+        <span style={{ fontSize: 13.5, color: "var(--ink-3)" }}>
           <Link
             href="/privacy-policy"
             className="foot-link"
@@ -143,7 +134,8 @@ export default function Footer() {
           grid-template-columns: 1.6fr repeat(${FOOTER_COLS.length}, 1fr);
           gap: 40px;
         }
-        .foot-link:hover { color: var(--ink) !important; }
+        .foot-link { transition: color .15s ease; }
+        .foot-link:hover { color: var(--brand-600) !important; }
         .foot-social {
           display: inline-flex;
           align-items: center;

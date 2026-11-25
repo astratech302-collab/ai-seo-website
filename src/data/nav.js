@@ -3,7 +3,8 @@
 import { AGENTS } from "@/data/agents";
 import { SERVICES } from "@/data/services";
 import { ADS_NAV } from "@/data/cro";
-import { AI_SEO_ENABLED } from "@/config/site";
+import { ONSITE_NAV } from "@/data/onsite";
+import { GROWTH_PRODUCTS } from "@/data/growth";
 
 export const agentHref = (slug) => `/agents/${slug}`;
 export const serviceHref = (slug) => `/services/${slug}`;
@@ -13,13 +14,10 @@ export const FEATURED_AGENT = AGENTS.find((a) => a.lead) || AGENTS[0] || null;
 export const SPECIALIST_AGENTS = AGENTS.filter((a) => !a.lead);
 
 // Resources dropdown.
-// Blog + FAQ (pricing page) are AI-SEO content, hidden with the flag.
-export const RESOURCES = AI_SEO_ENABLED
-  ? [
-      { label: "Blog", href: "/blog", desc: "Playbooks on AEO, GEO and AI search." },
-      { label: "FAQ", href: "/pricing#faq", desc: "Answers to the questions we hear most." },
-    ]
-  : [];
+export const RESOURCES = [
+  { label: "Blog", href: "/blog", desc: "Playbooks on AI visibility and AI search." },
+  { label: "FAQ", href: "/pricing#faq", desc: "Answers to the questions we hear most." },
+];
 
 // Promo cards shown on the right of each mega-menu.
 export const PROMO = {
@@ -41,13 +39,20 @@ export const PROMO = {
   },
 };
 
+// Products in the header menu, mobile drawer and footer. `key` names icons and events.
+export const PRODUCT_LINKS = [
+  { ...ONSITE_NAV, key: "onsite_discovery" },
+  { ...ADS_NAV, key: "ad_to_landing" },
+  ...GROWTH_PRODUCTS.map((p) => ({ key: p.key, name: p.data.name, short: p.data.short, href: p.path })),
+];
+
 // Footer columns.
 export const FOOTER_COLS = [
   {
     heading: "Product",
     links: [
       ...AGENTS.map((a) => ({ label: a.name, href: agentHref(a.slug) })),
-      { label: ADS_NAV.name, href: ADS_NAV.href },
+      ...PRODUCT_LINKS.map((p) => ({ label: p.name, href: p.href })),
     ],
   },
   {
@@ -62,7 +67,7 @@ export const FOOTER_COLS = [
     heading: "Company",
     links: [
       { label: "Contact", href: "/contact-us" },
-      ...(AI_SEO_ENABLED ? [{ label: "Pricing", href: "/pricing" }] : []),
+      { label: "Pricing", href: "/pricing" },
     ],
   },
 ].filter((col) => col.links.length > 0);

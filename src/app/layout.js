@@ -1,5 +1,4 @@
-import { Roboto, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ThemeVars from "@/components/theme/ThemeVars";
@@ -13,10 +12,9 @@ import ScrollToTop from "@/components/util/ScrollToTop";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { SITE_URL, AI_SEO_ENABLED, ORG_DESCRIPTION } from "@/config/site";
 
-const roobert = localFont({
+const geist = Geist({
   variable: "--font-sans",
-  src: "./fonts/Roobert-Variable.ttf",
-  weight: "100 900",
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -32,7 +30,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: AI_SEO_ENABLED
     ? "Geobuild — Be the Brand AI Recommends | AEO, GEO & SEO"
-    : "Geobuild — Hyperpersonalization at Scale for Shopify Stores",
+    : "Geobuild — Self-Improving Storefronts for Shopify",
   description: AI_SEO_ENABLED
     ? "Geobuild runs GEO and SEO with a team of AI agents — and a human strategist who makes the final call. Get cited on ChatGPT, Claude, Gemini and Perplexity."
     : ORG_DESCRIPTION,
@@ -43,7 +41,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${roobert.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geist.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {/* Site-wide structured data (present on every page). Per-page types are

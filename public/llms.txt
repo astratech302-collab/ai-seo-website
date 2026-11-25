@@ -1,17 +1,23 @@
 # Geobuild
 
-> Geobuild turns every ad click into a landing page made for that shopper. Hyperpersonalization at scale, built only for Shopify stores.
+> Geobuild builds self-improving Shopify storefronts: collections sorted 1:1 for each session, and the right audience matched to the right landing page. From discovery to conversion, for Shopify stores.
 
 ## Pages
 
-- [Home](https://geobuild.in/): Overview of Geobuild's hyperpersonalization product for Shopify
+- [Home](https://geobuild.in/): Overview of Geobuild's self-improving storefronts for Shopify
+- [Onsite Discovery](https://geobuild.in/products/onsite-discovery): 1:1 session sort: collection pages re-ordered for each shopper from real-time intent, needs and use cases
 - [Ad-to-Landing Pages](https://geobuild.in/products/ad-to-landing-pages): A personalized landing page for every ad and channel you run
+- [AI Visibility](https://geobuild.in/products/ai-visibility): Getting Shopify stores recommended in AI answers
+- [Catalog Enrichment](https://geobuild.in/products/catalog-enrichment): Turning Shopify product data into machine-readable information that AI agents can read
+- [Pricing](https://geobuild.in/pricing): Plans and pricing
+- [Blog](https://geobuild.in/blog): Playbooks on AI visibility and AI search
+- [Answer Engine Optimization](https://geobuild.in/services/answer-engine-optimization): Getting your brand picked in AI answers
 - [Conversion Rate Optimization](https://geobuild.in/services/conversion-rate-optimization): Session-recording review, pain-point analysis and tested fixes for Shopify product pages
 - [Get Started](https://geobuild.in/contact-us): Book a 30-minute demo
 
 ## About
 
-Geobuild builds personalized landing pages for Shopify stores. Connect your ad accounts and Geobuild reads every ad, suggests what each page should say, and builds a landing page that continues the ad, across Google, Meta, TikTok, YouTube and more. A human strategist reviews every suggestion.
+Geobuild sorts Shopify collections one to one for each session and builds audience-matched landing pages. Connect your ad accounts and Geobuild reads every ad, suggests what each page should say, and builds a landing page that continues the ad, across Google, Meta, TikTok, YouTube and more. A human strategist reviews every suggestion.
 
 ## Contact
 

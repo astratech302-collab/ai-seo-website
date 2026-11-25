@@ -48,7 +48,7 @@ function AgentCard({ a, i }) {
               width: 200,
               height: 200,
               borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(255,90,31,0.45), transparent 65%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--brand) 45%, transparent), transparent 65%)",
             }}
           />
         )}

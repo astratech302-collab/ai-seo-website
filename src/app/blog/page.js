@@ -1,28 +1,26 @@
-import { notFound } from "next/navigation";
 import Reveal from "@/components/motion/Reveal";
 import BlogGrid from "@/components/blog/BlogGrid";
 import JsonLd from "@/components/seo/JsonLd";
 import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 import { getAllPosts, getCategories } from "@/data/blog";
-import { AI_SEO_ENABLED } from "@/config/site";
+import CloudSky from "@/components/hero/CloudSky";
 
 export const metadata = {
-  title: "Blog — AEO, GEO & AI Search Playbooks | Geobuild",
+  title: "Blog — AI Visibility and AI Search Playbooks | Geobuild",
   description:
-    "Playbooks and field notes on Answer Engine Optimization, GEO and AI search — how brands become the answer ChatGPT, Claude, Gemini and Perplexity recommend.",
+    "Playbooks and field notes on AI visibility and AI search — how brands become the answer ChatGPT, Claude, Gemini and Perplexity recommend.",
   alternates: { canonical: "/blog" },
 };
 
 export const revalidate = 3600;
 
 export default async function BlogPage() {
-  // Blog is AEO/GEO content: hidden while the product is CRO-only (see AI_SEO_ENABLED).
-  if (!AI_SEO_ENABLED) notFound();
   const posts = await getAllPosts();
   const categories = getCategories(posts);
 
   return (
-    <section className="section-pad" style={{ paddingTop: "clamp(52px, 5vw, 76px)" }}>
+    <section className="sky-panel" style={{ paddingBottom: 78 }}>
+      <CloudSky />
       <JsonLd
         schema={[
           blogSchema({
@@ -37,14 +35,18 @@ export default async function BlogPage() {
           ]),
         ]}
       />
-      <div className="wrap">
+      <div className="wrap" style={{ paddingTop: "clamp(52px, 5vw, 76px)" }}>
         <Reveal>
           <h1 style={{ fontSize: "clamp(38px, 5.4vw, 64px)", fontWeight: 600, letterSpacing: "-0.03em" }}>
             Latest blogs
           </h1>
         </Reveal>
         <div style={{ marginTop: 40 }}>
-          <BlogGrid posts={posts} categories={categories} />
+          {posts.length > 0 ? (
+            <BlogGrid posts={posts} categories={categories} />
+          ) : (
+            <p style={{ fontSize: 17 }}>No posts yet. Check back soon.</p>
+          )}
         </div>
       </div>
     </section>

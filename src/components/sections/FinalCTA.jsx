@@ -12,53 +12,28 @@ export default function FinalCTA() {
             className="final-cta-box"
             style={{
               position: "relative",
-              background: "var(--surface-ink)",
-              borderRadius: 28,
-              padding: "76px 48px",
+              borderRadius: 24,
+              padding: "112px 48px",
               textAlign: "center",
               overflow: "hidden",
             }}
           >
-            <div aria-hidden style={{ position: "absolute", inset: 0 }}>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: -160,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: 700,
-                  height: 400,
-                  borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(255,90,31,0.4), transparent 62%)",
-                }}
-              />
-            </div>
+            <div aria-hidden className="cta-glow" />
+            <div aria-hidden className="cta-dots" />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <span
-                className="tag-pill"
-                style={{
-                  borderColor: "rgba(255,255,255,0.18)",
-                  color: "#fff",
-                  background: "rgba(255,255,255,0.06)",
-                }}
-              >
-                Book a demo
-              </span>
               <h2
                 style={{
                   fontSize: "clamp(34px, 5vw, 60px)",
-                  color: "#fff",
-                  fontWeight: 600,
-                  marginTop: 22,
                   lineHeight: 1.05,
                 }}
               >
-                {AI_SEO_ENABLED ? "Be the answer AI gives." : "Hyperpersonalization at scale."}
+                {AI_SEO_ENABLED ? "Be the answer AI gives." : "Self-improving storefronts."}
               </h2>
               <p
                 style={{
                   fontSize: 18.5,
-                  color: "rgba(255,255,255,0.7)",
+                  color: "var(--ink)",
+                  opacity: 0.75,
                   maxWidth: 560,
                   margin: "20px auto 0",
                   lineHeight: 1.55,
@@ -66,7 +41,7 @@ export default function FinalCTA() {
               >
                 {AI_SEO_ENABLED
                   ? "See exactly where your brand stands across ChatGPT, Claude and Gemini today — and the plan to win the answers that matter."
-                  : "See what a landing page for every ad looks like on your Shopify store, and how many more clicks it can turn into orders."}
+                  : "See your collections sorted one to one for every shopper, and each ad audience matched to the right landing page."}
               </p>
               <div
                 style={{
@@ -91,20 +66,31 @@ export default function FinalCTA() {
                     style={{
                       padding: "16px 28px",
                       fontSize: 16,
-                      background: "rgba(255,255,255,0.08)",
-                      color: "#fff",
-                      border: "1px solid rgba(255,255,255,0.16)",
+                      border: "1px solid var(--line-strong)",
                     }}
                   />
                 )}
               </div>
 
-              {AI_SEO_ENABLED && <AskEngines />}
+              {/* AskEngines is styled for a dark backdrop */}
+              {AI_SEO_ENABLED && (
+                <div style={{ background: "var(--surface-ink)", borderRadius: 20, marginTop: 34, padding: "0 20px 24px" }}>
+                  <AskEngines />
+                </div>
+              )}
             </div>
           </div>
         </Reveal>
       </div>
-      <style>{`@media (max-width: 560px){ .final-cta-box{ padding: 52px 24px !important; } }`}</style>
+      <style>{`
+        .final-cta-box { background: linear-gradient(180deg, var(--flow-blue-1), var(--sky-low)); }
+        .cta-glow, .cta-dots { position: absolute; inset: 0; pointer-events: none; }
+        .cta-glow { background: radial-gradient(60% 75% at 50% 112%, var(--brand) 0%, var(--brand-light) 34%, transparent 72%), radial-gradient(45% 60% at 82% 96%, var(--sky-top), transparent 70%); animation: ctaGlow 9s ease-in-out infinite alternate; transform-origin: bottom; }
+        .cta-dots { background-image: radial-gradient(var(--cloud) 1.4px, transparent 1.8px); background-size: 22px 22px; -webkit-mask-image: linear-gradient(180deg, transparent 35%, var(--ink)); mask-image: linear-gradient(180deg, transparent 35%, var(--ink)); }
+        @keyframes ctaGlow { from { transform: scale(1); } to { transform: scale(1.14, 1.08); } }
+        @media (prefers-reduced-motion: reduce) { .cta-glow { animation: none; } }
+        @media (max-width: 560px){ .final-cta-box{ padding: 64px 24px !important; } }
+      `}</style>
     </section>
   );
 }

@@ -9,7 +9,7 @@ export function AiSearchHeroMock() {
         overview
         label="Google · AI Overview"
         q="best project management tool for agencies"
-        answer={<>For creative agencies, <mark>Acme</mark> is widely recommended for its client portal and time tracking, along with Asana and Monday.com.</>}
+        answer={<>For commuting, <mark>Northline</mark> is widely recommended for its laptop sleeve and slim shape, along with Peakway and Urbanfold.</>}
         engines={["Gemini"]}
       />
       <div className="dash-float" style={{ right: -16, bottom: -16, width: 176 }}>
@@ -28,7 +28,7 @@ function OverviewMock() {
         overview
         label="Google · AI Overview"
         q="best project management tool for agencies"
-        answer={<>For creative agencies, <mark>Acme</mark> is widely recommended for its client portal and time tracking, along with Asana and Monday.com.</>}
+        answer={<>For commuting, <mark>Northline</mark> is widely recommended for its laptop sleeve and slim shape, along with Peakway and Urbanfold.</>}
         engines={["Gemini"]}
       />
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 176 }}>
@@ -48,8 +48,8 @@ function AuthorityMock() {
         meta="Entities & clusters AI reads as authority"
         rows={[
           { label: "Entity linked (sameAs)", desc: "Brand connected to Crunchbase + LinkedIn", done: true },
-          { label: "“Agency CRM” cluster complete", desc: "8 supporting pages interlinked", done: true },
-          { label: "Comparison hub published", desc: "Acme vs HubSpot / Pipedrive / Copper", done: false },
+          { label: "“Laptop backpacks” cluster complete", desc: "8 supporting pages interlinked", done: true },
+          { label: "Comparison hub published", desc: "Northline vs Peakway / Urbanfold / Trailco", done: false },
           { label: "Author & expertise signals", desc: "Bylines missing on 6 guides", done: false },
         ]}
       />
@@ -69,14 +69,14 @@ function QueriesMock() {
         title="Answer-triggering queries"
         meta="Searches that now return an AI answer"
         rows={[
-          { q: "best agency project management tool", pos: "#2", brands: ["Acme", "Asana"], cited: true },
-          { q: "how to manage retainer clients", pos: "", brands: ["HoneyBook", "Bonsai"], cited: false },
-          { q: "agency time tracking software", pos: "#3", brands: ["Toggl", "Acme"], cited: true },
+          { q: "best backpack for work commute", pos: "#2", brands: ["Northline", "Peakway"], cited: true },
+          { q: "what size backpack fits a laptop", pos: "", brands: ["Peakway", "Packhaus"], cited: false },
+          { q: "slim 15 inch laptop backpack", pos: "#3", brands: ["Trailco", "Northline"], cited: true },
         ]}
         compact
       />
       <div className="dash-float" style={{ right: -14, bottom: -14, width: 172 }}>
-        <span className="dash-eyebrow" style={{ color: "#CF400E" }}>Only 38%</span>
+        <span className="dash-eyebrow" style={{ color: "var(--brand-600)" }}>Only 38%</span>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 6 }}>of AI citations come from the top 10 — relevance wins</p>
       </div>
     </MockStage>

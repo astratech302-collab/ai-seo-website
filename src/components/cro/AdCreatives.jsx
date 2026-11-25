@@ -105,8 +105,8 @@ function CreatorIcon({ size = 16 }) {
 function RetargetIcon({ size = 16 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden style={{ display: "block", flexShrink: 0 }}>
-      <path {...glyph} stroke="#FB5418" d="M20 12a8 8 0 1 1-2.6-5.9" />
-      <path {...glyph} stroke="#FB5418" d="M20 4v4.5h-4.5" />
+      <path {...glyph} stroke="var(--brand)" d="M20 12a8 8 0 1 1-2.6-5.9" />
+      <path {...glyph} stroke="var(--brand)" d="M20 4v4.5h-4.5" />
     </svg>
   );
 }
@@ -331,7 +331,7 @@ export function StorePage({ image = DEMO_IMG.product, imagePos = "center 60%", h
         <span style={{ fontSize: 15, fontWeight: 800, letterSpacing: "-0.02em" }}>dewlab</span>
         <span style={{ fontSize: 12, color: "#737373" }} aria-hidden>🛒 0</span>
       </div>
-      {banner && <div style={{ background: "#FFF3EC", color: "#CF400E", fontSize: 11.5, fontWeight: 600, padding: "6px 14px", textAlign: "center" }}>{banner}</div>}
+      {banner && <div style={{ background: "var(--brand-tint)", color: "var(--brand-600)", fontSize: 11.5, fontWeight: 600, padding: "6px 14px", textAlign: "center" }}>{banner}</div>}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image} alt={`${headline} product photo`} width={360} height={300} style={{ width: "100%", height: compact ? 120 : 190, objectFit: "cover", objectPosition: imagePos, display: "block" }} />
       <div style={{ padding: "12px 14px 14px" }}>
@@ -344,13 +344,13 @@ export function StorePage({ image = DEMO_IMG.product, imagePos = "center 60%", h
         {!compact && chips.length > 0 && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
             {chips.map((c) => (
-              <span key={c} style={{ fontSize: 11, fontWeight: 600, color: "#CF400E", background: "#FFEDE3", borderRadius: 99, padding: "4px 10px" }}>{c}</span>
+              <span key={c} style={{ fontSize: 11, fontWeight: 600, color: "var(--brand-600)", background: "var(--brand-tint)", borderRadius: 99, padding: "4px 10px" }}>{c}</span>
             ))}
           </div>
         )}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 12 }}>
           {price && <span style={{ fontSize: 16, fontWeight: 800 }}>{price}</span>}
-          <span style={{ flex: 1, textAlign: "center", fontSize: 13, fontWeight: 700, color: "#fff", background: "linear-gradient(135deg,#FF7A45,#FB5418)", borderRadius: 10, padding: "10px 0" }}>Add to cart</span>
+          <span style={{ flex: 1, textAlign: "center", fontSize: 13, fontWeight: 700, color: "#fff", background: "var(--grad)", borderRadius: 10, padding: "10px 0" }}>Add to cart</span>
         </div>
       </div>
       {children}

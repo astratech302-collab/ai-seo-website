@@ -82,7 +82,7 @@ function CompeteMock() {
         compact
       />
       <div className="dash-float" style={{ right: -16, top: 66, width: 178 }}>
-        <div style={{ fontSize: 26, fontWeight: 800, color: "#CF400E", letterSpacing: "-.02em" }}>62%</div>
+        <div style={{ fontSize: 26, fontWeight: 800, color: "var(--brand-600)", letterSpacing: "-.02em" }}>62%</div>
         <p style={{ fontSize: 12, color: "var(--d-text2)", marginTop: 4 }}>of answers name a rival, not you — 12 prompts to close</p>
       </div>
     </MockStage>

@@ -74,11 +74,11 @@ export function Gauge({ value, label, sub, tone = "orange" }) {
   const r = 26;
   const c = 2 * Math.PI * r;
   const off = c * (1 - value / 100);
-  const stroke = tone === "green" ? "#1A9E63" : "#FB5418";
+  const stroke = tone === "green" ? "#1A9E63" : "var(--brand)";
   return (
     <div className="dash-gauge">
       <svg width="72" height="72" viewBox="0 0 72 72">
-        <circle cx="36" cy="36" r={r} fill="none" stroke="#F1EEE9" strokeWidth="8" />
+        <circle cx="36" cy="36" r={r} fill="none" stroke="var(--surface-muted)" strokeWidth="8" />
         <circle cx="36" cy="36" r={r} fill="none" stroke={stroke} strokeWidth="8" strokeLinecap="round"
           strokeDasharray={c} strokeDashoffset={off} transform="rotate(-90 36 36)" />
         <text x="36" y="37" textAnchor="middle" dominantBaseline="central"
@@ -126,9 +126,9 @@ export function DashBaseStyles() {
   return (
     <style>{`
       .hf-stage {
-        --d-orange:#FB5418; --d-orangeHover:#E5430C; --d-orangeText:#CF400E; --d-orangeSoft:#FFEDE3; --d-orangeSoft2:#FFF6F0;
+        --d-orange:var(--brand); --d-orangeHover:var(--brand-600); --d-orangeText:var(--brand-600); --d-orangeSoft:var(--brand-tint); --d-orangeSoft2:var(--brand-tint);
         --d-text:#1C1916; --d-text2:#6C665E; --d-text3:#9E978D;
-        --d-border:#EBE6DF; --d-borderStrong:#DCD5CB; --d-surface2:#FBFAF8; --d-surface3:#F1EEE9; --d-bgGrid:#F1EDE7;
+        --d-border:var(--line); --d-borderStrong:var(--line-strong); --d-surface2:var(--surface-soft); --d-surface3:var(--surface-muted); --d-bgGrid:var(--surface-muted);
         --d-violet:#7C5CD1; --d-violetSoft:#EEE9FB; --d-green:#1A9E63; --d-greenSoft:#E2F4EB;
         --d-greenDark:#0A6E3D; --d-greenDarkSoft:#D3EBDB; --d-amber:#C98A12; --d-amberSoft:#FBEFD6;
         --d-cyan:#14ACBC; --d-cyanSoft:#DDF4F6; --d-danger:#E5533A;
@@ -142,8 +142,8 @@ export function DashBaseStyles() {
         padding:14px 16px; border-bottom:1px solid var(--d-border); }
       .dash-top-id { display:flex; align-items:center; gap:11px; min-width:0; }
       .dash-appicon { width:34px; height:34px; border-radius:9px; flex-shrink:0; display:inline-flex;
-        align-items:center; justify-content:center; background:linear-gradient(135deg,#FF7A45,#FB5418);
-        box-shadow:0 8px 18px -8px rgba(251,84,24,.6); color:#fff; }
+        align-items:center; justify-content:center; background:var(--grad);
+        box-shadow:0 8px 18px -8px color-mix(in srgb, var(--brand) 60%, transparent); color:#fff; }
       .dash-top-title { font-size:15px; font-weight:700; letter-spacing:-.01em; line-height:1.1; }
       .dash-top-meta { font-size:11.5px; color:var(--d-text3); margin-top:2px; }
 
@@ -206,12 +206,12 @@ export function DashBaseStyles() {
       .dash-barlabel { font-size:12px; color:var(--d-text2); width:96px; flex-shrink:0; }
       .dash-bartrack { flex:1; height:10px; border-radius:999px; background:var(--d-surface3); overflow:hidden; }
       .dash-barfill { display:block; height:100%; background:var(--d-text3); border-radius:999px; }
-      .dash-barfill.is-you { background:linear-gradient(90deg,#FF7A45,#FB5418); }
+      .dash-barfill.is-you { background:linear-gradient(90deg,var(--brand-light),var(--brand)); }
       .dash-barval { font-size:11px; color:var(--d-text3); width:32px; text-align:right; flex-shrink:0; }
 
       /* buttons + misc */
-      .dash-btn-primary { font-size:12.5px; font-weight:700; color:#fff; background:linear-gradient(135deg,#FF7A45,#FB5418);
-        border-radius:10px; padding:8px 15px; box-shadow:0 8px 18px -8px rgba(251,84,24,.6); }
+      .dash-btn-primary { font-size:12.5px; font-weight:700; color:#fff; background:var(--grad);
+        border-radius:10px; padding:8px 15px; box-shadow:0 8px 18px -8px color-mix(in srgb, var(--brand) 60%, transparent); }
       .dash-btn-outline { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
         color:var(--d-text2); border:1px solid var(--d-border); border-radius:9px; padding:7px 11px; }
       .dash-pad { padding:16px; }

@@ -161,7 +161,8 @@ export const SAMPLE_POSTS = [
     tags: ["GEO", "AI Search", "AEO"],
     date: "2026-07-27",
     author: AUTHOR,
-    cover: { image: `${ASSET_BASE}/blog-geo-ai-search.svg` },
+    // TODO: move to ASSET_BASE on S3.
+    cover: { image: "/icons/blog-geo-cover.svg" },
     markdown: GEO_ARTICLE,
   },
 ];

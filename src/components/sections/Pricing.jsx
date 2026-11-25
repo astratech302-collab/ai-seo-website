@@ -10,9 +10,9 @@ export default function Pricing({ plans = [] }) {
         <SectionHead
           as="h1"
           eyebrow="Pricing"
-          title="Plans that scale with your growth."
+          title="Plans that grow with your store."
           center
-          sub="Every plan is agent-run and human-approved. Start where you are today and upgrade anytime."
+          sub="Pick the volumes that fit your store, then book a demo for a quote."
         />
         <div
           className="price-grid"
@@ -35,8 +35,8 @@ export default function Pricing({ plans = [] }) {
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  background: p.featured ? "rgba(255,90,31,0.04)" : "#fff",
-                  border: p.featured ? "1.5px solid var(--brand)" : "1px solid #e5e7eb",
+                  background: p.featured ? "color-mix(in srgb, var(--brand) 4%, var(--surface))" : "var(--surface)",
+                  border: p.featured ? "1.5px solid var(--brand)" : "1px solid var(--line)",
                   borderRadius: 16,
                   padding: "32px 30px",
                   boxShadow: "none",
@@ -90,7 +90,7 @@ export default function Pricing({ plans = [] }) {
                     justifyContent: "center",
                     padding: "14px 24px",
                     fontSize: 15,
-                    background: p.featured ? undefined : "#f0ece8",
+                    background: p.featured ? undefined : "var(--surface-muted)",
                     color: p.featured ? undefined : "var(--ink)",
                     border: "none",
                     borderRadius: 10,
@@ -103,7 +103,7 @@ export default function Pricing({ plans = [] }) {
                 <div
                   style={{
                     marginTop: 28,
-                    borderTop: "1px solid #e5e7eb",
+                    borderTop: "1px solid var(--line)",
                   }}
                 />
 

@@ -36,7 +36,8 @@ export default function ChannelShowcase({ data }) {
           </div>
         </Reveal>
 
-        <div role="tablist" aria-label="Ad channel" style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center", marginTop: 36 }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
+        <div role="tablist" aria-label="Ad channel" className="seg">
           {data.items.map((ch, i) => (
             <button
               key={ch.key}
@@ -46,12 +47,13 @@ export default function ChannelShowcase({ data }) {
               aria-selected={i === active}
               aria-controls="chan-panel"
               onClick={() => select(i)}
-              className={`cs-tab${i === active ? " is-on" : ""}`}
+              className={i === active ? "is-on" : ""}
             >
               <ChannelLogo channel={ch.key} size={22} />
               <span>{ch.label}</span>
             </button>
           ))}
+        </div>
         </div>
 
         <div role="tabpanel" id="chan-panel" aria-labelledby={`chan-tab-${c.key}`} style={{ marginTop: 28 }}>
@@ -105,10 +107,6 @@ export default function ChannelShowcase({ data }) {
       <style>{`
         .cs-pair { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1.1fr); gap: 16px; align-items: center; }
         .cs-arrow { width: 38px; height: 38px; border-radius: 99px; background: var(--grad); color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--shadow-orange); }
-        .cs-tab { border: 0; border-radius: 14px; background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px 10px 12px; font-family: inherit; font-size: 14.5px; font-weight: 600; color: var(--ink-2); transition: background .15s ease, color .15s ease; }
-        .cs-tab:hover { background: var(--surface-soft); color: var(--ink); }
-        .cs-tab.is-on { background: var(--brand-tint); color: var(--brand-600); }
-        .cs-tab:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
         .cs-detail { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .cs-box { background: var(--surface-soft); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
         @media (max-width: 760px) {

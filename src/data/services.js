@@ -1,4 +1,4 @@
-import { AI_SEO_ENABLED } from "@/config/site";
+import { AI_SEO_ENABLED, TAGLINE } from "@/config/site";
 
 // The services Geobuild sells. Same shape as agents (data/agents.js) so the shared
 // DetailPage template renders both uniformly. Edit copy here — not in components.
@@ -10,7 +10,10 @@ export const ALL_SERVICES = [
     slug: "answer-engine-optimization",
     name: "Answer Engine Optimization",
     role: "AEO",
-    tagline: "Be the answer AI gives",
+    tagline: TAGLINE,
+    metaTitle: "Answer Engine Optimization (AEO) Service | Geobuild",
+    metaDescription:
+      "Answer Engine Optimization: we work to get your brand named and cited when buyers ask ChatGPT, Claude, Gemini and Perplexity for the best in your category.",
     short: "Structure your content so AI models pick your brand as the answer",
     desc: "We engineer your presence inside ChatGPT, Claude, Gemini and Perplexity so that when a buyer asks for the best option in your category, your brand is in the answer — structured, cited and recommended.",
     whyRequired: {
@@ -73,9 +76,12 @@ export const ALL_SERVICES = [
   },
   {
     slug: "ai-seo",
-    name: "AI Search",
+    name: "Generative Engine Optimization",
     role: "GEO",
-    tagline: "Win generative search",
+    tagline: TAGLINE,
+    metaTitle: "Generative Engine Optimization (GEO) | Geobuild",
+    metaDescription:
+      "Generative Engine Optimization: we tune entities, structure and authority so you stay visible in Google AI Overviews, AI Mode and generative search.",
     short: "Optimize for how AI models retrieve and rank",
     desc: "Google AI Overviews and AI Mode are re-ranking every category. We optimise for generative search end to end — entities, structure and authority — so you stay visible as the SERP turns into an answer.",
     whyRequired: {
@@ -129,7 +135,7 @@ export const ALL_SERVICES = [
         cta: "Make pages readable",
       },
     ],
-    why: "Search is becoming an answer, not a list. AI Search keeps you visible — and cited — as that shift accelerates across every query.",
+    why: "Search is becoming an answer, not a list. GEO keeps you visible and cited as that shift accelerates across every query.",
     does: [
       "Optimise for AI Overviews & AI Mode",
       "Align entities and topical authority",
@@ -270,11 +276,11 @@ export const ALL_SERVICES = [
     slug: "conversion-rate-optimization",
     name: "Conversion Rate Optimization",
     role: "CRO",
-    tagline: "Built for Shopify stores",
+    tagline: TAGLINE,
     iconFile: "optimizer-agent", // header/related icon (reuses an existing S3 asset)
     metaTitle: "Conversion Rate Optimization for Shopify | Geobuild",
     metaDescription:
-      "Geobuild reviews session recordings of your product pages, finds what stops customers from buying, and implements the fixes. CRO built for Shopify stores.",
+      "Geobuild reviews session recordings of your product pages, finds what stops customers from buying, and implements the fixes. CRO for Shopify, from discovery to conversion.",
     short: "Find out why shoppers leave your product pages, then fix it",
     desc: "We watch session recordings of your product pages, find the pain points that stop customers from buying, and implement and test the fixes with you.",
     features: [
@@ -330,11 +336,13 @@ export const ALL_SERVICES = [
   },
 ];
 
-// Only CRO is live while AI_SEO_ENABLED is false; the AEO/GEO/SEO services stay in
-// ALL_SERVICES but are hidden from nav, sitemap and routes.
+// While AI_SEO_ENABLED is false only these are live; the rest stay in ALL_SERVICES but are
+// hidden from nav, sitemap and routes.
+const LIVE_SERVICES = ["answer-engine-optimization", "conversion-rate-optimization"];
+
 export const SERVICES = AI_SEO_ENABLED
   ? ALL_SERVICES
-  : ALL_SERVICES.filter((s) => s.slug === "conversion-rate-optimization");
+  : ALL_SERVICES.filter((s) => LIVE_SERVICES.includes(s.slug));
 
 export function getService(slug) {
   return SERVICES.find((s) => s.slug === slug) || null;

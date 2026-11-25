@@ -51,11 +51,11 @@ function Replay({ compact }) {
           <span className="cm-heat" style={{ left: "58%", top: "62%", width: 120, height: 120 }} />
           <span className="cm-heat" style={{ left: "12%", top: "30%", width: 90, height: 90, opacity: 0.5 }} />
           <svg className="cm-trace" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden>
-            <path d="M30 60 C 90 40, 120 150, 170 190 S 250 230, 232 296" fill="none" stroke="#FB5418" strokeWidth="2.2" strokeDasharray="5 5" />
+            <path d="M30 60 C 90 40, 120 150, 170 190 S 250 230, 232 296" fill="none" stroke="var(--brand)" strokeWidth="2.2" strokeDasharray="5 5" />
             {[0, 1, 2].map((i) => (
-              <circle key={i} cx="232" cy="296" r={7 + i * 8} fill="none" stroke="#FB5418" strokeWidth="1.6" opacity={0.85 - i * 0.28} />
+              <circle key={i} cx="232" cy="296" r={7 + i * 8} fill="none" stroke="var(--brand)" strokeWidth="1.6" opacity={0.85 - i * 0.28} />
             ))}
-            <circle cx="232" cy="296" r="4" fill="#FB5418" />
+            <circle cx="232" cy="296" r="4" fill="var(--brand)" />
             <path d="M232 300l0 16 5-4 4 9 4-2-4-9 7 0z" fill="#111" stroke="#fff" strokeWidth="1" />
           </svg>
         </StorePage>
@@ -200,10 +200,10 @@ export function CroMockStyles() {
         .cm-row-4 { grid-template-columns: 1.4fr 0.8fr 0.9fr 1.3fr; }
         .cm-row-3 { grid-template-columns: 2.2fr 0.9fr 0.8fr; }
         .cm-replay { padding: 16px; }
-        .cm-heat { position: absolute; z-index: 2; border-radius: 99px; background: radial-gradient(circle, rgba(251,84,24,.55), rgba(251,84,24,0) 70%); pointer-events: none; transform: translate(-50%,-50%); }
+        .cm-heat { position: absolute; z-index: 2; border-radius: 99px; background: radial-gradient(circle, color-mix(in srgb, var(--brand) 55%, transparent), color-mix(in srgb, var(--brand) 0%, transparent) 70%); pointer-events: none; transform: translate(-50%,-50%); }
         .cm-trace { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; }
         .cm-timeline { position: relative; height: 6px; margin: 0 16px 16px; border-radius: 99px; background: var(--d-surface3); }
-        .cm-timeline-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 46%; border-radius: 99px; background: linear-gradient(90deg,#FF7A45,#FB5418); }
+        .cm-timeline-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 46%; border-radius: 99px; background: linear-gradient(90deg,var(--brand-light),var(--brand)); }
         .cm-mark { position: absolute; top: -3px; width: 4px; height: 12px; border-radius: 2px; background: var(--d-danger); }
         @media (max-width: 640px) {
           .cm-row-4 { grid-template-columns: 1fr auto; gap: 12px; }

@@ -7,7 +7,7 @@ import { FAQS_JSON_URL, AI_SEO_ENABLED } from "@/config/site";
 export const metadata = {
   title: AI_SEO_ENABLED
     ? "Book a Demo — Free AI Visibility Audit | Geobuild"
-    : "Book a Demo — Hyperpersonalization for Shopify | Geobuild",
+    : "Book a Demo — Self-Improving Storefronts | Geobuild",
   description: AI_SEO_ENABLED
     ? "Tell us about your brand and book a 30-minute strategy session. We'll audit your AI visibility beforehand and come prepared."
     : "Tell us about your Shopify store and book a 30-minute session. We'll review your ads and product pages beforehand and show you what a personalized landing page for every ad looks like.",

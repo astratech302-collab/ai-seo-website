@@ -10,9 +10,9 @@ export function AeoHeroMock() {
         meta="Where your brand shows up in AI answers"
         badge="24 prompts"
         rows={[
-          { q: "best CRM for creative agencies", pos: "#2", brands: ["Acme", "HubSpot", "Pipedrive"], cited: true },
-          { q: "affordable HubSpot alternative", pos: "#4", brands: ["HubSpot", "Acme", "Close"], cited: true },
-          { q: "CRM with a built-in client portal", pos: "", brands: ["Copper", "Notion"], cited: false },
+          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
+          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
+          { q: "hiking backpack with bottle pocket", pos: "", brands: ["Trailco", "Packhaus"], cited: false },
         ]}
         compact
       />
@@ -33,9 +33,9 @@ function MapMock() {
         meta="The high-intent questions worth winning"
         badge="42 prompts"
         rows={[
-          { q: "best CRM for creative agencies", pos: "#2", brands: ["Acme", "HubSpot", "Pipedrive"], cited: true },
-          { q: "CRM with a built-in client portal", pos: "", brands: ["Copper", "Notion"], cited: false },
-          { q: "affordable HubSpot alternative", pos: "#4", brands: ["HubSpot", "Acme", "Close"], cited: true },
+          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway", "Urbanfold"], cited: true },
+          { q: "hiking backpack with bottle pocket", pos: "", brands: ["Trailco", "Packhaus"], cited: false },
+          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline", "Urbanfold"], cited: true },
         ]}
         compact
       />
@@ -54,8 +54,8 @@ function AnswerFirstMock() {
       <AnswerCard
         engine="ChatGPT"
         label="ChatGPT"
-        q="“Which CRM is best for a small creative agency?”"
-        answer={<>A few tools stand out. Many teams recommend <mark>Acme</mark> for its built-in client portal and simple setup, alongside HubSpot and Pipedrive.</>}
+        q="“Which backpack is best for a laptop commute?”"
+        answer={<>A few packs stand out. Many commuters pick <mark>Northline</mark> for its padded laptop sleeve and slim shape, alongside Peakway and Urbanfold.</>}
         engines={["ChatGPT", "Perplexity"]}
       />
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 182 }}>
@@ -74,9 +74,9 @@ function CitationMock() {
         title="Citations"
         meta="Where your brand is named across engines"
         rows={[
-          { q: "best CRM for creative agencies", pos: "#2", brands: ["Acme", "HubSpot"], cited: true },
-          { q: "affordable HubSpot alternative", pos: "#4", brands: ["HubSpot", "Acme"], cited: true },
-          { q: "CRM with client portal", pos: "#3", brands: ["Copper", "Acme"], cited: true },
+          { q: "best laptop backpack for commuting", pos: "#2", brands: ["Northline", "Peakway"], cited: true },
+          { q: "backpack under $80 for college", pos: "#4", brands: ["Peakway", "Northline"], cited: true },
+          { q: "hiking pack with bottle pocket", pos: "#3", brands: ["Trailco", "Northline"], cited: true },
         ]}
         compact
       />
@@ -96,10 +96,10 @@ function SovMock() {
         title="Share of voice"
         meta="How often AI recommends you vs. rivals"
         rows={[
-          { name: "HubSpot", hex: "#14ACBC", share: 30, change: -2 },
-          { name: "Acme (you)", hex: "#FB5418", share: 24, change: 5 },
-          { name: "Pipedrive", hex: "#7C5CD1", share: 21, change: 1 },
-          { name: "Copper", hex: "#1A9E63", share: 15, change: 0 },
+          { name: "Peakway", hex: "#14ACBC", share: 30, change: -2 },
+          { name: "Northline (you)", hex: "var(--brand)", share: 24, change: 5 },
+          { name: "Urbanfold", hex: "#7C5CD1", share: 21, change: 1 },
+          { name: "Trailco", hex: "#1A9E63", share: 15, change: 0 },
         ]}
       />
       <div className="dash-float" style={{ right: -14, bottom: -16, width: 172 }}>

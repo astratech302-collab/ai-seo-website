@@ -93,7 +93,7 @@ function SpeedMock() {
         />
       </div>
       <div className="dash-float" style={{ right: -16, bottom: -16, width: 200 }}>
-        <span className="dash-eyebrow" style={{ color: "#CF400E" }}>Only 33%</span>
+        <span className="dash-eyebrow" style={{ color: "var(--brand-600)" }}>Only 33%</span>
         <p style={{ fontSize: 12.5, color: "var(--d-text2)", lineHeight: 1.5, marginTop: 6 }}>
           of sites pass all Core Web Vitals — yours does.
         </p>

@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { CALENDLY_URL, AI_SEO_ENABLED } from "@/config/site";
+import CloudSky from "@/components/hero/CloudSky";
+import { STORE_URL_KEY } from "@/config/site";
 
 // Accepts bare domains (acme.com), www., and full URLs with optional path/query.
 // Scheme is optional in input but normalised to https:// before sending to the API.
@@ -152,6 +154,19 @@ export default function ContactForm() {
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
+  // Carry over the store URL typed into the homepage hero.
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      try {
+        const url = sessionStorage.getItem(STORE_URL_KEY);
+        if (url) setForm((f) => (f.website ? f : { ...f, website: url }));
+      } catch {
+        /* storage unavailable: the visitor types it again */
+      }
+    });
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   function normalizeUrl(url) {
     const trimmed = url.trim();
     if (!trimmed) return trimmed;
@@ -223,7 +238,8 @@ export default function ContactForm() {
       : null;
 
   return (
-    <div style={{ background: "var(--surface-soft)" }}>
+    <div className="sky-panel">
+      <CloudSky />
       <div
         className="wrap"
         style={{
@@ -246,7 +262,7 @@ export default function ContactForm() {
             <div>
               <span
                 className="eyebrow"
-                style={{ color: "var(--brand-600)", display: "block", marginBottom: 14 }}
+                style={{ display: "block", marginBottom: 14 }}
               >
                 Before we meet
               </span>
@@ -409,8 +425,8 @@ export default function ContactForm() {
                       style={{
                         padding: "12px 16px",
                         borderRadius: 10,
-                        background: "rgba(255,90,31,0.07)",
-                        border: "1px solid rgba(255,90,31,0.25)",
+                        background: "color-mix(in srgb, var(--brand) 7%, transparent)",
+                        border: "1px solid color-mix(in srgb, var(--brand) 25%, transparent)",
                         fontSize: 13.5,
                         color: "var(--brand-600)",
                         lineHeight: 1.5,

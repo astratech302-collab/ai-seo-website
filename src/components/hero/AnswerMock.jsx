@@ -114,14 +114,14 @@ export default function AnswerMock({ compact = false }) {
           position: relative;
           border-radius: 24px;
           padding: 30px 30px 44px;
-          background: linear-gradient(150deg, #fff4ea 0%, #ffe9db 55%, #ffe1cf 100%);
+          background: linear-gradient(150deg, var(--flow-blue-1), var(--flow-blue-2) 55%, var(--flow-blue-3));
           overflow: hidden;
           isolation: isolate;
         }
         .am-shape {
           position: absolute; z-index: 0;
           width: 46%; height: 130%; left: -6%; top: 18%;
-          background: #FF9E5B; opacity: 0.5; border-radius: 40px; transform: rotate(-9deg);
+          background: var(--brand-200); opacity: 0.5; border-radius: 40px; transform: rotate(-9deg);
         }
         .am-shape-2 {
           left: auto; right: -10%; top: auto; bottom: -34%;

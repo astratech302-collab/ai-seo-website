@@ -65,7 +65,7 @@ Effect tokens that aren't colors (shadows, radii) live in the `:root` block of `
 
 ## Fonts
 
-`Roboto` (UI, `--font-sans`) + `Geist Mono` (mono / eyebrows, `--font-geist-mono`), loaded
+`Geist` (UI and headings, `--font-sans`; `h1`/`h2` weight 450) + `Geist Mono` (mono / eyebrows, `--font-geist-mono`), loaded
 via `next/font/google` in `layout.js`. Use the `.mono` class or `font-mono` for monospace.
 
 ## Images & assets
@@ -166,7 +166,7 @@ actually sees on the page — never mark up content that isn't there.
   Pass one object or an array — an array is wrapped in an `@graph` and shares one script tag.
 - `layout.js` emits site-wide `Organization` + `WebSite` on every page. Each page adds its
   own type on top (e.g. `Service` + `BreadcrumbList` on detail pages, `FAQPage` from the
-  fetched FAQs on pricing/contact, `Blog`/`BlogPosting` on the blog).
+  FAQs in `data/faqs.js` on pricing, `Blog`/`BlogPosting` on the blog).
 - **Dynamic, not hardcoded:** derive fields from `src/data/*`, page `metadata`, or fetched
   content. Blog posts drive `BlogPosting` entries automatically via the `posts` array — when
   a post source exists, entries generate themselves. Add a new builder to `schema.js` (don't

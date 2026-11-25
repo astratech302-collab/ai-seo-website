@@ -32,8 +32,6 @@ initializes in production builds only).
 | Ask Gemini | Final CTA | `button_clicked/ask_gemini_final_cta` | — | `src/components/sections/AskEngines.jsx` |
 | Ask Perplexity | Final CTA | `button_clicked/ask_perplexity_final_cta` | — | `src/components/sections/AskEngines.jsx` |
 | Book a demo | Final CTA | `button_clicked/book_demo_final_cta` | — | `src/components/sections/FinalCTA.jsx` |
-| Book a demo | Hero (CRO home) | `button_clicked/book_demo_hero` | — | `src/components/sections/HeroCro.jsx` |
-| See how it works | Hero (CRO home) | `link_clicked/see_how_it_works_hero` | — | `src/components/sections/HeroCro.jsx` |
 | Get a free AI audit | Final CTA | `button_clicked/get_ai_audit_final_cta` | — | `src/components/sections/FinalCTA.jsx` |
 | Agent card | System section | `button_clicked/agent_card_system` | `{ agent }` — agent slug | `src/components/sections/SystemSection.jsx` |
 | Blog card | Blog index | `link_clicked/blog_card_blog_index` | `{ slug }` | `src/components/blog/BlogCard.jsx` |
@@ -49,3 +47,31 @@ initializes in production builds only).
 | Channel tab (search, shopping, meta, youtube, ugc, retargeting) | Ad-to-Landing page | `tab_switched/ad_channel_<key>` | — | `src/components/cro/ChannelShowcase.jsx` |
 | Privacy link | Footer | `link_clicked/privacy_link_footer` | — | `src/components/layout/Footer.jsx` |
 | Terms link | Footer | `link_clicked/terms_link_footer` | — | `src/components/layout/Footer.jsx` |
+
+## Aside-style rebrand and Onsite Discovery
+
+| Element | Event | Properties |
+| --- | --- | --- |
+| Home intro eyebrow link | `link_clicked/introducing_geobuild_intro_home` | – |
+| Home capability card: Onsite Discovery | `link_clicked/onsite_discovery_card_home` | – |
+| Home capability card: Ad-to-Landing | `link_clicked/ad_to_landing_card_home` | – |
+| Home Onsite Discovery eyebrow | `link_clicked/onsite_discovery_eyebrow_home` | – |
+| Collection sorter need pill (commute, hiking, campus, budget) | `tab_switched/need_{need}_collection_sorter_{home|page}` | – |
+| Onsite Discovery hero CTA | `button_clicked/book_demo_hero_onsite_discovery` | – |
+| Header nav | `link_clicked/pricing_header` | – |
+| Header menu trigger (product, services) | `button_clicked/{menu}_menu_header` | – |
+| Product menu | `link_clicked/onsite_discovery_product_menu_header` | – |
+| Product menu | `link_clicked/ad_to_landing_product_menu_header` | – |
+| Services menu item | `link_clicked/{service}_services_menu_header` | – |
+| Header CTA | `button_clicked/book_demo_header` | – |
+| Mobile menu icon | `button_clicked/menu_icon_header` | – |
+| Mobile drawer sub-item | `link_clicked/{item}_mobile_menu` | – |
+| Mobile drawer accordion | `button_clicked/{section}_section_mobile_menu` | – |
+| Mobile drawer CTA | `button_clicked/book_demo_mobile_menu` | – |
+| Footer column link | `link_clicked/{label}_footer` | – |
+| Home capability card: real-time intent | `link_clicked/real_time_intent_card_home` | – |
+| Home hero store URL field submit (arrow button or Enter) | `form_submitted/store_url_hero` | `has_url` |
+| Product menu: AI Visibility, Catalog Enrichment | `link_clicked/{ai_visibility\|catalog_enrichment}_product_menu_header` | – |
+| Home growth cards | `link_clicked/{ai_visibility\|catalog_enrichment}_growth_card_home` | – |
+| Header nav: Blog | `link_clicked/blog_header` | – |
+| Mobile drawer: Pricing, Blog | `link_clicked/{pricing\|blog}_mobile_menu` | – |
